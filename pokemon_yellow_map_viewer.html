@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon Yellow Custom Map Viewer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111;
+      --panel: rgba(8, 12, 20, 0.94);
+      --border: rgba(255,255,255,0.14);
+      --text: #f3f3f3;
+      --muted: #9aa4b2;
+      --accent: #4cc9f0;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: Segoe UI, Arial, sans-serif; }
+
+    body { display: grid; grid-template-columns: minmax(260px, 320px) 1fr; }
+
+    .sidebar {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 5;
+    }
+
+    .sidebar h1 { font-size: 18px; margin: 0 0 6px; }
+    .sidebar p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, input { border-radius: 8px; border: 1px solid var(--border); background: #1b2430; color: var(--text); padding: 8px 10px; }
+    button:hover { background: #243041; cursor: pointer; }
+
+    .marker-list {
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      background: rgba(255,255,255,0.03);
+      flex: 1;
+    }
+
+    .marker-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px;
+    }
+    .marker-item:last-child { border-bottom: none; }
+    .marker-item button { padding: 4px 8px; font-size: 12px; }
+
+    .map-shell {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0b1017 0%, #111 100%);
+      touch-action: none;
+    }
+
+    .map-stage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      will-change: transform;
+      transform-origin: 0 0;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .map-stage.dragging { cursor: grabbing; }
+
+    .map-stage img {
+      display: block;
+      max-width: none;
+      image-rendering: auto;
+      pointer-events: none;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .marker {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .marker.live {
+      width: 16px;
+      height: 16px;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.25), 0 0 12px rgba(76, 201, 240, 0.8);
+    }
+
+    .marker-label {
+      position: absolute;
+      transform: translate(8px, -8px);
+      background: rgba(8,12,20,0.92);
+      color: white;
+      padding: 3px 6px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 12px;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .hint {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 10px 12px;
+      background: rgba(8,12,20,0.8);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      z-index: 4;
+    }
+
+    @media (max-width: 900px) {
+      body { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid var(--border); max-height: 42vh; }
+      .map-shell { min-height: 58vh; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>Custom Pokémon Yellow map</h1>
+    <p>Open the map on the right, double-click anywhere to add a marker, then rename or remove it from this list.</p>
+
+    <div class="controls">
+      <button id="zoomIn">Zoom +</button>
+      <button id="zoomOut">Zoom -</button>
+      <button id="resetView">Reset view</button>
+    </div>
+
+    <div id="statusLine" style="font-size: 12px; color: var(--muted);">Waiting for live stream…</div>
+    <div class="marker-list" id="markerList">No markers yet.</div>
+  </aside>
+
+  <main class="map-shell" id="mapShell">
+    <div class="map-stage" id="mapStage">
+      <!-- Background + tile-offset table from github.com/PWhiddy/pokerl-map-viz (MIT License,
+           Copyright (c) 2024 Peter Whidden) -- reused locally so live agent x,y (per-map local
+           tile coords) can be placed correctly via each map's known global tile offset. -->
+      <img id="mapImage" src="./pokerl_map_assets/kanto_big_done1.png" alt="Kanto overworld map" />
+      <div class="overlay" id="overlay"></div>
+    </div>
+    <div class="hint">Double-click to add a marker. Drag to pan. Mouse wheel zooms in and out.</div>
+  </main>
+
+  <script>
+    const shell = document.getElementById('mapShell');
+    const stage = document.getElementById('mapStage');
+    const img = document.getElementById('mapImage');
+    const overlay = document.getElementById('overlay');
+    const markerList = document.getElementById('markerList');
+
+    const state = {
+      scale: 1,
+      offsetX: 0,
+      offsetY: 0,
+      dragging: false,
+      startX: 0,
+      startY: 0,
+      manualMarkers: [],
+      liveAgents: []
+    };
+
+    function applyTransform() {
+      stage.style.transform = `translate(${state.offsetX}px, ${state.offsetY}px) scale(${state.scale})`;
+    }
+
+    function fitToViewport() {
+      const viewportWidth = shell.clientWidth;
+      const viewportHeight = shell.clientHeight;
+      const imageWidth = img.naturalWidth || 6976;
+      const imageHeight = img.naturalHeight || 7104;
+      const fitScale = Math.min(viewportWidth / imageWidth, viewportHeight / imageHeight, 1.1);
+      state.scale = fitScale;
+      state.offsetX = (viewportWidth - imageWidth * fitScale) / 2;
+      state.offsetY = (viewportHeight - imageHeight * fitScale) / 2;
+      applyTransform();
+    }
+
+    function screenToStage(clientX, clientY) {
+      const rect = shell.getBoundingClientRect();
+      return {
+        x: (clientX - rect.left - state.offsetX) / state.scale,
+        y: (clientY - rect.top - state.offsetY) / state.scale
+      };
+    }
+
+    function renderMarkers() {
+      overlay.innerHTML = '';
+      markerList.innerHTML = '';
+
+      const allMarkers = [
+        ...state.manualMarkers.map((marker) => ({ ...marker, type: 'manual' })),
+        ...state.liveAgents.map((agent) => ({ ...agent, type: 'live' }))
+      ];
+
+      if (!allMarkers.length) {
+        markerList.innerHTML = 'No markers yet.';
+        return;
+      }
+
+      allMarkers.forEach((marker) => {
+        const node = document.createElement('div');
+        node.className = `marker${marker.type === 'live' ? ' live' : ''}`;
+        node.style.left = `${marker.x}px`;
+        node.style.top = `${marker.y}px`;
+        node.style.background = marker.color || '#4cc9f0';
+        node.title = `${marker.label} (${marker.x.toFixed(0)}, ${marker.y.toFixed(0)})`;
+        if (marker.type === 'manual') {
+          node.addEventListener('click', () => {
+            const next = prompt('Rename marker', marker.label);
+            if (next !== null) {
+              marker.label = next || 'Marker';
+              renderMarkers();
+            }
+          });
+        }
+        const label = document.createElement('div');
+        label.className = 'marker-label';
+        label.textContent = marker.label;
+        label.style.left = `${marker.x}px`;
+        label.style.top = `${marker.y}px`;
+        overlay.appendChild(node);
+        overlay.appendChild(label);
+
+        const item = document.createElement('div');
+        item.className = 'marker-item';
+        const text = document.createElement('span');
+        text.textContent = marker.label;
+        if (marker.type === 'manual') {
+          const remove = document.createElement('button');
+          remove.textContent = 'Remove';
+          remove.addEventListener('click', () => {
+            state.manualMarkers = state.manualMarkers.filter((entry) => entry !== marker);
+            renderMarkers();
+          });
+          item.appendChild(text);
+          item.appendChild(remove);
+        } else {
+          const detail = document.createElement('span');
+          detail.textContent = marker.extra || 'live';
+          detail.style.color = 'var(--muted)';
+          item.appendChild(text);
+          item.appendChild(detail);
+        }
+        markerList.appendChild(item);
+      });
+    }
+
+    function addMarker(x, y) {
+      const label = prompt('Marker label', 'Marker');
+      if (label === null) return;
+      state.manualMarkers.push({ x, y, label: label || 'Marker' });
+      renderMarkers();
+    }
+
+    // Per-map global tile offsets, from github.com/PWhiddy/pokerl-map-viz's
+    // assets/map_data.json (MIT license). The stream payload's x/y are LOCAL
+    // tile coordinates within whatever map_id the agent is standing on -- they
+    // only mean something on this shared overworld image once each map's own
+    // known tile offset is added in. kanto_big_done1.png is 16px/tile.
+    let mapRegions = null;
+    const TILE_PX = 16;
+
+    async function loadMapRegions() {
+      try {
+        const response = await fetch('./pokerl_map_assets/map_data.json');
+        const data = await response.json();
+        mapRegions = {};
+        for (const region of data.regions || []) {
+          mapRegions[String(region.id)] = region;
+        }
+      } catch (error) {
+        console.error('Failed to load map region offsets:', error);
+        mapRegions = {};
+      }
+    }
+
+    function toImagePosition(position) {
+      const [x, y, mapId] = position || [0, 0, 0];
+      const clampedX = Math.max(0, Math.min(255, Number(x) || 0));
+      const clampedY = Math.max(0, Math.min(255, Number(y) || 0));
+
+      const region = mapRegions ? mapRegions[String(mapId)] : null;
+      if (region && Array.isArray(region.coordinates)) {
+        return {
+          x: TILE_PX * (clampedX + region.coordinates[0]),
+          y: TILE_PX * (clampedY + region.coordinates[1])
+        };
+      }
+
+      // Fallback: if the map region is unknown, keep the marker inside the map
+      // bounds by scaling the local tile coordinate into the Kanto overview.
+      return {
+        x: TILE_PX * clampedX,
+        y: TILE_PX * clampedY
+      };
+    }
+
+    // Each training worker writes its OWN file (live_agent_positions.envN.json)
+    // rather than all workers sharing one combined file -- a shared file needs
+    // every writer to read-modify-write the whole agent list with no locking,
+    // which reliably lost updates once enough workers wrote concurrently
+    // (entries missing, stale ghosts reappearing). Per-env files make that
+    // race impossible; this merges across them at read time instead.
+    // MAX_PROBE_ENVS is just generous headroom -- envs beyond the real count
+    // 404 harmlessly (all localhost, effectively free).
+    const MAX_PROBE_ENVS = 32;
+
+    async function fetchAgentFile(envId) {
+      try {
+        const response = await fetch(`./live_agent_positions.env${envId}.json?ts=` + Date.now(), { cache: 'no-store' });
+        if (!response.ok) {
+          return null;
+        }
+        return await response.json();
+      } catch (error) {
+        return null;
+      }
+    }
+
+    async function refreshLiveAgents() {
+      const results = await Promise.all(
+        Array.from({ length: MAX_PROBE_ENVS }, (_, envId) => fetchAgentFile(envId))
+      );
+      const agents = results.filter(Boolean);
+
+      state.liveAgents = agents.map((agent) => {
+        const position = agent.last_position || [0, 0, 0];
+        const point = toImagePosition(position);
+        return {
+          x: point.x,
+          y: point.y,
+          label: `${agent.user || 'Agent'} ${agent.env_id ?? ''}`.trim(),
+          color: agent.color || '#4cc9f0',
+          extra: agent.extra || '',
+          rawPosition: position,
+          mapId: position[2] || 0
+        };
+      });
+
+      if (!agents.length) {
+        document.getElementById('statusLine').textContent = 'Waiting for live stream…';
+      } else if (mapRegions === null) {
+        document.getElementById('statusLine').textContent = 'Loading map region data…';
+      } else {
+        const mostRecent = agents.reduce((max, a) => Math.max(max, a.last_seen || 0), 0);
+        document.getElementById('statusLine').textContent =
+          `Live stream updated ${new Date(mostRecent * 1000).toLocaleTimeString()} (${agents.length} agents)`;
+      }
+      renderMarkers();
+    }
+
+    img.addEventListener('load', fitToViewport);
+    window.addEventListener('resize', fitToViewport);
+
+    shell.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      const delta = event.deltaY < 0 ? 1.08 : 0.92;
+      const oldScale = state.scale;
+      const nextScale = Math.min(4, Math.max(0.45, oldScale * delta));
+      const rect = shell.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+      const focusX = (mouseX - state.offsetX) / oldScale;
+      const focusY = (mouseY - state.offsetY) / oldScale;
+      state.scale = nextScale;
+      state.offsetX = mouseX - focusX * nextScale;
+      state.offsetY = mouseY - focusY * nextScale;
+      applyTransform();
+    }, { passive: false });
+
+    shell.addEventListener('mousedown', (event) => {
+      state.dragging = true;
+      state.startX = event.clientX - state.offsetX;
+      state.startY = event.clientY - state.offsetY;
+      stage.classList.add('dragging');
+    });
+
+    window.addEventListener('mousemove', (event) => {
+      if (!state.dragging) return;
+      state.offsetX = event.clientX - state.startX;
+      state.offsetY = event.clientY - state.startY;
+      applyTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      state.dragging = false;
+      stage.classList.remove('dragging');
+    });
+
+    shell.addEventListener('dblclick', (event) => {
+      const point = screenToStage(event.clientX, event.clientY);
+      addMarker(point.x, point.y);
+    });
+
+    document.getElementById('zoomIn').addEventListener('click', () => {
+      const rect = shell.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const oldScale = state.scale;
+      const nextScale = Math.min(4, oldScale * 1.12);
+      const focusX = (centerX - state.offsetX) / oldScale;
+      const focusY = (centerY - state.offsetY) / oldScale;
+      state.scale = nextScale;
+      state.offsetX = centerX - focusX * nextScale;
+      state.offsetY = centerY - focusY * nextScale;
+      applyTransform();
+    });
+
+    document.getElementById('zoomOut').addEventListener('click', () => {
+      const rect = shell.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const oldScale = state.scale;
+      const nextScale = Math.max(0.45, oldScale / 1.12);
+      const focusX = (centerX - state.offsetX) / oldScale;
+      const focusY = (centerY - state.offsetY) / oldScale;
+      state.scale = nextScale;
+      state.offsetX = centerX - focusX * nextScale;
+      state.offsetY = centerY - focusY * nextScale;
+      applyTransform();
+    });
+
+    document.getElementById('resetView').addEventListener('click', fitToViewport);
+
+    fitToViewport();
+    renderMarkers();
+    loadMapRegions().then(refreshLiveAgents);
+    setInterval(refreshLiveAgents, 1000);
+  </script>
+</body>
+</html>

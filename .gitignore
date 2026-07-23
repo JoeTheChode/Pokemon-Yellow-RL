@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.log
+*.pid
+*.state
+*.ram
+*.gb
+*.zip
+*.pkl
+*.whl
+*.png
+*.bak
+*.tmp
+.venv/
+live_agent_positions*.json
+wsl_gpu_*.status.txt
+milestones/*.swarm_frontier.json
+New Text Document.txt
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+checkpoints/
+debug_state_screens/
+milestones/_*_latest_hit_*.state
+recordings/
+screenshots/
+tmp_*/
+
+Pokémon Yellow Interactive Map & 100% Checklist Challenge.html
+Pokémon Yellow Interactive Map & 100% Checklist Challenge_files/

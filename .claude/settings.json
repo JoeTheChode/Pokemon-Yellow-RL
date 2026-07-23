@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -f 01_got_pikachu.state 02_viridian_city.state 03_parcel_return.state 04_pewter_city.state 05_beat_brock.state 06_cerulean_city.state 07_beat_misty.state _latest_hit.state)",
+      "Bash(rm -f 01_got_pikachu_model.zip 02_viridian_city_model.zip 03_parcel_return_model.zip 04_pewter_city_model.zip 05_beat_brock_model.zip)",
+      "Bash(ls *.bat *.ps1 *.sh)",
+      "Bash(pip show:*)",
+      "Bash(conda info:*)",
+      "Bash(pip list:*)",
+      "Bash(pip3 list:*)",
+      "Bash(where python:*)",
+      "Bash(conda run:*)",
+      "Bash(/c/Python314/python.exe -c \"import pyboy; print\\(pyboy.__file__\\)\")",
+      "Bash(conda env:*)",
+      "Bash(kill %1)",
+      "Bash(python -u -c \":*)",
+      "Bash(python check_state.py)",
+      "Bash(python -c \":*)",
+      "Bash(python probe_route2.py)",
+      "Bash(pkill -f probe_route2)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Admin\\pokemon\\checkpoints"
+    ]
+  }
+}
