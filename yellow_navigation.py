@@ -12,6 +12,7 @@ from project_paths import PROJECT_ROOT
 
 
 CATALOG_PATH = PROJECT_ROOT / "navigation_data" / "yellow_catalog.json"
+EVENT_FLAGS_CATALOG_PATH = PROJECT_ROOT / "navigation_data" / "yellow_event_flags.json"
 
 # Macro-level topology only. It selects the next area; local collision/warp
 # pathfinding still needs ROM tile data and live RAM coordinates.
@@ -121,6 +122,42 @@ def map_labels() -> dict[int, str]:
 def completion_location_for_map(map_id: int) -> str | None:
     record = map_record(map_id)
     return record.get("completion_location") if record else None
+
+
+@lru_cache(maxsize=1)
+def load_event_flags_catalog(path: Path = EVENT_FLAGS_CATALOG_PATH) -> dict:
+    """wEventFlags bit -> name catalog (see sync_event_flags.py). Bit-to-byte
+    mapping is byte_offset = bit // 8, bit_in_byte = bit % 8, LSB = bit 0 --
+    verified against pret/pokeyellow's engine/flag_action.asm FlagAction
+    routine, not assumed."""
+    with Path(path).open("r", encoding="utf-8") as handle:
+        catalog = json.load(handle)
+    if catalog.get("schema_version") != 1 or not isinstance(catalog.get("events"), list):
+        raise ValueError("Unsupported event-flags catalog schema")
+    return catalog
+
+
+@lru_cache(maxsize=1)
+def event_flags_by_bit() -> dict[int, dict]:
+    return {event["bit"]: event for event in load_event_flags_catalog()["events"]}
+
+
+def event_flag_name(bit: int) -> str:
+    record = event_flags_by_bit().get(int(bit))
+    return record["name"] if record else f"EVENT_UNNAMED_{int(bit)}"
+
+
+def named_event_bits_set(flag_bytes: bytes) -> set[int]:
+    """Given the raw wEventFlags byte range (e.g. pyboy.memory[ADDR_EVENT_FLAGS_START:
+    ADDR_EVENT_FLAGS_END]), return the set of *named* bit indices currently set.
+    Named-only by design -- most of the 2560-bit range has no assigned constant."""
+    named_bits = event_flags_by_bit()
+    set_bits = set()
+    for bit in named_bits:
+        byte_offset, bit_in_byte = divmod(bit, 8)
+        if byte_offset < len(flag_bytes) and (flag_bytes[byte_offset] >> bit_in_byte) & 1:
+            set_bits.add(bit)
+    return set_bits
 
 
 def map_neighbors(map_id: int) -> list[int]:

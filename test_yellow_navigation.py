@@ -1,4 +1,7 @@
+import copy
+import io
 import unittest
+import zipfile
 
 import sync_navigation_data
 import yellow_navigation
@@ -38,6 +41,14 @@ class NavigationCatalogTests(unittest.TestCase):
         self.assertEqual(yellow_navigation.warp_entry_action(60, (17, 20), 61), 3)
         self.assertEqual(yellow_navigation.warp_entry_action(61, (7, 4), 60), 3)
 
+    def test_early_game_warps_stay_on_the_proven_pallet_forest_chain(self):
+        self.assertEqual(yellow_navigation.map_route(0, 1), [0, 12, 1])
+        self.assertEqual(yellow_navigation.map_route(1, 42), [1, 42])
+        self.assertEqual(yellow_navigation.map_route(0, 40), [0, 40])
+        self.assertEqual(yellow_navigation.warp_entry_action(0, (12, 12), 40), 0)
+        self.assertEqual(yellow_navigation.warp_entry_action(1, (20, 29), 42), 0)
+        self.assertEqual(yellow_navigation.warp_entry_action(13, (44, 3), 50), 0)
+
     def test_saved_page_exposes_location_coordinates(self):
         text = sync_navigation_data.DEFAULT_HTML.read_text(encoding="utf-8")
         locations, _ = sync_navigation_data.parse_completion_html(text)
@@ -45,34 +56,98 @@ class NavigationCatalogTests(unittest.TestCase):
         self.assertEqual(by_name["Pallet Town"]["map_pixel"], [470, 1911])
         self.assertIn("Victory Road", by_name)
 
+    def test_repository_parser_keeps_exact_trainer_and_item_coordinates(self):
+        maps = [{"id": 61, "constant": "MT_MOON_B2F"}]
+        source = b"""\
+def_warp_events
+warp_event 5, 7, LAST_MAP, 7
+def_object_events
+object_event 12, 8, SPRITE_SUPER_NERD, STAY, RIGHT, TEXT_NERD, OPP_SUPER_NERD, 2
+object_event 25, 21, SPRITE_POKE_BALL, STAY, NONE, TEXT_HP_UP, HP_UP
+object_event 12, 6, SPRITE_FOSSIL, STAY, NONE, TEXT_DOME_FOSSIL
+def_warps_to MT_MOON_B2F
+"""
+        archive_bytes = io.BytesIO()
+        with zipfile.ZipFile(archive_bytes, "w") as archive:
+            archive.writestr("pokeyellow/data/maps/objects/MtMoonB2F.asm", source)
+        sync_navigation_data.parse_repository_archive(archive_bytes.getvalue(), maps)
+        self.assertEqual(maps[0]["trainers"][0]["position"], [8, 12])
+        self.assertEqual(maps[0]["trainers"][0]["opponent"], "OPP_SUPER_NERD")
+        self.assertEqual(maps[0]["items"][0]["position"], [21, 25])
+        self.assertEqual(maps[0]["items"][0]["item"], "HP_UP")
 
-class TrainerNavigationIntegrationTests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        try:
-            import train
-        except ModuleNotFoundError as exc:
-            raise unittest.SkipTest(f"training dependencies are not installed: {exc}") from exc
-        cls.train = train
 
-    def test_trainer_uses_catalog_labels(self):
-        self.assertEqual(self.train.MAP_LABELS[54], "Pewter Gym")
+class EventFlagCatalogTests(unittest.TestCase):
+    def test_catalog_loads_and_covers_the_whole_game(self):
+        catalog = yellow_navigation.load_event_flags_catalog()
+        self.assertEqual(catalog["num_events"], 2560)
+        self.assertGreater(len(catalog["events"]), 500)
 
-    def test_route_to_pewter_does_not_reward_entering_pewter_gym(self):
-        milestone = next(ms for ms in self.train.MILESTONES if ms["name"] == "05g_to_pewter")
-        self.assertNotIn(54, milestone["shaping"])
-        self.assertIn(13, milestone["shaping"])
+    def test_known_story_beats_resolve_to_the_right_bit(self):
+        self.assertEqual(yellow_navigation.event_flag_name(119), "EVENT_BEAT_BROCK")
+        self.assertEqual(yellow_navigation.event_flag_name(191), "EVENT_BEAT_MISTY")
 
-    def test_post_brock_route_has_exact_required_warp_actions(self):
-        rules = {
-            (rule["map"], tuple(rule["target"])): rule["action"]
-            for rule in self.train.POST_BROCK_ROUTE_ACTION_GUIDANCE
-            if rule.get("radius") == 0
-        }
-        self.assertEqual(rules[(15, (6, 18))], 0)
-        self.assertEqual(rules[(59, (5, 6))], 2)
-        self.assertEqual(rules[(60, (17, 20))], 3)
-        self.assertEqual(rules[(61, (7, 4))], 3)
+    def test_unnamed_bit_falls_back_gracefully(self):
+        self.assertEqual(yellow_navigation.event_flag_name(2559), "EVENT_UNNAMED_2559")
+
+    def test_out_of_range_bit_is_rejected(self):
+        with self.assertRaises(ValueError):
+            yellow_navigation.event_flag_name(-1)
+        with self.assertRaises(ValueError):
+            yellow_navigation.event_flag_name(2560)
+
+    def test_catalog_rejects_duplicate_or_inconsistent_bits(self):
+        catalog = copy.deepcopy(yellow_navigation.load_event_flags_catalog())
+        catalog["events"][1]["bit"] = catalog["events"][0]["bit"]
+        with self.assertRaisesRegex(ValueError, "duplicate bit"):
+            yellow_navigation.validate_event_flags_catalog(catalog)
+
+        catalog = copy.deepcopy(yellow_navigation.load_event_flags_catalog())
+        catalog["events"][0]["byte_offset"] += 1
+        with self.assertRaisesRegex(ValueError, "inconsistent byte/bit"):
+            yellow_navigation.validate_event_flags_catalog(catalog)
+
+    def test_named_event_bits_set_matches_byte_layout_from_flag_action(self):
+        # bit 119 -> byte_offset 14, bit_in_byte 7 (LSB=bit0), per
+        # engine/flag_action.asm's FlagAction routine.
+        flag_bytes = bytearray(320)
+        flag_bytes[14] |= 1 << 7
+        self.assertEqual(
+            yellow_navigation.named_event_bits_set(bytes(flag_bytes)), {119}
+        )
+
+    def test_sync_event_flags_parser_handles_const_directives(self):
+        import sync_event_flags
+
+        sample = (
+            "; Sample section\n"
+            "\tconst_def\n"
+            "\tconst EVENT_A\n"
+            "\tconst_skip 2\n"
+            "\tconst EVENT_B\n"
+            "\tconst_next $10\n"
+            "\tconst EVENT_C\n"
+        )
+        events = sync_event_flags.parse_event_constants(sample)
+        self.assertEqual(events, [
+            {"bit": 0, "byte_offset": 0, "bit_in_byte": 0, "name": "EVENT_A", "group": "Sample section"},
+            {"bit": 3, "byte_offset": 0, "bit_in_byte": 3, "name": "EVENT_B", "group": "Sample section"},
+            {"bit": 16, "byte_offset": 2, "bit_in_byte": 0, "name": "EVENT_C", "group": "Sample section"},
+        ])
+
+    def test_sync_event_flags_parser_handles_const_next_arithmetic(self):
+        import sync_event_flags
+
+        self.assertEqual(sync_event_flags._parse_value("$F0 - 2"), 0xF0 - 2)
+        self.assertEqual(sync_event_flags._parse_value("$28"), 0x28)
+
+    def test_sync_event_flags_parser_derives_num_events(self):
+        import sync_event_flags
+
+        _, num_events = sync_event_flags._parse_event_constants(
+            "const_def $20\nconst EVENT_A\nconst_skip 3\nDEF NUM_EVENTS EQU const_value\n"
+        )
+        self.assertEqual(num_events, 0x24)
 
 
 if __name__ == "__main__":

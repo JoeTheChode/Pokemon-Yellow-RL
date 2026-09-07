@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "game": "Pokemon Yellow",
+  "policy": {
+    "carry": "pikachu",
+    "exclusive_solo": false,
+    "mastery_unit": "one objective per gained level",
+    "area_selection_metric": "median emulator steps per level across completed rotations, including heal travel and wipes",
+    "promotion_rule": "keep the proven fallback until a candidate area completes the same level objective faster without a higher wipe rate"
+  },
+  "sources": [
+    {
+      "role": "candidate_location_overview",
+      "url": "https://www.reddit.com/r/pokemon/comments/47wrxs/here_is_a_map_i_made_with_the_location_and_info/",
+      "warning": "The thread reports Red/Blue data mixed into the map; every candidate must be checked against Pokemon Yellow or the emulator."
+    },
+    {
+      "role": "boss_level_reference",
+      "url": "https://pokemondb.net/yellow/gymleaders-elitefour"
+    },
+    {
+      "role": "yellow_encounter_reference",
+      "url": "https://gamefaqs.gamespot.com/gameboy/198314-pokemon-yellow-version-special-pikachu-edition/faqs/64175/encounter-tables"
+    }
+  ],
+  "bands": [
+    {
+      "label": "Boulder",
+      "levels": [10, 20],
+      "implemented_objectives": [11, 20],
+      "primary": {"name": "Route 2 south grass", "map_ids": [13], "status": "emulator_verified", "patrol": [[5, 3], [6, 3]]},
+      "heal": {"name": "Pewter Pokemon Center", "map_ids": [58], "status": "emulator_verified"},
+      "notes": "Keep the live deterministic Pewter-to-grass loop; optimize its battle policy before changing location."
+    },
+    {
+      "label": "Cascade",
+      "levels": [20, 30],
+      "implemented_objectives": [21, 30],
+      "primary": {"name": "Route 4 west grass", "map_ids": [15], "status": "emulator_verified", "patrol": [[13, 69], [13, 75], [14, 75], [14, 69]]},
+      "candidate_after_misty": {"name": "Routes 24 and 25", "map_ids": [35, 36], "status": "heatmap_proven_but_too_late_for_gate"},
+      "notes": "The level gate occurs before Misty and the Cerulean rival, so Route 24/25 cannot be the primary loop even though their grass is fully heatmapped."
+    },
+    {
+      "label": "Rainbow",
+      "levels": [30, 40],
+      "implemented_objectives": [31, 40],
+      "primary": {"name": "Rock Tunnel", "map_ids": [82, 232], "status": "route_verified"},
+      "heal": {"name": "Rock Tunnel Pokemon Center", "map_ids": [81], "status": "route_verified"},
+      "notes": "Reuse the completed-run cave route and measure safe encounter corridors rather than allowing unrestricted cave wandering."
+    },
+    {
+      "label": "Silph Co",
+      "levels": [40, 50],
+      "implemented_objectives": [41, 50],
+      "primary": {"name": "Route 16", "map_ids": [27], "status": "implemented_heatmap_proven", "visited_tiles": 151, "patrol": [[4, 29], [5, 29]]},
+      "fallback": {"name": "completed-run Celadon/Saffron corridor", "status": "proven_navigation"},
+      "notes": "Pokemon Tower is not a pre-Silph-Scope grind target. Route 17 has only three heatmapped tiles and is not considered routed; benchmark accessible Route 16 grass."
+    },
+    {
+      "label": "Soul/Marsh",
+      "levels": [50, 60],
+      "implemented_objectives": [51, 60],
+      "primary": {"name": "Route 15 near Fuchsia healing", "map_ids": [26], "status": "implemented_heatmap_proven", "visited_tiles": 289, "patrol": [[8, 19], [9, 19]]},
+      "rejected": {"name": "Seafoam Islands", "map_ids": [192, 159, 160, 161, 162], "reason": "No tiles from the completed run are present in the cumulative heatmap."},
+      "notes": "Route 15 is available during the Lavender-to-Fuchsia leg and has extensive completed-run coverage."
+    },
+    {
+      "label": "Volcano/Earth",
+      "levels": [60, 70],
+      "implemented_objectives": [61, 70],
+      "primary": {"name": "Pokemon Mansion B1F", "map_ids": [216], "status": "implemented_heatmap_proven", "visited_tiles": 83, "patrol": [[26, 17], [26, 18]]},
+      "heal": {"name": "Cinnabar Pokemon Center", "map_ids": [171], "status": "proven_navigation"},
+      "notes": "Already positioned after the Secret Key. Compare floors by completed steps per level and wipe rate."
+    },
+    {
+      "label": "Elite Four",
+      "levels": [70, 80],
+      "implemented_objectives": [71, 80],
+      "primary": {"name": "Victory Road 3F", "map_ids": [198], "status": "heatmap_proven_candidate", "visited_tiles": 297},
+      "fallback": {"name": "Pokemon Mansion 1F", "map_ids": [165], "status": "implemented_heatmap_proven", "patrol": [[5, 3], [6, 3]]},
+      "notes": "Yellow Victory Road 3F averages over 700 experience per encounter, but its Ground/Rock-heavy table is poor for Electric attacks. Promote it only after an emulator benchmark includes non-Electric move use, healing, and wipes."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+  [EVENT] env_id=0 step=64 EVENT_BEAT_MISTY
+  [EVENT] env_id=0 step=768 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=768 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=128 EVENT_GOT_HM02  [EP] route(maps_visited)=Viridian Forest | quest_phase=12/156
+  [EVENT] env_id=0 step=1000 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1000 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=1001 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1001 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=1002 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1002 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=1003 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1003 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=1004 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1004 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=1005 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1005 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=1006 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1006 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=1007 EVENT_BEAT_BROCK  [EVENT] env_id=1 step=1007 EVENT_GOT_HM01
+  [EVENT] env_id=0 step=900 EVENT_NOT_IN_CATALOG

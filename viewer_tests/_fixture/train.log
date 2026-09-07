@@ -1,0 +1,9 @@
+  [EP] route(maps_visited)=Celadon City | unique_tiles_visited=72 | quest_phase=126/156 | end_reason=swarm_catchup
+  [EP] route(maps_visited)=Celadon City | unique_tiles_visited=72 | quest_phase=126/156 | end_reason=swarm_catchup
+  [EP] route(maps_visited)=Celadon City | unique_tiles_visited=72 | quest_phase=126/156 | end_reason=swarm_catchup
+  [EP] route(maps_visited)=Celadon City | unique_tiles_visited=72 | quest_phase=126/156 | end_reason=swarm_catchup
+  [METRICS] hall_of_fame | steps=1,745,030,400 (total, all sessions) | session_steps=172,032 (since this process launched) | fps=806
+    avg_ep_reward    284        good
+    milestone_hits   0/50       no clears yet (of last 50 episodes)
+
+  [EP] route(maps_visited)=Celadon City | unique_tiles_visited=72 | quest_phase=126/156 | end_reason=swarm_catchup

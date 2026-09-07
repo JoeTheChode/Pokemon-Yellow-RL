@@ -1,0 +1,3667 @@
+{
+  "bit_layout_note": "byte_offset = bit // 8, bit_in_byte = bit % 8, LSB = bit 0 -- verified against engine/flag_action.asm's FlagAction routine, not assumed. Matches ADDR_EVENT_FLAGS_START in train.py directly: byte address = ADDR_EVENT_FLAGS_START + byte_offset.",
+  "events": [
+    {
+      "bit": 0,
+      "bit_in_byte": 0,
+      "byte_offset": 0,
+      "group": "Pallet Town events",
+      "name": "EVENT_FOLLOWED_OAK_INTO_LAB"
+    },
+    {
+      "bit": 3,
+      "bit_in_byte": 3,
+      "byte_offset": 0,
+      "group": "Pallet Town events",
+      "name": "EVENT_HALL_OF_FAME_DEX_RATING"
+    },
+    {
+      "bit": 5,
+      "bit_in_byte": 5,
+      "byte_offset": 0,
+      "group": "Pallet Town events",
+      "name": "EVENT_PLAYER_AT_RIGHT_EXIT_TO_PALLET_TOWN"
+    },
+    {
+      "bit": 6,
+      "bit_in_byte": 6,
+      "byte_offset": 0,
+      "group": "Pallet Town events",
+      "name": "EVENT_PALLET_AFTER_GETTING_POKEBALLS"
+    },
+    {
+      "bit": 24,
+      "bit_in_byte": 0,
+      "byte_offset": 3,
+      "group": "Pallet Town events",
+      "name": "EVENT_GOT_TOWN_MAP"
+    },
+    {
+      "bit": 25,
+      "bit_in_byte": 1,
+      "byte_offset": 3,
+      "group": "Pallet Town events",
+      "name": "EVENT_ENTERED_BLUES_HOUSE"
+    },
+    {
+      "bit": 26,
+      "bit_in_byte": 2,
+      "byte_offset": 3,
+      "group": "Pallet Town events",
+      "name": "EVENT_DAISY_WALKING"
+    },
+    {
+      "bit": 32,
+      "bit_in_byte": 0,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_FOLLOWED_OAK_INTO_LAB_2"
+    },
+    {
+      "bit": 33,
+      "bit_in_byte": 1,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_OAK_ASKED_TO_CHOOSE_MON"
+    },
+    {
+      "bit": 34,
+      "bit_in_byte": 2,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_GOT_STARTER"
+    },
+    {
+      "bit": 35,
+      "bit_in_byte": 3,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_BATTLED_RIVAL_IN_OAKS_LAB"
+    },
+    {
+      "bit": 36,
+      "bit_in_byte": 4,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_GOT_POKEBALLS_FROM_OAK"
+    },
+    {
+      "bit": 37,
+      "bit_in_byte": 5,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_GOT_POKEDEX"
+    },
+    {
+      "bit": 38,
+      "bit_in_byte": 6,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_PALLET_AFTER_GETTING_POKEBALLS_2"
+    },
+    {
+      "bit": 39,
+      "bit_in_byte": 7,
+      "byte_offset": 4,
+      "group": "Pallet Town events",
+      "name": "EVENT_OAK_APPEARED_IN_PALLET"
+    },
+    {
+      "bit": 40,
+      "bit_in_byte": 0,
+      "byte_offset": 5,
+      "group": "Viridian City events",
+      "name": "EVENT_VIRIDIAN_GYM_OPEN"
+    },
+    {
+      "bit": 41,
+      "bit_in_byte": 1,
+      "byte_offset": 5,
+      "group": "Viridian City events",
+      "name": "EVENT_GOT_TM42"
+    },
+    {
+      "bit": 44,
+      "bit_in_byte": 4,
+      "byte_offset": 5,
+      "group": "Viridian City events",
+      "name": "EVENT_SPAWNED_OLD_MAN_1"
+    },
+    {
+      "bit": 45,
+      "bit_in_byte": 5,
+      "byte_offset": 5,
+      "group": "Viridian City events",
+      "name": "EVENT_COMPLETED_CATCH_TRAINING"
+    },
+    {
+      "bit": 46,
+      "bit_in_byte": 6,
+      "byte_offset": 5,
+      "group": "Viridian City events",
+      "name": "EVENT_COMPLETED_CATCH_TRAINING_AGAIN"
+    },
+    {
+      "bit": 47,
+      "bit_in_byte": 7,
+      "byte_offset": 5,
+      "group": "Viridian City events",
+      "name": "EVENT_INITIAL_CATCH_TRAINING"
+    },
+    {
+      "bit": 56,
+      "bit_in_byte": 0,
+      "byte_offset": 7,
+      "group": "Viridian City events",
+      "name": "EVENT_OAK_GOT_PARCEL"
+    },
+    {
+      "bit": 57,
+      "bit_in_byte": 1,
+      "byte_offset": 7,
+      "group": "Viridian City events",
+      "name": "EVENT_GOT_OAKS_PARCEL"
+    },
+    {
+      "bit": 80,
+      "bit_in_byte": 0,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_GOT_TM27"
+    },
+    {
+      "bit": 81,
+      "bit_in_byte": 1,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI"
+    },
+    {
+      "bit": 82,
+      "bit_in_byte": 2,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_0"
+    },
+    {
+      "bit": 83,
+      "bit_in_byte": 3,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1"
+    },
+    {
+      "bit": 84,
+      "bit_in_byte": 4,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_2"
+    },
+    {
+      "bit": 85,
+      "bit_in_byte": 5,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_3"
+    },
+    {
+      "bit": 86,
+      "bit_in_byte": 6,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_4"
+    },
+    {
+      "bit": 87,
+      "bit_in_byte": 7,
+      "byte_offset": 10,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_5"
+    },
+    {
+      "bit": 88,
+      "bit_in_byte": 0,
+      "byte_offset": 11,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_6"
+    },
+    {
+      "bit": 89,
+      "bit_in_byte": 1,
+      "byte_offset": 11,
+      "group": "Viridian City events",
+      "name": "EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7"
+    },
+    {
+      "bit": 104,
+      "bit_in_byte": 0,
+      "byte_offset": 13,
+      "group": "Pewter City events",
+      "name": "EVENT_BOUGHT_MUSEUM_TICKET"
+    },
+    {
+      "bit": 105,
+      "bit_in_byte": 1,
+      "byte_offset": 13,
+      "group": "Pewter City events",
+      "name": "EVENT_GOT_OLD_AMBER"
+    },
+    {
+      "bit": 114,
+      "bit_in_byte": 2,
+      "byte_offset": 14,
+      "group": "Pewter City events",
+      "name": "EVENT_BEAT_PEWTER_GYM_TRAINER_0"
+    },
+    {
+      "bit": 118,
+      "bit_in_byte": 6,
+      "byte_offset": 14,
+      "group": "Pewter City events",
+      "name": "EVENT_GOT_TM34"
+    },
+    {
+      "bit": 119,
+      "bit_in_byte": 7,
+      "byte_offset": 14,
+      "group": "Pewter City events",
+      "name": "EVENT_BEAT_BROCK"
+    },
+    {
+      "bit": 152,
+      "bit_in_byte": 0,
+      "byte_offset": 19,
+      "group": "Cerulean City events",
+      "name": "EVENT_BEAT_CERULEAN_RIVAL"
+    },
+    {
+      "bit": 167,
+      "bit_in_byte": 7,
+      "byte_offset": 20,
+      "group": "Cerulean City events",
+      "name": "EVENT_BEAT_CERULEAN_ROCKET_THIEF"
+    },
+    {
+      "bit": 168,
+      "bit_in_byte": 0,
+      "byte_offset": 21,
+      "group": "Cerulean City events",
+      "name": "EVENT_GOT_BULBASAUR_IN_CERULEAN"
+    },
+    {
+      "bit": 186,
+      "bit_in_byte": 2,
+      "byte_offset": 23,
+      "group": "Cerulean City events",
+      "name": "EVENT_BEAT_CERULEAN_GYM_TRAINER_0"
+    },
+    {
+      "bit": 187,
+      "bit_in_byte": 3,
+      "byte_offset": 23,
+      "group": "Cerulean City events",
+      "name": "EVENT_BEAT_CERULEAN_GYM_TRAINER_1"
+    },
+    {
+      "bit": 190,
+      "bit_in_byte": 6,
+      "byte_offset": 23,
+      "group": "Cerulean City events",
+      "name": "EVENT_GOT_TM11"
+    },
+    {
+      "bit": 191,
+      "bit_in_byte": 7,
+      "byte_offset": 23,
+      "group": "Cerulean City events",
+      "name": "EVENT_BEAT_MISTY"
+    },
+    {
+      "bit": 192,
+      "bit_in_byte": 0,
+      "byte_offset": 24,
+      "group": "Cerulean City events",
+      "name": "EVENT_GOT_BICYCLE"
+    },
+    {
+      "bit": 238,
+      "bit_in_byte": 6,
+      "byte_offset": 29,
+      "group": "Lavender Town events",
+      "name": "EVENT_POKEMON_TOWER_RIVAL_ON_LEFT"
+    },
+    {
+      "bit": 239,
+      "bit_in_byte": 7,
+      "byte_offset": 29,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMON_TOWER_RIVAL"
+    },
+    {
+      "bit": 241,
+      "bit_in_byte": 1,
+      "byte_offset": 30,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_3_TRAINER_0"
+    },
+    {
+      "bit": 242,
+      "bit_in_byte": 2,
+      "byte_offset": 30,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_3_TRAINER_1"
+    },
+    {
+      "bit": 243,
+      "bit_in_byte": 3,
+      "byte_offset": 30,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_3_TRAINER_2"
+    },
+    {
+      "bit": 249,
+      "bit_in_byte": 1,
+      "byte_offset": 31,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_4_TRAINER_0"
+    },
+    {
+      "bit": 250,
+      "bit_in_byte": 2,
+      "byte_offset": 31,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_4_TRAINER_1"
+    },
+    {
+      "bit": 251,
+      "bit_in_byte": 3,
+      "byte_offset": 31,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_4_TRAINER_2"
+    },
+    {
+      "bit": 258,
+      "bit_in_byte": 2,
+      "byte_offset": 32,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_5_TRAINER_0"
+    },
+    {
+      "bit": 259,
+      "bit_in_byte": 3,
+      "byte_offset": 32,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_5_TRAINER_1"
+    },
+    {
+      "bit": 260,
+      "bit_in_byte": 4,
+      "byte_offset": 32,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_5_TRAINER_2"
+    },
+    {
+      "bit": 261,
+      "bit_in_byte": 5,
+      "byte_offset": 32,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_5_TRAINER_3"
+    },
+    {
+      "bit": 263,
+      "bit_in_byte": 7,
+      "byte_offset": 32,
+      "group": "Lavender Town events",
+      "name": "EVENT_IN_PURIFIED_ZONE"
+    },
+    {
+      "bit": 265,
+      "bit_in_byte": 1,
+      "byte_offset": 33,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_6_TRAINER_0"
+    },
+    {
+      "bit": 266,
+      "bit_in_byte": 2,
+      "byte_offset": 33,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_6_TRAINER_1"
+    },
+    {
+      "bit": 267,
+      "bit_in_byte": 3,
+      "byte_offset": 33,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_6_TRAINER_2"
+    },
+    {
+      "bit": 271,
+      "bit_in_byte": 7,
+      "byte_offset": 33,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_GHOST_MAROWAK"
+    },
+    {
+      "bit": 273,
+      "bit_in_byte": 1,
+      "byte_offset": 34,
+      "group": "Lavender Town events",
+      "name": "EVENT_BEAT_POKEMONTOWER_7_JESSIE_JAMES"
+    },
+    {
+      "bit": 274,
+      "bit_in_byte": 2,
+      "byte_offset": 34,
+      "group": "Lavender Town events",
+      "name": "EVENT_POKEMONTOWER_7_JESSIE_JAMES_ON_LEFT"
+    },
+    {
+      "bit": 279,
+      "bit_in_byte": 7,
+      "byte_offset": 34,
+      "group": "Lavender Town events",
+      "name": "EVENT_RESCUED_MR_FUJI_2"
+    },
+    {
+      "bit": 296,
+      "bit_in_byte": 0,
+      "byte_offset": 37,
+      "group": "Lavender Town events",
+      "name": "EVENT_GOT_POKE_FLUTE"
+    },
+    {
+      "bit": 327,
+      "bit_in_byte": 7,
+      "byte_offset": 40,
+      "group": "Lavender Town events",
+      "name": "EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY"
+    },
+    {
+      "bit": 337,
+      "bit_in_byte": 1,
+      "byte_offset": 42,
+      "group": "Vermilion City events",
+      "name": "EVENT_GOT_BIKE_VOUCHER"
+    },
+    {
+      "bit": 338,
+      "bit_in_byte": 2,
+      "byte_offset": 42,
+      "group": "Vermilion City events",
+      "name": "EVENT_LEFT_FANCLUB_AFTER_BIKE_VOUCHER"
+    },
+    {
+      "bit": 342,
+      "bit_in_byte": 6,
+      "byte_offset": 42,
+      "group": "Vermilion City events",
+      "name": "EVENT_SEEL_FAN_BOAST"
+    },
+    {
+      "bit": 343,
+      "bit_in_byte": 7,
+      "byte_offset": 42,
+      "group": "Vermilion City events",
+      "name": "EVENT_PIKACHU_FAN_BOAST"
+    },
+    {
+      "bit": 352,
+      "bit_in_byte": 0,
+      "byte_offset": 44,
+      "group": "Vermilion City events",
+      "name": "EVENT_2ND_LOCK_OPENED"
+    },
+    {
+      "bit": 353,
+      "bit_in_byte": 1,
+      "byte_offset": 44,
+      "group": "Vermilion City events",
+      "name": "EVENT_1ST_LOCK_OPENED"
+    },
+    {
+      "bit": 354,
+      "bit_in_byte": 2,
+      "byte_offset": 44,
+      "group": "Vermilion City events",
+      "name": "EVENT_BEAT_VERMILION_GYM_TRAINER_0"
+    },
+    {
+      "bit": 355,
+      "bit_in_byte": 3,
+      "byte_offset": 44,
+      "group": "Vermilion City events",
+      "name": "EVENT_BEAT_VERMILION_GYM_TRAINER_1"
+    },
+    {
+      "bit": 356,
+      "bit_in_byte": 4,
+      "byte_offset": 44,
+      "group": "Vermilion City events",
+      "name": "EVENT_BEAT_VERMILION_GYM_TRAINER_2"
+    },
+    {
+      "bit": 358,
+      "bit_in_byte": 6,
+      "byte_offset": 44,
+      "group": "Vermilion City events",
+      "name": "EVENT_GOT_TM24"
+    },
+    {
+      "bit": 359,
+      "bit_in_byte": 7,
+      "byte_offset": 44,
+      "group": "Vermilion City events",
+      "name": "EVENT_BEAT_LT_SURGE"
+    },
+    {
+      "bit": 384,
+      "bit_in_byte": 0,
+      "byte_offset": 48,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_TM41"
+    },
+    {
+      "bit": 396,
+      "bit_in_byte": 4,
+      "byte_offset": 49,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_TM13"
+    },
+    {
+      "bit": 397,
+      "bit_in_byte": 5,
+      "byte_offset": 49,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_TM48"
+    },
+    {
+      "bit": 398,
+      "bit_in_byte": 6,
+      "byte_offset": 49,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_TM49"
+    },
+    {
+      "bit": 399,
+      "bit_in_byte": 7,
+      "byte_offset": 49,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_TM18"
+    },
+    {
+      "bit": 424,
+      "bit_in_byte": 0,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_TM21"
+    },
+    {
+      "bit": 425,
+      "bit_in_byte": 1,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_ERIKA"
+    },
+    {
+      "bit": 426,
+      "bit_in_byte": 2,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_CELADON_GYM_TRAINER_0"
+    },
+    {
+      "bit": 427,
+      "bit_in_byte": 3,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_CELADON_GYM_TRAINER_1"
+    },
+    {
+      "bit": 428,
+      "bit_in_byte": 4,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_CELADON_GYM_TRAINER_2"
+    },
+    {
+      "bit": 429,
+      "bit_in_byte": 5,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_CELADON_GYM_TRAINER_3"
+    },
+    {
+      "bit": 430,
+      "bit_in_byte": 6,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_CELADON_GYM_TRAINER_4"
+    },
+    {
+      "bit": 431,
+      "bit_in_byte": 7,
+      "byte_offset": 53,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_CELADON_GYM_TRAINER_5"
+    },
+    {
+      "bit": 432,
+      "bit_in_byte": 0,
+      "byte_offset": 54,
+      "group": "Celadon City events",
+      "name": "EVENT_BEAT_CELADON_GYM_TRAINER_6"
+    },
+    {
+      "bit": 440,
+      "bit_in_byte": 0,
+      "byte_offset": 55,
+      "group": "Celadon City events",
+      "name": "EVENT_1B8"
+    },
+    {
+      "bit": 441,
+      "bit_in_byte": 1,
+      "byte_offset": 55,
+      "group": "Celadon City events",
+      "name": "EVENT_FOUND_ROCKET_HIDEOUT"
+    },
+    {
+      "bit": 442,
+      "bit_in_byte": 2,
+      "byte_offset": 55,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_10_COINS"
+    },
+    {
+      "bit": 443,
+      "bit_in_byte": 3,
+      "byte_offset": 55,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_20_COINS"
+    },
+    {
+      "bit": 444,
+      "bit_in_byte": 4,
+      "byte_offset": 55,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_20_COINS_2"
+    },
+    {
+      "bit": 447,
+      "bit_in_byte": 7,
+      "byte_offset": 55,
+      "group": "Celadon City events",
+      "name": "EVENT_1BF"
+    },
+    {
+      "bit": 480,
+      "bit_in_byte": 0,
+      "byte_offset": 60,
+      "group": "Celadon City events",
+      "name": "EVENT_GOT_COIN_CASE"
+    },
+    {
+      "bit": 568,
+      "bit_in_byte": 0,
+      "byte_offset": 71,
+      "group": "Fuchsia City events",
+      "name": "EVENT_GOT_HM04"
+    },
+    {
+      "bit": 569,
+      "bit_in_byte": 1,
+      "byte_offset": 71,
+      "group": "Fuchsia City events",
+      "name": "EVENT_GAVE_GOLD_TEETH"
+    },
+    {
+      "bit": 590,
+      "bit_in_byte": 6,
+      "byte_offset": 73,
+      "group": "Fuchsia City events",
+      "name": "EVENT_SAFARI_GAME_OVER"
+    },
+    {
+      "bit": 591,
+      "bit_in_byte": 7,
+      "byte_offset": 73,
+      "group": "Fuchsia City events",
+      "name": "EVENT_IN_SAFARI_ZONE"
+    },
+    {
+      "bit": 600,
+      "bit_in_byte": 0,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_GOT_TM06"
+    },
+    {
+      "bit": 601,
+      "bit_in_byte": 1,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_BEAT_KOGA"
+    },
+    {
+      "bit": 602,
+      "bit_in_byte": 2,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_BEAT_FUCHSIA_GYM_TRAINER_0"
+    },
+    {
+      "bit": 603,
+      "bit_in_byte": 3,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_BEAT_FUCHSIA_GYM_TRAINER_1"
+    },
+    {
+      "bit": 604,
+      "bit_in_byte": 4,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_BEAT_FUCHSIA_GYM_TRAINER_2"
+    },
+    {
+      "bit": 605,
+      "bit_in_byte": 5,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_BEAT_FUCHSIA_GYM_TRAINER_3"
+    },
+    {
+      "bit": 606,
+      "bit_in_byte": 6,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_BEAT_FUCHSIA_GYM_TRAINER_4"
+    },
+    {
+      "bit": 607,
+      "bit_in_byte": 7,
+      "byte_offset": 75,
+      "group": "Fuchsia City events",
+      "name": "EVENT_BEAT_FUCHSIA_GYM_TRAINER_5"
+    },
+    {
+      "bit": 632,
+      "bit_in_byte": 0,
+      "byte_offset": 79,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_MANSION_SWITCH_ON"
+    },
+    {
+      "bit": 649,
+      "bit_in_byte": 1,
+      "byte_offset": 81,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_MANSION_1_TRAINER_0"
+    },
+    {
+      "bit": 664,
+      "bit_in_byte": 0,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_GOT_TM38"
+    },
+    {
+      "bit": 665,
+      "bit_in_byte": 1,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_BLAINE"
+    },
+    {
+      "bit": 666,
+      "bit_in_byte": 2,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_CINNABAR_GYM_TRAINER_0"
+    },
+    {
+      "bit": 667,
+      "bit_in_byte": 3,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_CINNABAR_GYM_TRAINER_1"
+    },
+    {
+      "bit": 668,
+      "bit_in_byte": 4,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_CINNABAR_GYM_TRAINER_2"
+    },
+    {
+      "bit": 669,
+      "bit_in_byte": 5,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_CINNABAR_GYM_TRAINER_3"
+    },
+    {
+      "bit": 670,
+      "bit_in_byte": 6,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_CINNABAR_GYM_TRAINER_4"
+    },
+    {
+      "bit": 671,
+      "bit_in_byte": 7,
+      "byte_offset": 83,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_CINNABAR_GYM_TRAINER_5"
+    },
+    {
+      "bit": 672,
+      "bit_in_byte": 0,
+      "byte_offset": 84,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_BEAT_CINNABAR_GYM_TRAINER_6"
+    },
+    {
+      "bit": 679,
+      "bit_in_byte": 7,
+      "byte_offset": 84,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_2A7"
+    },
+    {
+      "bit": 680,
+      "bit_in_byte": 0,
+      "byte_offset": 85,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_CINNABAR_GYM_GATE0_UNLOCKED"
+    },
+    {
+      "bit": 681,
+      "bit_in_byte": 1,
+      "byte_offset": 85,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_CINNABAR_GYM_GATE1_UNLOCKED"
+    },
+    {
+      "bit": 682,
+      "bit_in_byte": 2,
+      "byte_offset": 85,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_CINNABAR_GYM_GATE2_UNLOCKED"
+    },
+    {
+      "bit": 683,
+      "bit_in_byte": 3,
+      "byte_offset": 85,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_CINNABAR_GYM_GATE3_UNLOCKED"
+    },
+    {
+      "bit": 684,
+      "bit_in_byte": 4,
+      "byte_offset": 85,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_CINNABAR_GYM_GATE4_UNLOCKED"
+    },
+    {
+      "bit": 685,
+      "bit_in_byte": 5,
+      "byte_offset": 85,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_CINNABAR_GYM_GATE5_UNLOCKED"
+    },
+    {
+      "bit": 686,
+      "bit_in_byte": 6,
+      "byte_offset": 85,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_CINNABAR_GYM_GATE6_UNLOCKED"
+    },
+    {
+      "bit": 727,
+      "bit_in_byte": 7,
+      "byte_offset": 90,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_GOT_TM35"
+    },
+    {
+      "bit": 736,
+      "bit_in_byte": 0,
+      "byte_offset": 92,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_GAVE_FOSSIL_TO_LAB"
+    },
+    {
+      "bit": 737,
+      "bit_in_byte": 1,
+      "byte_offset": 92,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_LAB_STILL_REVIVING_FOSSIL"
+    },
+    {
+      "bit": 738,
+      "bit_in_byte": 2,
+      "byte_offset": 92,
+      "group": "Cinnabar Island events",
+      "name": "EVENT_LAB_HANDING_OVER_FOSSIL_MON"
+    },
+    {
+      "bit": 832,
+      "bit_in_byte": 0,
+      "byte_offset": 104,
+      "group": "Saffron City events",
+      "name": "EVENT_GOT_TM31"
+    },
+    {
+      "bit": 848,
+      "bit_in_byte": 0,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_DEFEATED_FIGHTING_DOJO"
+    },
+    {
+      "bit": 849,
+      "bit_in_byte": 1,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_KARATE_MASTER"
+    },
+    {
+      "bit": 850,
+      "bit_in_byte": 2,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_FIGHTING_DOJO_TRAINER_0"
+    },
+    {
+      "bit": 851,
+      "bit_in_byte": 3,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_FIGHTING_DOJO_TRAINER_1"
+    },
+    {
+      "bit": 852,
+      "bit_in_byte": 4,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_FIGHTING_DOJO_TRAINER_2"
+    },
+    {
+      "bit": 853,
+      "bit_in_byte": 5,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_FIGHTING_DOJO_TRAINER_3"
+    },
+    {
+      "bit": 854,
+      "bit_in_byte": 6,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_GOT_HITMONLEE"
+    },
+    {
+      "bit": 855,
+      "bit_in_byte": 7,
+      "byte_offset": 106,
+      "group": "Saffron City events",
+      "name": "EVENT_GOT_HITMONCHAN"
+    },
+    {
+      "bit": 864,
+      "bit_in_byte": 0,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_GOT_TM46"
+    },
+    {
+      "bit": 865,
+      "bit_in_byte": 1,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SABRINA"
+    },
+    {
+      "bit": 866,
+      "bit_in_byte": 2,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SAFFRON_GYM_TRAINER_0"
+    },
+    {
+      "bit": 867,
+      "bit_in_byte": 3,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SAFFRON_GYM_TRAINER_1"
+    },
+    {
+      "bit": 868,
+      "bit_in_byte": 4,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SAFFRON_GYM_TRAINER_2"
+    },
+    {
+      "bit": 869,
+      "bit_in_byte": 5,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SAFFRON_GYM_TRAINER_3"
+    },
+    {
+      "bit": 870,
+      "bit_in_byte": 6,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SAFFRON_GYM_TRAINER_4"
+    },
+    {
+      "bit": 871,
+      "bit_in_byte": 7,
+      "byte_offset": 108,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SAFFRON_GYM_TRAINER_5"
+    },
+    {
+      "bit": 872,
+      "bit_in_byte": 0,
+      "byte_offset": 109,
+      "group": "Saffron City events",
+      "name": "EVENT_BEAT_SAFFRON_GYM_TRAINER_6"
+    },
+    {
+      "bit": 919,
+      "bit_in_byte": 7,
+      "byte_offset": 114,
+      "group": "Saffron City events",
+      "name": "EVENT_SILPH_CO_RECEPTIONIST_AT_DESK"
+    },
+    {
+      "bit": 944,
+      "bit_in_byte": 0,
+      "byte_offset": 118,
+      "group": "Saffron City events",
+      "name": "EVENT_GOT_TM29"
+    },
+    {
+      "bit": 960,
+      "bit_in_byte": 0,
+      "byte_offset": 120,
+      "group": "Route 1 events",
+      "name": "EVENT_GOT_POTION_SAMPLE"
+    },
+    {
+      "bit": 984,
+      "bit_in_byte": 0,
+      "byte_offset": 123,
+      "group": "Route 2 events",
+      "name": "EVENT_GOT_HM05"
+    },
+    {
+      "bit": 994,
+      "bit_in_byte": 2,
+      "byte_offset": 124,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_0"
+    },
+    {
+      "bit": 995,
+      "bit_in_byte": 3,
+      "byte_offset": 124,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_1"
+    },
+    {
+      "bit": 996,
+      "bit_in_byte": 4,
+      "byte_offset": 124,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_2"
+    },
+    {
+      "bit": 997,
+      "bit_in_byte": 5,
+      "byte_offset": 124,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_3"
+    },
+    {
+      "bit": 998,
+      "bit_in_byte": 6,
+      "byte_offset": 124,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_4"
+    },
+    {
+      "bit": 999,
+      "bit_in_byte": 7,
+      "byte_offset": 124,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_5"
+    },
+    {
+      "bit": 1000,
+      "bit_in_byte": 0,
+      "byte_offset": 125,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_6"
+    },
+    {
+      "bit": 1001,
+      "bit_in_byte": 1,
+      "byte_offset": 125,
+      "group": "Route 3 events",
+      "name": "EVENT_BEAT_ROUTE_3_TRAINER_7"
+    },
+    {
+      "bit": 1010,
+      "bit_in_byte": 2,
+      "byte_offset": 126,
+      "group": "Route 4 events",
+      "name": "EVENT_BEAT_ROUTE_4_TRAINER_0"
+    },
+    {
+      "bit": 1023,
+      "bit_in_byte": 7,
+      "byte_offset": 127,
+      "group": "Route 4 events",
+      "name": "EVENT_BOUGHT_MAGIKARP"
+    },
+    {
+      "bit": 1041,
+      "bit_in_byte": 1,
+      "byte_offset": 130,
+      "group": "Route 6 events",
+      "name": "EVENT_BEAT_ROUTE_6_TRAINER_0"
+    },
+    {
+      "bit": 1042,
+      "bit_in_byte": 2,
+      "byte_offset": 130,
+      "group": "Route 6 events",
+      "name": "EVENT_BEAT_ROUTE_6_TRAINER_1"
+    },
+    {
+      "bit": 1043,
+      "bit_in_byte": 3,
+      "byte_offset": 130,
+      "group": "Route 6 events",
+      "name": "EVENT_BEAT_ROUTE_6_TRAINER_2"
+    },
+    {
+      "bit": 1044,
+      "bit_in_byte": 4,
+      "byte_offset": 130,
+      "group": "Route 6 events",
+      "name": "EVENT_BEAT_ROUTE_6_TRAINER_3"
+    },
+    {
+      "bit": 1045,
+      "bit_in_byte": 5,
+      "byte_offset": 130,
+      "group": "Route 6 events",
+      "name": "EVENT_BEAT_ROUTE_6_TRAINER_4"
+    },
+    {
+      "bit": 1046,
+      "bit_in_byte": 6,
+      "byte_offset": 130,
+      "group": "Route 6 events",
+      "name": "EVENT_BEAT_ROUTE_6_TRAINER_5"
+    },
+    {
+      "bit": 1073,
+      "bit_in_byte": 1,
+      "byte_offset": 134,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_0"
+    },
+    {
+      "bit": 1074,
+      "bit_in_byte": 2,
+      "byte_offset": 134,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_1"
+    },
+    {
+      "bit": 1075,
+      "bit_in_byte": 3,
+      "byte_offset": 134,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_2"
+    },
+    {
+      "bit": 1076,
+      "bit_in_byte": 4,
+      "byte_offset": 134,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_3"
+    },
+    {
+      "bit": 1077,
+      "bit_in_byte": 5,
+      "byte_offset": 134,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_4"
+    },
+    {
+      "bit": 1078,
+      "bit_in_byte": 6,
+      "byte_offset": 134,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_5"
+    },
+    {
+      "bit": 1079,
+      "bit_in_byte": 7,
+      "byte_offset": 134,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_6"
+    },
+    {
+      "bit": 1080,
+      "bit_in_byte": 0,
+      "byte_offset": 135,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_7"
+    },
+    {
+      "bit": 1081,
+      "bit_in_byte": 1,
+      "byte_offset": 135,
+      "group": "Route 8 events",
+      "name": "EVENT_BEAT_ROUTE_8_TRAINER_8"
+    },
+    {
+      "bit": 1089,
+      "bit_in_byte": 1,
+      "byte_offset": 136,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_0"
+    },
+    {
+      "bit": 1090,
+      "bit_in_byte": 2,
+      "byte_offset": 136,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_1"
+    },
+    {
+      "bit": 1091,
+      "bit_in_byte": 3,
+      "byte_offset": 136,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_2"
+    },
+    {
+      "bit": 1092,
+      "bit_in_byte": 4,
+      "byte_offset": 136,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_3"
+    },
+    {
+      "bit": 1093,
+      "bit_in_byte": 5,
+      "byte_offset": 136,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_4"
+    },
+    {
+      "bit": 1094,
+      "bit_in_byte": 6,
+      "byte_offset": 136,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_5"
+    },
+    {
+      "bit": 1095,
+      "bit_in_byte": 7,
+      "byte_offset": 136,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_6"
+    },
+    {
+      "bit": 1096,
+      "bit_in_byte": 0,
+      "byte_offset": 137,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_7"
+    },
+    {
+      "bit": 1097,
+      "bit_in_byte": 1,
+      "byte_offset": 137,
+      "group": "Route 9 events",
+      "name": "EVENT_BEAT_ROUTE_9_TRAINER_8"
+    },
+    {
+      "bit": 1105,
+      "bit_in_byte": 1,
+      "byte_offset": 138,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROUTE_10_TRAINER_0"
+    },
+    {
+      "bit": 1106,
+      "bit_in_byte": 2,
+      "byte_offset": 138,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROUTE_10_TRAINER_1"
+    },
+    {
+      "bit": 1107,
+      "bit_in_byte": 3,
+      "byte_offset": 138,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROUTE_10_TRAINER_2"
+    },
+    {
+      "bit": 1108,
+      "bit_in_byte": 4,
+      "byte_offset": 138,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROUTE_10_TRAINER_3"
+    },
+    {
+      "bit": 1109,
+      "bit_in_byte": 5,
+      "byte_offset": 138,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROUTE_10_TRAINER_4"
+    },
+    {
+      "bit": 1110,
+      "bit_in_byte": 6,
+      "byte_offset": 138,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROUTE_10_TRAINER_5"
+    },
+    {
+      "bit": 1113,
+      "bit_in_byte": 1,
+      "byte_offset": 139,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_0"
+    },
+    {
+      "bit": 1114,
+      "bit_in_byte": 2,
+      "byte_offset": 139,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_1"
+    },
+    {
+      "bit": 1115,
+      "bit_in_byte": 3,
+      "byte_offset": 139,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_2"
+    },
+    {
+      "bit": 1116,
+      "bit_in_byte": 4,
+      "byte_offset": 139,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_3"
+    },
+    {
+      "bit": 1117,
+      "bit_in_byte": 5,
+      "byte_offset": 139,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_4"
+    },
+    {
+      "bit": 1118,
+      "bit_in_byte": 6,
+      "byte_offset": 139,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_5"
+    },
+    {
+      "bit": 1119,
+      "bit_in_byte": 7,
+      "byte_offset": 139,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_6"
+    },
+    {
+      "bit": 1121,
+      "bit_in_byte": 1,
+      "byte_offset": 140,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_0"
+    },
+    {
+      "bit": 1122,
+      "bit_in_byte": 2,
+      "byte_offset": 140,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_1"
+    },
+    {
+      "bit": 1123,
+      "bit_in_byte": 3,
+      "byte_offset": 140,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_2"
+    },
+    {
+      "bit": 1124,
+      "bit_in_byte": 4,
+      "byte_offset": 140,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_3"
+    },
+    {
+      "bit": 1125,
+      "bit_in_byte": 5,
+      "byte_offset": 140,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_4"
+    },
+    {
+      "bit": 1126,
+      "bit_in_byte": 6,
+      "byte_offset": 140,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_5"
+    },
+    {
+      "bit": 1127,
+      "bit_in_byte": 7,
+      "byte_offset": 140,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_6"
+    },
+    {
+      "bit": 1128,
+      "bit_in_byte": 0,
+      "byte_offset": 141,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_POWER_PLANT_VOLTORB_7"
+    },
+    {
+      "bit": 1129,
+      "bit_in_byte": 1,
+      "byte_offset": 141,
+      "group": "Route 10 events",
+      "name": "EVENT_BEAT_ZAPDOS"
+    },
+    {
+      "bit": 1137,
+      "bit_in_byte": 1,
+      "byte_offset": 142,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_0"
+    },
+    {
+      "bit": 1138,
+      "bit_in_byte": 2,
+      "byte_offset": 142,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_1"
+    },
+    {
+      "bit": 1139,
+      "bit_in_byte": 3,
+      "byte_offset": 142,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_2"
+    },
+    {
+      "bit": 1140,
+      "bit_in_byte": 4,
+      "byte_offset": 142,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_3"
+    },
+    {
+      "bit": 1141,
+      "bit_in_byte": 5,
+      "byte_offset": 142,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_4"
+    },
+    {
+      "bit": 1142,
+      "bit_in_byte": 6,
+      "byte_offset": 142,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_5"
+    },
+    {
+      "bit": 1143,
+      "bit_in_byte": 7,
+      "byte_offset": 142,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_6"
+    },
+    {
+      "bit": 1144,
+      "bit_in_byte": 0,
+      "byte_offset": 143,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_7"
+    },
+    {
+      "bit": 1145,
+      "bit_in_byte": 1,
+      "byte_offset": 143,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_8"
+    },
+    {
+      "bit": 1146,
+      "bit_in_byte": 2,
+      "byte_offset": 143,
+      "group": "Route 11 events",
+      "name": "EVENT_BEAT_ROUTE_11_TRAINER_9"
+    },
+    {
+      "bit": 1151,
+      "bit_in_byte": 7,
+      "byte_offset": 143,
+      "group": "Route 11 events",
+      "name": "EVENT_GOT_ITEMFINDER"
+    },
+    {
+      "bit": 1152,
+      "bit_in_byte": 0,
+      "byte_offset": 144,
+      "group": "Route 12 events",
+      "name": "EVENT_GOT_TM39"
+    },
+    {
+      "bit": 1154,
+      "bit_in_byte": 2,
+      "byte_offset": 144,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE_12_TRAINER_0"
+    },
+    {
+      "bit": 1155,
+      "bit_in_byte": 3,
+      "byte_offset": 144,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE_12_TRAINER_1"
+    },
+    {
+      "bit": 1156,
+      "bit_in_byte": 4,
+      "byte_offset": 144,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE_12_TRAINER_2"
+    },
+    {
+      "bit": 1157,
+      "bit_in_byte": 5,
+      "byte_offset": 144,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE_12_TRAINER_3"
+    },
+    {
+      "bit": 1158,
+      "bit_in_byte": 6,
+      "byte_offset": 144,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE_12_TRAINER_4"
+    },
+    {
+      "bit": 1159,
+      "bit_in_byte": 7,
+      "byte_offset": 144,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE_12_TRAINER_5"
+    },
+    {
+      "bit": 1160,
+      "bit_in_byte": 0,
+      "byte_offset": 145,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE_12_TRAINER_6"
+    },
+    {
+      "bit": 1166,
+      "bit_in_byte": 6,
+      "byte_offset": 145,
+      "group": "Route 12 events",
+      "name": "EVENT_FIGHT_ROUTE12_SNORLAX"
+    },
+    {
+      "bit": 1167,
+      "bit_in_byte": 7,
+      "byte_offset": 145,
+      "group": "Route 12 events",
+      "name": "EVENT_BEAT_ROUTE12_SNORLAX"
+    },
+    {
+      "bit": 1169,
+      "bit_in_byte": 1,
+      "byte_offset": 146,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_0"
+    },
+    {
+      "bit": 1170,
+      "bit_in_byte": 2,
+      "byte_offset": 146,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_1"
+    },
+    {
+      "bit": 1171,
+      "bit_in_byte": 3,
+      "byte_offset": 146,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_2"
+    },
+    {
+      "bit": 1172,
+      "bit_in_byte": 4,
+      "byte_offset": 146,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_3"
+    },
+    {
+      "bit": 1173,
+      "bit_in_byte": 5,
+      "byte_offset": 146,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_4"
+    },
+    {
+      "bit": 1174,
+      "bit_in_byte": 6,
+      "byte_offset": 146,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_5"
+    },
+    {
+      "bit": 1175,
+      "bit_in_byte": 7,
+      "byte_offset": 146,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_6"
+    },
+    {
+      "bit": 1176,
+      "bit_in_byte": 0,
+      "byte_offset": 147,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_7"
+    },
+    {
+      "bit": 1177,
+      "bit_in_byte": 1,
+      "byte_offset": 147,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_8"
+    },
+    {
+      "bit": 1178,
+      "bit_in_byte": 2,
+      "byte_offset": 147,
+      "group": "Route 13 events",
+      "name": "EVENT_BEAT_ROUTE_13_TRAINER_9"
+    },
+    {
+      "bit": 1185,
+      "bit_in_byte": 1,
+      "byte_offset": 148,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_0"
+    },
+    {
+      "bit": 1186,
+      "bit_in_byte": 2,
+      "byte_offset": 148,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_1"
+    },
+    {
+      "bit": 1187,
+      "bit_in_byte": 3,
+      "byte_offset": 148,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_2"
+    },
+    {
+      "bit": 1188,
+      "bit_in_byte": 4,
+      "byte_offset": 148,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_3"
+    },
+    {
+      "bit": 1189,
+      "bit_in_byte": 5,
+      "byte_offset": 148,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_4"
+    },
+    {
+      "bit": 1190,
+      "bit_in_byte": 6,
+      "byte_offset": 148,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_5"
+    },
+    {
+      "bit": 1191,
+      "bit_in_byte": 7,
+      "byte_offset": 148,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_6"
+    },
+    {
+      "bit": 1192,
+      "bit_in_byte": 0,
+      "byte_offset": 149,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_7"
+    },
+    {
+      "bit": 1193,
+      "bit_in_byte": 1,
+      "byte_offset": 149,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_8"
+    },
+    {
+      "bit": 1194,
+      "bit_in_byte": 2,
+      "byte_offset": 149,
+      "group": "Route 14 events",
+      "name": "EVENT_BEAT_ROUTE_14_TRAINER_9"
+    },
+    {
+      "bit": 1200,
+      "bit_in_byte": 0,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_GOT_EXP_ALL"
+    },
+    {
+      "bit": 1201,
+      "bit_in_byte": 1,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_0"
+    },
+    {
+      "bit": 1202,
+      "bit_in_byte": 2,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_1"
+    },
+    {
+      "bit": 1203,
+      "bit_in_byte": 3,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_2"
+    },
+    {
+      "bit": 1204,
+      "bit_in_byte": 4,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_3"
+    },
+    {
+      "bit": 1205,
+      "bit_in_byte": 5,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_4"
+    },
+    {
+      "bit": 1206,
+      "bit_in_byte": 6,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_5"
+    },
+    {
+      "bit": 1207,
+      "bit_in_byte": 7,
+      "byte_offset": 150,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_6"
+    },
+    {
+      "bit": 1208,
+      "bit_in_byte": 0,
+      "byte_offset": 151,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_7"
+    },
+    {
+      "bit": 1209,
+      "bit_in_byte": 1,
+      "byte_offset": 151,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_8"
+    },
+    {
+      "bit": 1210,
+      "bit_in_byte": 2,
+      "byte_offset": 151,
+      "group": "Route 15 events",
+      "name": "EVENT_BEAT_ROUTE_15_TRAINER_9"
+    },
+    {
+      "bit": 1217,
+      "bit_in_byte": 1,
+      "byte_offset": 152,
+      "group": "Route 16 events",
+      "name": "EVENT_BEAT_ROUTE_16_TRAINER_0"
+    },
+    {
+      "bit": 1218,
+      "bit_in_byte": 2,
+      "byte_offset": 152,
+      "group": "Route 16 events",
+      "name": "EVENT_BEAT_ROUTE_16_TRAINER_1"
+    },
+    {
+      "bit": 1219,
+      "bit_in_byte": 3,
+      "byte_offset": 152,
+      "group": "Route 16 events",
+      "name": "EVENT_BEAT_ROUTE_16_TRAINER_2"
+    },
+    {
+      "bit": 1220,
+      "bit_in_byte": 4,
+      "byte_offset": 152,
+      "group": "Route 16 events",
+      "name": "EVENT_BEAT_ROUTE_16_TRAINER_3"
+    },
+    {
+      "bit": 1221,
+      "bit_in_byte": 5,
+      "byte_offset": 152,
+      "group": "Route 16 events",
+      "name": "EVENT_BEAT_ROUTE_16_TRAINER_4"
+    },
+    {
+      "bit": 1222,
+      "bit_in_byte": 6,
+      "byte_offset": 152,
+      "group": "Route 16 events",
+      "name": "EVENT_BEAT_ROUTE_16_TRAINER_5"
+    },
+    {
+      "bit": 1224,
+      "bit_in_byte": 0,
+      "byte_offset": 153,
+      "group": "Route 16 events",
+      "name": "EVENT_FIGHT_ROUTE16_SNORLAX"
+    },
+    {
+      "bit": 1225,
+      "bit_in_byte": 1,
+      "byte_offset": 153,
+      "group": "Route 16 events",
+      "name": "EVENT_BEAT_ROUTE16_SNORLAX"
+    },
+    {
+      "bit": 1230,
+      "bit_in_byte": 6,
+      "byte_offset": 153,
+      "group": "Route 16 events",
+      "name": "EVENT_GOT_HM02"
+    },
+    {
+      "bit": 1231,
+      "bit_in_byte": 7,
+      "byte_offset": 153,
+      "group": "Route 16 events",
+      "name": "EVENT_RESCUED_MR_FUJI"
+    },
+    {
+      "bit": 1233,
+      "bit_in_byte": 1,
+      "byte_offset": 154,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_0"
+    },
+    {
+      "bit": 1234,
+      "bit_in_byte": 2,
+      "byte_offset": 154,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_1"
+    },
+    {
+      "bit": 1235,
+      "bit_in_byte": 3,
+      "byte_offset": 154,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_2"
+    },
+    {
+      "bit": 1236,
+      "bit_in_byte": 4,
+      "byte_offset": 154,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_3"
+    },
+    {
+      "bit": 1237,
+      "bit_in_byte": 5,
+      "byte_offset": 154,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_4"
+    },
+    {
+      "bit": 1238,
+      "bit_in_byte": 6,
+      "byte_offset": 154,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_5"
+    },
+    {
+      "bit": 1239,
+      "bit_in_byte": 7,
+      "byte_offset": 154,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_6"
+    },
+    {
+      "bit": 1240,
+      "bit_in_byte": 0,
+      "byte_offset": 155,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_7"
+    },
+    {
+      "bit": 1241,
+      "bit_in_byte": 1,
+      "byte_offset": 155,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_8"
+    },
+    {
+      "bit": 1242,
+      "bit_in_byte": 2,
+      "byte_offset": 155,
+      "group": "Route 17 events",
+      "name": "EVENT_BEAT_ROUTE_17_TRAINER_9"
+    },
+    {
+      "bit": 1249,
+      "bit_in_byte": 1,
+      "byte_offset": 156,
+      "group": "Route 18 events",
+      "name": "EVENT_BEAT_ROUTE_18_TRAINER_0"
+    },
+    {
+      "bit": 1250,
+      "bit_in_byte": 2,
+      "byte_offset": 156,
+      "group": "Route 18 events",
+      "name": "EVENT_BEAT_ROUTE_18_TRAINER_1"
+    },
+    {
+      "bit": 1251,
+      "bit_in_byte": 3,
+      "byte_offset": 156,
+      "group": "Route 18 events",
+      "name": "EVENT_BEAT_ROUTE_18_TRAINER_2"
+    },
+    {
+      "bit": 1265,
+      "bit_in_byte": 1,
+      "byte_offset": 158,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_0"
+    },
+    {
+      "bit": 1266,
+      "bit_in_byte": 2,
+      "byte_offset": 158,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_1"
+    },
+    {
+      "bit": 1267,
+      "bit_in_byte": 3,
+      "byte_offset": 158,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_2"
+    },
+    {
+      "bit": 1268,
+      "bit_in_byte": 4,
+      "byte_offset": 158,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_3"
+    },
+    {
+      "bit": 1269,
+      "bit_in_byte": 5,
+      "byte_offset": 158,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_4"
+    },
+    {
+      "bit": 1270,
+      "bit_in_byte": 6,
+      "byte_offset": 158,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_5"
+    },
+    {
+      "bit": 1271,
+      "bit_in_byte": 7,
+      "byte_offset": 158,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_6"
+    },
+    {
+      "bit": 1272,
+      "bit_in_byte": 0,
+      "byte_offset": 159,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_7"
+    },
+    {
+      "bit": 1273,
+      "bit_in_byte": 1,
+      "byte_offset": 159,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_8"
+    },
+    {
+      "bit": 1274,
+      "bit_in_byte": 2,
+      "byte_offset": 159,
+      "group": "Route 19 events",
+      "name": "EVENT_BEAT_ROUTE_19_TRAINER_9"
+    },
+    {
+      "bit": 1280,
+      "bit_in_byte": 0,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_IN_SEAFOAM_ISLANDS"
+    },
+    {
+      "bit": 1281,
+      "bit_in_byte": 1,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_0"
+    },
+    {
+      "bit": 1282,
+      "bit_in_byte": 2,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_1"
+    },
+    {
+      "bit": 1283,
+      "bit_in_byte": 3,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_2"
+    },
+    {
+      "bit": 1284,
+      "bit_in_byte": 4,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_3"
+    },
+    {
+      "bit": 1285,
+      "bit_in_byte": 5,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_4"
+    },
+    {
+      "bit": 1286,
+      "bit_in_byte": 6,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_5"
+    },
+    {
+      "bit": 1287,
+      "bit_in_byte": 7,
+      "byte_offset": 160,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_6"
+    },
+    {
+      "bit": 1288,
+      "bit_in_byte": 0,
+      "byte_offset": 161,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_7"
+    },
+    {
+      "bit": 1289,
+      "bit_in_byte": 1,
+      "byte_offset": 161,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_8"
+    },
+    {
+      "bit": 1290,
+      "bit_in_byte": 2,
+      "byte_offset": 161,
+      "group": "Route 20 events",
+      "name": "EVENT_BEAT_ROUTE_20_TRAINER_9"
+    },
+    {
+      "bit": 1294,
+      "bit_in_byte": 6,
+      "byte_offset": 161,
+      "group": "Route 20 events",
+      "name": "EVENT_SEAFOAM1_BOULDER1_DOWN_HOLE"
+    },
+    {
+      "bit": 1295,
+      "bit_in_byte": 7,
+      "byte_offset": 161,
+      "group": "Route 20 events",
+      "name": "EVENT_SEAFOAM1_BOULDER2_DOWN_HOLE"
+    },
+    {
+      "bit": 1297,
+      "bit_in_byte": 1,
+      "byte_offset": 162,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_0"
+    },
+    {
+      "bit": 1298,
+      "bit_in_byte": 2,
+      "byte_offset": 162,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_1"
+    },
+    {
+      "bit": 1299,
+      "bit_in_byte": 3,
+      "byte_offset": 162,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_2"
+    },
+    {
+      "bit": 1300,
+      "bit_in_byte": 4,
+      "byte_offset": 162,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_3"
+    },
+    {
+      "bit": 1301,
+      "bit_in_byte": 5,
+      "byte_offset": 162,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_4"
+    },
+    {
+      "bit": 1302,
+      "bit_in_byte": 6,
+      "byte_offset": 162,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_5"
+    },
+    {
+      "bit": 1303,
+      "bit_in_byte": 7,
+      "byte_offset": 162,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_6"
+    },
+    {
+      "bit": 1304,
+      "bit_in_byte": 0,
+      "byte_offset": 163,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_7"
+    },
+    {
+      "bit": 1305,
+      "bit_in_byte": 1,
+      "byte_offset": 163,
+      "group": "Route 21 events",
+      "name": "EVENT_BEAT_ROUTE_21_TRAINER_8"
+    },
+    {
+      "bit": 1312,
+      "bit_in_byte": 0,
+      "byte_offset": 164,
+      "group": "Route 22 events",
+      "name": "EVENT_1ST_ROUTE22_RIVAL_BATTLE"
+    },
+    {
+      "bit": 1313,
+      "bit_in_byte": 1,
+      "byte_offset": 164,
+      "group": "Route 22 events",
+      "name": "EVENT_2ND_ROUTE22_RIVAL_BATTLE"
+    },
+    {
+      "bit": 1317,
+      "bit_in_byte": 5,
+      "byte_offset": 164,
+      "group": "Route 22 events",
+      "name": "EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE"
+    },
+    {
+      "bit": 1318,
+      "bit_in_byte": 6,
+      "byte_offset": 164,
+      "group": "Route 22 events",
+      "name": "EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE"
+    },
+    {
+      "bit": 1319,
+      "bit_in_byte": 7,
+      "byte_offset": 164,
+      "group": "Route 22 events",
+      "name": "EVENT_ROUTE22_RIVAL_WANTS_BATTLE"
+    },
+    {
+      "bit": 1328,
+      "bit_in_byte": 0,
+      "byte_offset": 166,
+      "group": "Route 23 events",
+      "name": "EVENT_PASSED_CASCADEBADGE_CHECK"
+    },
+    {
+      "bit": 1329,
+      "bit_in_byte": 1,
+      "byte_offset": 166,
+      "group": "Route 23 events",
+      "name": "EVENT_PASSED_THUNDERBADGE_CHECK"
+    },
+    {
+      "bit": 1330,
+      "bit_in_byte": 2,
+      "byte_offset": 166,
+      "group": "Route 23 events",
+      "name": "EVENT_PASSED_RAINBOWBADGE_CHECK"
+    },
+    {
+      "bit": 1331,
+      "bit_in_byte": 3,
+      "byte_offset": 166,
+      "group": "Route 23 events",
+      "name": "EVENT_PASSED_SOULBADGE_CHECK"
+    },
+    {
+      "bit": 1332,
+      "bit_in_byte": 4,
+      "byte_offset": 166,
+      "group": "Route 23 events",
+      "name": "EVENT_PASSED_MARSHBADGE_CHECK"
+    },
+    {
+      "bit": 1333,
+      "bit_in_byte": 5,
+      "byte_offset": 166,
+      "group": "Route 23 events",
+      "name": "EVENT_PASSED_VOLCANOBADGE_CHECK"
+    },
+    {
+      "bit": 1334,
+      "bit_in_byte": 6,
+      "byte_offset": 166,
+      "group": "Route 23 events",
+      "name": "EVENT_PASSED_EARTHBADGE_CHECK"
+    },
+    {
+      "bit": 1336,
+      "bit_in_byte": 0,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_VICTORY_ROAD_2_BOULDER_ON_SWITCH1"
+    },
+    {
+      "bit": 1337,
+      "bit_in_byte": 1,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_2_TRAINER_0"
+    },
+    {
+      "bit": 1338,
+      "bit_in_byte": 2,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_2_TRAINER_1"
+    },
+    {
+      "bit": 1339,
+      "bit_in_byte": 3,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_2_TRAINER_2"
+    },
+    {
+      "bit": 1340,
+      "bit_in_byte": 4,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_2_TRAINER_3"
+    },
+    {
+      "bit": 1341,
+      "bit_in_byte": 5,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_2_TRAINER_4"
+    },
+    {
+      "bit": 1342,
+      "bit_in_byte": 6,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_BEAT_MOLTRES"
+    },
+    {
+      "bit": 1343,
+      "bit_in_byte": 7,
+      "byte_offset": 167,
+      "group": "Route 23 events",
+      "name": "EVENT_VICTORY_ROAD_2_BOULDER_ON_SWITCH2"
+    },
+    {
+      "bit": 1344,
+      "bit_in_byte": 0,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_GOT_NUGGET"
+    },
+    {
+      "bit": 1345,
+      "bit_in_byte": 1,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_BEAT_ROUTE24_ROCKET"
+    },
+    {
+      "bit": 1346,
+      "bit_in_byte": 2,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_BEAT_ROUTE_24_TRAINER_0"
+    },
+    {
+      "bit": 1347,
+      "bit_in_byte": 3,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_BEAT_ROUTE_24_TRAINER_1"
+    },
+    {
+      "bit": 1348,
+      "bit_in_byte": 4,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_BEAT_ROUTE_24_TRAINER_2"
+    },
+    {
+      "bit": 1349,
+      "bit_in_byte": 5,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_BEAT_ROUTE_24_TRAINER_3"
+    },
+    {
+      "bit": 1350,
+      "bit_in_byte": 6,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_BEAT_ROUTE_24_TRAINER_4"
+    },
+    {
+      "bit": 1351,
+      "bit_in_byte": 7,
+      "byte_offset": 168,
+      "group": "Route 24 events",
+      "name": "EVENT_BEAT_ROUTE_24_TRAINER_5"
+    },
+    {
+      "bit": 1353,
+      "bit_in_byte": 1,
+      "byte_offset": 169,
+      "group": "Route 24 events",
+      "name": "EVENT_NUGGET_REWARD_AVAILABLE"
+    },
+    {
+      "bit": 1359,
+      "bit_in_byte": 7,
+      "byte_offset": 169,
+      "group": "Route 25 events",
+      "name": "EVENT_54F"
+    },
+    {
+      "bit": 1360,
+      "bit_in_byte": 0,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_MET_BILL"
+    },
+    {
+      "bit": 1361,
+      "bit_in_byte": 1,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_0"
+    },
+    {
+      "bit": 1362,
+      "bit_in_byte": 2,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_1"
+    },
+    {
+      "bit": 1363,
+      "bit_in_byte": 3,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_2"
+    },
+    {
+      "bit": 1364,
+      "bit_in_byte": 4,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_3"
+    },
+    {
+      "bit": 1365,
+      "bit_in_byte": 5,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_4"
+    },
+    {
+      "bit": 1366,
+      "bit_in_byte": 6,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_5"
+    },
+    {
+      "bit": 1367,
+      "bit_in_byte": 7,
+      "byte_offset": 170,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_6"
+    },
+    {
+      "bit": 1368,
+      "bit_in_byte": 0,
+      "byte_offset": 171,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_7"
+    },
+    {
+      "bit": 1369,
+      "bit_in_byte": 1,
+      "byte_offset": 171,
+      "group": "Route 25 events",
+      "name": "EVENT_BEAT_ROUTE_25_TRAINER_8"
+    },
+    {
+      "bit": 1371,
+      "bit_in_byte": 3,
+      "byte_offset": 171,
+      "group": "Route 25 events",
+      "name": "EVENT_USED_CELL_SEPARATOR_ON_BILL"
+    },
+    {
+      "bit": 1372,
+      "bit_in_byte": 4,
+      "byte_offset": 171,
+      "group": "Route 25 events",
+      "name": "EVENT_GOT_SS_TICKET"
+    },
+    {
+      "bit": 1373,
+      "bit_in_byte": 5,
+      "byte_offset": 171,
+      "group": "Route 25 events",
+      "name": "EVENT_MET_BILL_2"
+    },
+    {
+      "bit": 1374,
+      "bit_in_byte": 6,
+      "byte_offset": 171,
+      "group": "Route 25 events",
+      "name": "EVENT_BILL_SAID_USE_CELL_SEPARATOR"
+    },
+    {
+      "bit": 1375,
+      "bit_in_byte": 7,
+      "byte_offset": 171,
+      "group": "Route 25 events",
+      "name": "EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING"
+    },
+    {
+      "bit": 1378,
+      "bit_in_byte": 2,
+      "byte_offset": 172,
+      "group": "Viridian Forest events",
+      "name": "EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_0"
+    },
+    {
+      "bit": 1379,
+      "bit_in_byte": 3,
+      "byte_offset": 172,
+      "group": "Viridian Forest events",
+      "name": "EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_1"
+    },
+    {
+      "bit": 1380,
+      "bit_in_byte": 4,
+      "byte_offset": 172,
+      "group": "Viridian Forest events",
+      "name": "EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_2"
+    },
+    {
+      "bit": 1381,
+      "bit_in_byte": 5,
+      "byte_offset": 172,
+      "group": "Viridian Forest events",
+      "name": "EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_3"
+    },
+    {
+      "bit": 1382,
+      "bit_in_byte": 6,
+      "byte_offset": 172,
+      "group": "Viridian Forest events",
+      "name": "EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_4"
+    },
+    {
+      "bit": 1393,
+      "bit_in_byte": 1,
+      "byte_offset": 174,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_1_TRAINER_0"
+    },
+    {
+      "bit": 1394,
+      "bit_in_byte": 2,
+      "byte_offset": 174,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_1_TRAINER_1"
+    },
+    {
+      "bit": 1395,
+      "bit_in_byte": 3,
+      "byte_offset": 174,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_1_TRAINER_2"
+    },
+    {
+      "bit": 1396,
+      "bit_in_byte": 4,
+      "byte_offset": 174,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_1_TRAINER_3"
+    },
+    {
+      "bit": 1397,
+      "bit_in_byte": 5,
+      "byte_offset": 174,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_1_TRAINER_4"
+    },
+    {
+      "bit": 1398,
+      "bit_in_byte": 6,
+      "byte_offset": 174,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_1_TRAINER_5"
+    },
+    {
+      "bit": 1399,
+      "bit_in_byte": 7,
+      "byte_offset": 174,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_1_TRAINER_6"
+    },
+    {
+      "bit": 1400,
+      "bit_in_byte": 0,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_GOT_DOME_FOSSIL"
+    },
+    {
+      "bit": 1401,
+      "bit_in_byte": 1,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD"
+    },
+    {
+      "bit": 1402,
+      "bit_in_byte": 2,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_3_JESSIE_JAMES"
+    },
+    {
+      "bit": 1403,
+      "bit_in_byte": 3,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_3_TRAINER_0"
+    },
+    {
+      "bit": 1404,
+      "bit_in_byte": 4,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_3_TRAINER_1"
+    },
+    {
+      "bit": 1405,
+      "bit_in_byte": 5,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_BEAT_MT_MOON_3_TRAINER_2"
+    },
+    {
+      "bit": 1406,
+      "bit_in_byte": 6,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_57E"
+    },
+    {
+      "bit": 1407,
+      "bit_in_byte": 7,
+      "byte_offset": 175,
+      "group": "Mt. Moon events",
+      "name": "EVENT_GOT_HELIX_FOSSIL"
+    },
+    {
+      "bit": 1476,
+      "bit_in_byte": 4,
+      "byte_offset": 184,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_5_TRAINER_0"
+    },
+    {
+      "bit": 1477,
+      "bit_in_byte": 5,
+      "byte_offset": 184,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_5_TRAINER_1"
+    },
+    {
+      "bit": 1504,
+      "bit_in_byte": 0,
+      "byte_offset": 188,
+      "group": "S.S. Anne events",
+      "name": "EVENT_GOT_HM01"
+    },
+    {
+      "bit": 1505,
+      "bit_in_byte": 1,
+      "byte_offset": 188,
+      "group": "S.S. Anne events",
+      "name": "EVENT_RUBBED_CAPTAINS_BACK"
+    },
+    {
+      "bit": 1506,
+      "bit_in_byte": 2,
+      "byte_offset": 188,
+      "group": "S.S. Anne events",
+      "name": "EVENT_SS_ANNE_LEFT"
+    },
+    {
+      "bit": 1507,
+      "bit_in_byte": 3,
+      "byte_offset": 188,
+      "group": "S.S. Anne events",
+      "name": "EVENT_WALKED_PAST_GUARD_AFTER_SS_ANNE_LEFT"
+    },
+    {
+      "bit": 1508,
+      "bit_in_byte": 4,
+      "byte_offset": 188,
+      "group": "S.S. Anne events",
+      "name": "EVENT_STARTED_WALKING_OUT_OF_DOCK"
+    },
+    {
+      "bit": 1509,
+      "bit_in_byte": 5,
+      "byte_offset": 188,
+      "group": "S.S. Anne events",
+      "name": "EVENT_WALKED_OUT_OF_DOCK"
+    },
+    {
+      "bit": 1521,
+      "bit_in_byte": 1,
+      "byte_offset": 190,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_8_TRAINER_0"
+    },
+    {
+      "bit": 1522,
+      "bit_in_byte": 2,
+      "byte_offset": 190,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_8_TRAINER_1"
+    },
+    {
+      "bit": 1523,
+      "bit_in_byte": 3,
+      "byte_offset": 190,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_8_TRAINER_2"
+    },
+    {
+      "bit": 1524,
+      "bit_in_byte": 4,
+      "byte_offset": 190,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_8_TRAINER_3"
+    },
+    {
+      "bit": 1537,
+      "bit_in_byte": 1,
+      "byte_offset": 192,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_9_TRAINER_0"
+    },
+    {
+      "bit": 1538,
+      "bit_in_byte": 2,
+      "byte_offset": 192,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_9_TRAINER_1"
+    },
+    {
+      "bit": 1539,
+      "bit_in_byte": 3,
+      "byte_offset": 192,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_9_TRAINER_2"
+    },
+    {
+      "bit": 1540,
+      "bit_in_byte": 4,
+      "byte_offset": 192,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_9_TRAINER_3"
+    },
+    {
+      "bit": 1553,
+      "bit_in_byte": 1,
+      "byte_offset": 194,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_10_TRAINER_0"
+    },
+    {
+      "bit": 1554,
+      "bit_in_byte": 2,
+      "byte_offset": 194,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_10_TRAINER_1"
+    },
+    {
+      "bit": 1555,
+      "bit_in_byte": 3,
+      "byte_offset": 194,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_10_TRAINER_2"
+    },
+    {
+      "bit": 1556,
+      "bit_in_byte": 4,
+      "byte_offset": 194,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_10_TRAINER_3"
+    },
+    {
+      "bit": 1557,
+      "bit_in_byte": 5,
+      "byte_offset": 194,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_10_TRAINER_4"
+    },
+    {
+      "bit": 1558,
+      "bit_in_byte": 6,
+      "byte_offset": 194,
+      "group": "S.S. Anne events",
+      "name": "EVENT_BEAT_SS_ANNE_10_TRAINER_5"
+    },
+    {
+      "bit": 1632,
+      "bit_in_byte": 0,
+      "byte_offset": 204,
+      "group": "Victory Road 3F events",
+      "name": "EVENT_VICTORY_ROAD_3_BOULDER_ON_SWITCH1"
+    },
+    {
+      "bit": 1633,
+      "bit_in_byte": 1,
+      "byte_offset": 204,
+      "group": "Victory Road 3F events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_3_TRAINER_0"
+    },
+    {
+      "bit": 1634,
+      "bit_in_byte": 2,
+      "byte_offset": 204,
+      "group": "Victory Road 3F events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_3_TRAINER_1"
+    },
+    {
+      "bit": 1635,
+      "bit_in_byte": 3,
+      "byte_offset": 204,
+      "group": "Victory Road 3F events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_3_TRAINER_2"
+    },
+    {
+      "bit": 1636,
+      "bit_in_byte": 4,
+      "byte_offset": 204,
+      "group": "Victory Road 3F events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_3_TRAINER_3"
+    },
+    {
+      "bit": 1638,
+      "bit_in_byte": 6,
+      "byte_offset": 204,
+      "group": "Victory Road 3F events",
+      "name": "EVENT_VICTORY_ROAD_3_BOULDER_ON_SWITCH2"
+    },
+    {
+      "bit": 1649,
+      "bit_in_byte": 1,
+      "byte_offset": 206,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_0"
+    },
+    {
+      "bit": 1650,
+      "bit_in_byte": 2,
+      "byte_offset": 206,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_1"
+    },
+    {
+      "bit": 1651,
+      "bit_in_byte": 3,
+      "byte_offset": 206,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_2"
+    },
+    {
+      "bit": 1652,
+      "bit_in_byte": 4,
+      "byte_offset": 206,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_3"
+    },
+    {
+      "bit": 1653,
+      "bit_in_byte": 5,
+      "byte_offset": 206,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_4"
+    },
+    {
+      "bit": 1655,
+      "bit_in_byte": 7,
+      "byte_offset": 206,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_ENTERED_ROCKET_HIDEOUT"
+    },
+    {
+      "bit": 1663,
+      "bit_in_byte": 7,
+      "byte_offset": 207,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_67F"
+    },
+    {
+      "bit": 1665,
+      "bit_in_byte": 1,
+      "byte_offset": 208,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_2_TRAINER_0"
+    },
+    {
+      "bit": 1681,
+      "bit_in_byte": 1,
+      "byte_offset": 210,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_3_TRAINER_0"
+    },
+    {
+      "bit": 1682,
+      "bit_in_byte": 2,
+      "byte_offset": 210,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_3_TRAINER_1"
+    },
+    {
+      "bit": 1696,
+      "bit_in_byte": 0,
+      "byte_offset": 212,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_6A0"
+    },
+    {
+      "bit": 1698,
+      "bit_in_byte": 2,
+      "byte_offset": 212,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_4_JESSIE_JAMES"
+    },
+    {
+      "bit": 1699,
+      "bit_in_byte": 3,
+      "byte_offset": 212,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_ROCKET_HIDEOUT_4_JESSIE_JAMES_ON_LEFT"
+    },
+    {
+      "bit": 1700,
+      "bit_in_byte": 4,
+      "byte_offset": 212,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_4_TRAINER_2"
+    },
+    {
+      "bit": 1701,
+      "bit_in_byte": 5,
+      "byte_offset": 212,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_ROCKET_HIDEOUT_4_DOOR_UNLOCKED"
+    },
+    {
+      "bit": 1702,
+      "bit_in_byte": 6,
+      "byte_offset": 212,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_ROCKET_DROPPED_LIFT_KEY"
+    },
+    {
+      "bit": 1703,
+      "bit_in_byte": 7,
+      "byte_offset": 212,
+      "group": "Rocket Hideout events",
+      "name": "EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI"
+    },
+    {
+      "bit": 1778,
+      "bit_in_byte": 2,
+      "byte_offset": 222,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_2F_TRAINER_0"
+    },
+    {
+      "bit": 1779,
+      "bit_in_byte": 3,
+      "byte_offset": 222,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_2F_TRAINER_1"
+    },
+    {
+      "bit": 1780,
+      "bit_in_byte": 4,
+      "byte_offset": 222,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_2F_TRAINER_2"
+    },
+    {
+      "bit": 1781,
+      "bit_in_byte": 5,
+      "byte_offset": 222,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_2F_TRAINER_3"
+    },
+    {
+      "bit": 1789,
+      "bit_in_byte": 5,
+      "byte_offset": 223,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_2_UNLOCKED_DOOR1"
+    },
+    {
+      "bit": 1790,
+      "bit_in_byte": 6,
+      "byte_offset": 223,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_2_UNLOCKED_DOOR2"
+    },
+    {
+      "bit": 1791,
+      "bit_in_byte": 7,
+      "byte_offset": 223,
+      "group": "Silph Co. events",
+      "name": "EVENT_GOT_TM36"
+    },
+    {
+      "bit": 1794,
+      "bit_in_byte": 2,
+      "byte_offset": 224,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_3F_TRAINER_0"
+    },
+    {
+      "bit": 1795,
+      "bit_in_byte": 3,
+      "byte_offset": 224,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_3F_TRAINER_1"
+    },
+    {
+      "bit": 1800,
+      "bit_in_byte": 0,
+      "byte_offset": 225,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_3_UNLOCKED_DOOR1"
+    },
+    {
+      "bit": 1801,
+      "bit_in_byte": 1,
+      "byte_offset": 225,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_3_UNLOCKED_DOOR2"
+    },
+    {
+      "bit": 1810,
+      "bit_in_byte": 2,
+      "byte_offset": 226,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_4F_TRAINER_0"
+    },
+    {
+      "bit": 1811,
+      "bit_in_byte": 3,
+      "byte_offset": 226,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_4F_TRAINER_1"
+    },
+    {
+      "bit": 1812,
+      "bit_in_byte": 4,
+      "byte_offset": 226,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_4F_TRAINER_2"
+    },
+    {
+      "bit": 1816,
+      "bit_in_byte": 0,
+      "byte_offset": 227,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_4_UNLOCKED_DOOR1"
+    },
+    {
+      "bit": 1817,
+      "bit_in_byte": 1,
+      "byte_offset": 227,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_4_UNLOCKED_DOOR2"
+    },
+    {
+      "bit": 1826,
+      "bit_in_byte": 2,
+      "byte_offset": 228,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_5F_TRAINER_0"
+    },
+    {
+      "bit": 1827,
+      "bit_in_byte": 3,
+      "byte_offset": 228,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_5F_TRAINER_1"
+    },
+    {
+      "bit": 1828,
+      "bit_in_byte": 4,
+      "byte_offset": 228,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_5F_TRAINER_2"
+    },
+    {
+      "bit": 1829,
+      "bit_in_byte": 5,
+      "byte_offset": 228,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_5F_TRAINER_3"
+    },
+    {
+      "bit": 1832,
+      "bit_in_byte": 0,
+      "byte_offset": 229,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_5_UNLOCKED_DOOR1"
+    },
+    {
+      "bit": 1833,
+      "bit_in_byte": 1,
+      "byte_offset": 229,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_5_UNLOCKED_DOOR2"
+    },
+    {
+      "bit": 1834,
+      "bit_in_byte": 2,
+      "byte_offset": 229,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_5_UNLOCKED_DOOR3"
+    },
+    {
+      "bit": 1846,
+      "bit_in_byte": 6,
+      "byte_offset": 230,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_6F_TRAINER_0"
+    },
+    {
+      "bit": 1847,
+      "bit_in_byte": 7,
+      "byte_offset": 230,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_6F_TRAINER_1"
+    },
+    {
+      "bit": 1848,
+      "bit_in_byte": 0,
+      "byte_offset": 231,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_6F_TRAINER_2"
+    },
+    {
+      "bit": 1855,
+      "bit_in_byte": 7,
+      "byte_offset": 231,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_6_UNLOCKED_DOOR"
+    },
+    {
+      "bit": 1856,
+      "bit_in_byte": 0,
+      "byte_offset": 232,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_RIVAL"
+    },
+    {
+      "bit": 1861,
+      "bit_in_byte": 5,
+      "byte_offset": 232,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_7F_TRAINER_0"
+    },
+    {
+      "bit": 1862,
+      "bit_in_byte": 6,
+      "byte_offset": 232,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_7F_TRAINER_1"
+    },
+    {
+      "bit": 1863,
+      "bit_in_byte": 7,
+      "byte_offset": 232,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_7F_TRAINER_2"
+    },
+    {
+      "bit": 1864,
+      "bit_in_byte": 0,
+      "byte_offset": 233,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_7F_TRAINER_3"
+    },
+    {
+      "bit": 1868,
+      "bit_in_byte": 4,
+      "byte_offset": 233,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_7_UNLOCKED_DOOR1"
+    },
+    {
+      "bit": 1869,
+      "bit_in_byte": 5,
+      "byte_offset": 233,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_7_UNLOCKED_DOOR2"
+    },
+    {
+      "bit": 1870,
+      "bit_in_byte": 6,
+      "byte_offset": 233,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_7_UNLOCKED_DOOR3"
+    },
+    {
+      "bit": 1874,
+      "bit_in_byte": 2,
+      "byte_offset": 234,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_8F_TRAINER_0"
+    },
+    {
+      "bit": 1875,
+      "bit_in_byte": 3,
+      "byte_offset": 234,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_8F_TRAINER_1"
+    },
+    {
+      "bit": 1876,
+      "bit_in_byte": 4,
+      "byte_offset": 234,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_8F_TRAINER_2"
+    },
+    {
+      "bit": 1880,
+      "bit_in_byte": 0,
+      "byte_offset": 235,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_8_UNLOCKED_DOOR"
+    },
+    {
+      "bit": 1890,
+      "bit_in_byte": 2,
+      "byte_offset": 236,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_9F_TRAINER_0"
+    },
+    {
+      "bit": 1891,
+      "bit_in_byte": 3,
+      "byte_offset": 236,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_9F_TRAINER_1"
+    },
+    {
+      "bit": 1892,
+      "bit_in_byte": 4,
+      "byte_offset": 236,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_9F_TRAINER_2"
+    },
+    {
+      "bit": 1896,
+      "bit_in_byte": 0,
+      "byte_offset": 237,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_9_UNLOCKED_DOOR1"
+    },
+    {
+      "bit": 1897,
+      "bit_in_byte": 1,
+      "byte_offset": 237,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_9_UNLOCKED_DOOR2"
+    },
+    {
+      "bit": 1898,
+      "bit_in_byte": 2,
+      "byte_offset": 237,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_9_UNLOCKED_DOOR3"
+    },
+    {
+      "bit": 1899,
+      "bit_in_byte": 3,
+      "byte_offset": 237,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_9_UNLOCKED_DOOR4"
+    },
+    {
+      "bit": 1905,
+      "bit_in_byte": 1,
+      "byte_offset": 238,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_10F_TRAINER_0"
+    },
+    {
+      "bit": 1906,
+      "bit_in_byte": 2,
+      "byte_offset": 238,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_10F_TRAINER_1"
+    },
+    {
+      "bit": 1912,
+      "bit_in_byte": 0,
+      "byte_offset": 239,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_10_UNLOCKED_DOOR"
+    },
+    {
+      "bit": 1920,
+      "bit_in_byte": 0,
+      "byte_offset": 240,
+      "group": "Silph Co. events",
+      "name": "EVENT_780"
+    },
+    {
+      "bit": 1921,
+      "bit_in_byte": 1,
+      "byte_offset": 240,
+      "group": "Silph Co. events",
+      "name": "EVENT_781"
+    },
+    {
+      "bit": 1922,
+      "bit_in_byte": 2,
+      "byte_offset": 240,
+      "group": "Silph Co. events",
+      "name": "EVENT_782"
+    },
+    {
+      "bit": 1924,
+      "bit_in_byte": 4,
+      "byte_offset": 240,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_11F_JESSIE_JAMES"
+    },
+    {
+      "bit": 1925,
+      "bit_in_byte": 5,
+      "byte_offset": 240,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_11F_TRAINER_0"
+    },
+    {
+      "bit": 1928,
+      "bit_in_byte": 0,
+      "byte_offset": 241,
+      "group": "Silph Co. events",
+      "name": "EVENT_SILPH_CO_11_UNLOCKED_DOOR"
+    },
+    {
+      "bit": 1933,
+      "bit_in_byte": 5,
+      "byte_offset": 241,
+      "group": "Silph Co. events",
+      "name": "EVENT_GOT_MASTER_BALL"
+    },
+    {
+      "bit": 1935,
+      "bit_in_byte": 7,
+      "byte_offset": 241,
+      "group": "Silph Co. events",
+      "name": "EVENT_BEAT_SILPH_CO_GIOVANNI"
+    },
+    {
+      "bit": 2049,
+      "bit_in_byte": 1,
+      "byte_offset": 256,
+      "group": "Pok\u00e9mon Mansion events",
+      "name": "EVENT_BEAT_MANSION_2_TRAINER_0"
+    },
+    {
+      "bit": 2065,
+      "bit_in_byte": 1,
+      "byte_offset": 258,
+      "group": "Pok\u00e9mon Mansion events",
+      "name": "EVENT_BEAT_MANSION_3_TRAINER_0"
+    },
+    {
+      "bit": 2066,
+      "bit_in_byte": 2,
+      "byte_offset": 258,
+      "group": "Pok\u00e9mon Mansion events",
+      "name": "EVENT_BEAT_MANSION_3_TRAINER_1"
+    },
+    {
+      "bit": 2081,
+      "bit_in_byte": 1,
+      "byte_offset": 260,
+      "group": "Pok\u00e9mon Mansion events",
+      "name": "EVENT_BEAT_MANSION_4_TRAINER_0"
+    },
+    {
+      "bit": 2082,
+      "bit_in_byte": 2,
+      "byte_offset": 260,
+      "group": "Pok\u00e9mon Mansion events",
+      "name": "EVENT_BEAT_MANSION_4_TRAINER_1"
+    },
+    {
+      "bit": 2176,
+      "bit_in_byte": 0,
+      "byte_offset": 272,
+      "group": "Safari Zone events",
+      "name": "EVENT_GOT_HM03"
+    },
+    {
+      "bit": 2241,
+      "bit_in_byte": 1,
+      "byte_offset": 280,
+      "group": "Cerulean Cave events",
+      "name": "EVENT_BEAT_MEWTWO"
+    },
+    {
+      "bit": 2273,
+      "bit_in_byte": 1,
+      "byte_offset": 284,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_BEAT_LORELEIS_ROOM_TRAINER_0"
+    },
+    {
+      "bit": 2278,
+      "bit_in_byte": 6,
+      "byte_offset": 284,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_AUTOWALKED_INTO_LORELEIS_ROOM"
+    },
+    {
+      "bit": 2281,
+      "bit_in_byte": 1,
+      "byte_offset": 285,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_BEAT_BRUNOS_ROOM_TRAINER_0"
+    },
+    {
+      "bit": 2286,
+      "bit_in_byte": 6,
+      "byte_offset": 285,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_AUTOWALKED_INTO_BRUNOS_ROOM"
+    },
+    {
+      "bit": 2289,
+      "bit_in_byte": 1,
+      "byte_offset": 286,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_BEAT_AGATHAS_ROOM_TRAINER_0"
+    },
+    {
+      "bit": 2294,
+      "bit_in_byte": 6,
+      "byte_offset": 286,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_AUTOWALKED_INTO_AGATHAS_ROOM"
+    },
+    {
+      "bit": 2297,
+      "bit_in_byte": 1,
+      "byte_offset": 287,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_BEAT_LANCES_ROOM_TRAINER_0"
+    },
+    {
+      "bit": 2302,
+      "bit_in_byte": 6,
+      "byte_offset": 287,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_BEAT_LANCE"
+    },
+    {
+      "bit": 2303,
+      "bit_in_byte": 7,
+      "byte_offset": 287,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_LANCES_ROOM_LOCK_DOOR"
+    },
+    {
+      "bit": 2305,
+      "bit_in_byte": 1,
+      "byte_offset": 288,
+      "group": "Indigo Plateau events",
+      "name": "EVENT_BEAT_CHAMPION_RIVAL"
+    },
+    {
+      "bit": 2321,
+      "bit_in_byte": 1,
+      "byte_offset": 290,
+      "group": "Victory Road 1F events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_1_TRAINER_0"
+    },
+    {
+      "bit": 2322,
+      "bit_in_byte": 2,
+      "byte_offset": 290,
+      "group": "Victory Road 1F events",
+      "name": "EVENT_BEAT_VICTORY_ROAD_1_TRAINER_1"
+    },
+    {
+      "bit": 2327,
+      "bit_in_byte": 7,
+      "byte_offset": 290,
+      "group": "Victory Road 1F events",
+      "name": "EVENT_VICTORY_ROAD_1_BOULDER_ON_SWITCH"
+    },
+    {
+      "bit": 2481,
+      "bit_in_byte": 1,
+      "byte_offset": 310,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_0"
+    },
+    {
+      "bit": 2482,
+      "bit_in_byte": 2,
+      "byte_offset": 310,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_1"
+    },
+    {
+      "bit": 2483,
+      "bit_in_byte": 3,
+      "byte_offset": 310,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_2"
+    },
+    {
+      "bit": 2484,
+      "bit_in_byte": 4,
+      "byte_offset": 310,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_3"
+    },
+    {
+      "bit": 2485,
+      "bit_in_byte": 5,
+      "byte_offset": 310,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_4"
+    },
+    {
+      "bit": 2486,
+      "bit_in_byte": 6,
+      "byte_offset": 310,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_5"
+    },
+    {
+      "bit": 2487,
+      "bit_in_byte": 7,
+      "byte_offset": 310,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_6"
+    },
+    {
+      "bit": 2488,
+      "bit_in_byte": 0,
+      "byte_offset": 311,
+      "group": "Rock Tunnel events",
+      "name": "EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_7"
+    },
+    {
+      "bit": 2496,
+      "bit_in_byte": 0,
+      "byte_offset": 312,
+      "group": "Seafoam Islands events",
+      "name": "EVENT_SEAFOAM2_BOULDER1_DOWN_HOLE"
+    },
+    {
+      "bit": 2497,
+      "bit_in_byte": 1,
+      "byte_offset": 312,
+      "group": "Seafoam Islands events",
+      "name": "EVENT_SEAFOAM2_BOULDER2_DOWN_HOLE"
+    },
+    {
+      "bit": 2504,
+      "bit_in_byte": 0,
+      "byte_offset": 313,
+      "group": "Seafoam Islands events",
+      "name": "EVENT_SEAFOAM3_BOULDER1_DOWN_HOLE"
+    },
+    {
+      "bit": 2505,
+      "bit_in_byte": 1,
+      "byte_offset": 313,
+      "group": "Seafoam Islands events",
+      "name": "EVENT_SEAFOAM3_BOULDER2_DOWN_HOLE"
+    },
+    {
+      "bit": 2512,
+      "bit_in_byte": 0,
+      "byte_offset": 314,
+      "group": "Seafoam Islands events",
+      "name": "EVENT_SEAFOAM4_BOULDER1_DOWN_HOLE"
+    },
+    {
+      "bit": 2513,
+      "bit_in_byte": 1,
+      "byte_offset": 314,
+      "group": "Seafoam Islands events",
+      "name": "EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE"
+    },
+    {
+      "bit": 2522,
+      "bit_in_byte": 2,
+      "byte_offset": 315,
+      "group": "Seafoam Islands events",
+      "name": "EVENT_BEAT_ARTICUNO"
+    }
+  ],
+  "game": "Pok\u00e9mon Yellow",
+  "max_named_bit": 2522,
+  "num_events": 2560,
+  "schema_version": 1,
+  "sources": {
+    "event_constants": "https://raw.githubusercontent.com/pret/pokeyellow/master/constants/event_constants.asm",
+    "flag_action_routine": "https://raw.githubusercontent.com/pret/pokeyellow/master/engine/flag_action.asm"
+  }
+}

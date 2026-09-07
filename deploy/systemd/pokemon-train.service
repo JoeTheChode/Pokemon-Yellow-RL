@@ -1,0 +1,19 @@
+[Unit]
+Description=Pokemon Yellow training service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/pokemon-rl
+Environment=PYTHONUNBUFFERED=1
+Environment=POKEMON_N_ENVS=96
+Environment=POKEMON_VEC_ENV=subproc
+ExecStart=/home/ubuntu/pokemon-rl/run_train_ovh.sh
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/ubuntu/pokemon-rl/train.log
+StandardError=append:/home/ubuntu/pokemon-rl/train.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+[Unit]
+Description=Restart pokemon-train if it stops making progress
+After=pokemon-train.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/ubuntu/pokemon-rl/train_watchdog.sh

@@ -386,11 +386,13 @@
       "constant": "PALLET_TOWN",
       "hex_id": "0x00",
       "id": 0,
+      "items": [],
       "name": "Pallet Town",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "REDS_HOUSE_1F",
@@ -446,11 +448,13 @@
       "constant": "VIRIDIAN_CITY",
       "hex_id": "0x01",
       "id": 1,
+      "items": [],
       "name": "Viridian City",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "VIRIDIAN_POKECENTER",
@@ -518,11 +522,13 @@
       "constant": "PEWTER_CITY",
       "hex_id": "0x02",
       "id": 2,
+      "items": [],
       "name": "Pewter City",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "MUSEUM_1F",
@@ -620,10 +626,23 @@
       "constant": "CERULEAN_CITY",
       "hex_id": "0x03",
       "id": 3,
+      "items": [],
       "name": "Cerulean City",
       "size_blocks": [
         20,
         18
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            8,
+            30
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_CERULEANCITY_ROCKET"
+        }
       ],
       "warps": [
         {
@@ -743,11 +762,13 @@
       "constant": "LAVENDER_TOWN",
       "hex_id": "0x04",
       "id": 4,
+      "items": [],
       "name": "Lavender Town",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAVENDER_POKECENTER",
@@ -824,11 +845,13 @@
       "constant": "VERMILION_CITY",
       "hex_id": "0x05",
       "id": 5,
+      "items": [],
       "name": "Vermilion City",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "VERMILION_POKECENTER",
@@ -932,11 +955,13 @@
       "constant": "CELADON_CITY",
       "hex_id": "0x06",
       "id": 6,
+      "items": [],
       "name": "Celadon City",
       "size_blocks": [
         25,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MART_1F",
@@ -1082,11 +1107,13 @@
       "constant": "FUCHSIA_CITY",
       "hex_id": "0x07",
       "id": 7,
+      "items": [],
       "name": "Fuchsia City",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "FUCHSIA_MART",
@@ -1190,11 +1217,13 @@
       "constant": "CINNABAR_ISLAND",
       "hex_id": "0x08",
       "id": 8,
+      "items": [],
       "name": "Cinnabar Island",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "POKEMON_MANSION_1F",
@@ -1256,11 +1285,13 @@
       "constant": "INDIGO_PLATEAU",
       "hex_id": "0x09",
       "id": 9,
+      "items": [],
       "name": "Indigo Plateau",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "INDIGO_PLATEAU_LOBBY",
@@ -1313,11 +1344,13 @@
       "constant": "SAFFRON_CITY",
       "hex_id": "0x0A",
       "id": 10,
+      "items": [],
       "name": "Saffron City",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "COPYCATS_HOUSE_1F",
@@ -1399,11 +1432,13 @@
       "constant": "UNUSED_MAP_0B",
       "hex_id": "0x0B",
       "id": 11,
+      "items": [],
       "name": "Unused Map 0B",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -1425,11 +1460,13 @@
       "constant": "ROUTE_1",
       "hex_id": "0x0C",
       "id": 12,
+      "items": [],
       "name": "Route 1",
       "size_blocks": [
         10,
         18
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -1451,11 +1488,32 @@
       "constant": "ROUTE_2",
       "hex_id": "0x0D",
       "id": 13,
+      "items": [
+        {
+          "item": "MOON_STONE",
+          "position": [
+            54,
+            13
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE2_MOON_STONE"
+        },
+        {
+          "item": "HP_UP",
+          "position": [
+            45,
+            13
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE2_HP_UP"
+        }
+      ],
       "name": "Route 2",
       "size_blocks": [
         10,
         36
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "DIGLETTS_CAVE_ROUTE_2",
@@ -1541,10 +1599,93 @@
       "constant": "ROUTE_3",
       "hex_id": "0x0E",
       "id": 14,
+      "items": [],
       "name": "Route 3",
       "size_blocks": [
         35,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            6,
+            10
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE3_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            4,
+            14
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE3_YOUNGSTER2"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            9,
+            16
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE3_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            5,
+            19
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE3_YOUNGSTER3"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            4,
+            23
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE3_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            9,
+            22
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE3_YOUNGSTER4"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            6,
+            24
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE3_YOUNGSTER5"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            10,
+            33
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE3_COOLTRAINER_F3"
+        }
       ],
       "warps": []
     },
@@ -1567,10 +1708,33 @@
       "constant": "ROUTE_4",
       "hex_id": "0x0F",
       "id": 15,
+      "items": [
+        {
+          "item": "TM_WHIRLWIND",
+          "position": [
+            3,
+            57
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE4_TM_WHIRLWIND"
+        }
+      ],
       "name": "Route 4",
       "size_blocks": [
         45,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            3,
+            63
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE4_COOLTRAINER_F2"
+        }
       ],
       "warps": [
         {
@@ -1621,11 +1785,13 @@
       "constant": "ROUTE_5",
       "hex_id": "0x10",
       "id": 16,
+      "items": [],
       "name": "Route 5",
       "size_blocks": [
         10,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_5_GATE",
@@ -1693,10 +1859,73 @@
       "constant": "ROUTE_6",
       "hex_id": "0x11",
       "id": 17,
+      "items": [],
       "name": "Route 6",
       "size_blocks": [
         10,
         18
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            21,
+            10
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE6_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            21,
+            11
+          ],
+          "roster": "25",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE6_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            15,
+            0
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE6_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            31,
+            11
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE6_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            30,
+            11
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE6_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            26,
+            19
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE6_YOUNGSTER2"
+        }
       ],
       "warps": [
         {
@@ -1756,11 +1985,13 @@
       "constant": "ROUTE_7",
       "hex_id": "0x12",
       "id": 18,
+      "items": [],
       "name": "Route 7",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_7_GATE",
@@ -1828,10 +2059,103 @@
       "constant": "ROUTE_8",
       "hex_id": "0x13",
       "id": 19,
+      "items": [],
       "name": "Route 8",
       "size_blocks": [
         30,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            5,
+            8
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE8_SUPER_NERD1"
+        },
+        {
+          "opponent": "OPP_GAMBLER",
+          "position": [
+            9,
+            13
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_GAMBLER",
+          "text_id": "TEXT_ROUTE8_GAMBLER1"
+        },
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            6,
+            42
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE8_SUPER_NERD2"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            3,
+            26
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE8_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            4,
+            26
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE8_SUPER_NERD3"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            5,
+            26
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE8_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            6,
+            26
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE8_COOLTRAINER_F3"
+        },
+        {
+          "opponent": "OPP_GAMBLER",
+          "position": [
+            13,
+            46
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_GAMBLER",
+          "text_id": "TEXT_ROUTE8_GAMBLER2"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            12,
+            51
+          ],
+          "roster": "16",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE8_COOLTRAINER_F4"
+        }
       ],
       "warps": [
         {
@@ -1900,10 +2224,113 @@
       "constant": "ROUTE_9",
       "hex_id": "0x14",
       "id": 20,
+      "items": [
+        {
+          "item": "TM_TELEPORT",
+          "position": [
+            15,
+            10
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE9_TM_TELEPORT"
+        }
+      ],
       "name": "Route 9",
       "size_blocks": [
         30,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            10,
+            13
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE9_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            7,
+            24
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE9_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            7,
+            31
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE9_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            8,
+            48
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE9_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            15,
+            16
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE9_HIKER1"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            3,
+            43
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE9_HIKER2"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            2,
+            22
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE9_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            15,
+            45
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE9_HIKER3"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            8,
+            40
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE9_YOUNGSTER2"
+        }
       ],
       "warps": []
     },
@@ -1926,10 +2353,73 @@
       "constant": "ROUTE_10",
       "hex_id": "0x15",
       "id": 21,
+      "items": [],
       "name": "Route 10",
       "size_blocks": [
         10,
         36
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_POKEMANIAC",
+          "position": [
+            44,
+            10
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE10_SUPER_NERD1"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            57,
+            3
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE10_HIKER1"
+        },
+        {
+          "opponent": "OPP_POKEMANIAC",
+          "position": [
+            64,
+            14
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE10_SUPER_NERD2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            25,
+            7
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE10_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            61,
+            3
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE10_HIKER2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            54,
+            7
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE10_COOLTRAINER_F2"
+        }
       ],
       "warps": [
         {
@@ -1989,10 +2479,113 @@
       "constant": "ROUTE_11",
       "hex_id": "0x16",
       "id": 22,
+      "items": [],
       "name": "Route 11",
       "size_blocks": [
         30,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_GAMBLER",
+          "position": [
+            14,
+            10
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_GAMBLER",
+          "text_id": "TEXT_ROUTE11_GAMBLER1"
+        },
+        {
+          "opponent": "OPP_GAMBLER",
+          "position": [
+            9,
+            26
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_GAMBLER",
+          "text_id": "TEXT_ROUTE11_GAMBLER2"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            5,
+            13
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE11_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_ENGINEER",
+          "position": [
+            11,
+            36
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE11_SUPER_NERD1"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            4,
+            22
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE11_YOUNGSTER2"
+        },
+        {
+          "opponent": "OPP_GAMBLER",
+          "position": [
+            7,
+            45
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_GAMBLER",
+          "text_id": "TEXT_ROUTE11_GAMBLER3"
+        },
+        {
+          "opponent": "OPP_GAMBLER",
+          "position": [
+            3,
+            33
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_GAMBLER",
+          "text_id": "TEXT_ROUTE11_GAMBLER4"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            5,
+            43
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE11_YOUNGSTER3"
+        },
+        {
+          "opponent": "OPP_ENGINEER",
+          "position": [
+            16,
+            45
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE11_SUPER_NERD2"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            12,
+            22
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE11_YOUNGSTER4"
+        }
       ],
       "warps": [
         {
@@ -2067,10 +2660,102 @@
       "constant": "ROUTE_12",
       "hex_id": "0x17",
       "id": 23,
+      "items": [
+        {
+          "item": "TM_PAY_DAY",
+          "position": [
+            35,
+            14
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE12_TM_PAY_DAY"
+        },
+        {
+          "item": "IRON",
+          "position": [
+            89,
+            5
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE12_IRON"
+        }
+      ],
       "name": "Route 12",
       "size_blocks": [
         10,
         54
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            31,
+            14
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE12_FISHER1"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            39,
+            5
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE12_FISHER2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            92,
+            11
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE12_COOLTRAINER_M"
+        },
+        {
+          "opponent": "OPP_ROCKER",
+          "position": [
+            76,
+            14
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROUTE12_SUPER_NERD"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            40,
+            12
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE12_FISHER3"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            52,
+            9
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE12_FISHER4"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            87,
+            6
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE12_FISHER5"
+        }
       ],
       "warps": [
         {
@@ -2130,10 +2815,113 @@
       "constant": "ROUTE_13",
       "hex_id": "0x18",
       "id": 24,
+      "items": [],
       "name": "Route 13",
       "size_blocks": [
         30,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            10,
+            49
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE13_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            10,
+            48
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE13_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            9,
+            27
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE13_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            10,
+            23
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE13_COOLTRAINER_F3"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            5,
+            50
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE13_COOLTRAINER_F4"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            4,
+            12
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE13_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            6,
+            33
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_BEAUTY",
+          "text_id": "TEXT_ROUTE13_BEAUTY1"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            6,
+            32
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_BEAUTY",
+          "text_id": "TEXT_ROUTE13_BEAUTY2"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            7,
+            10
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE13_BIKER"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            13,
+            7
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE13_COOLTRAINER_M3"
+        }
       ],
       "warps": []
     },
@@ -2156,10 +2944,113 @@
       "constant": "ROUTE_14",
       "hex_id": "0x19",
       "id": 25,
+      "items": [],
       "name": "Route 14",
       "size_blocks": [
         10,
         27
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            4,
+            4
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE14_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            6,
+            15
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE14_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            11,
+            12
+          ],
+          "roster": "16",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE14_COOLTRAINER_M3"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            15,
+            14
+          ],
+          "roster": "17",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE14_COOLTRAINER_M4"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            31,
+            15
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE14_COOLTRAINER_M5"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            49,
+            6
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE14_COOLTRAINER_M6"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            39,
+            5
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE14_BIKER1"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            30,
+            4
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE14_BIKER2"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            30,
+            15
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE14_BIKER3"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            31,
+            4
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE14_BIKER4"
+        }
       ],
       "warps": []
     },
@@ -2182,10 +3073,123 @@
       "constant": "ROUTE_15",
       "hex_id": "0x1A",
       "id": 26,
+      "items": [
+        {
+          "item": "TM_RAGE",
+          "position": [
+            5,
+            18
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE15_TM_RAGE"
+        }
+      ],
       "name": "Route 15",
       "size_blocks": [
         30,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            11,
+            41
+          ],
+          "roster": "20",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE15_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            10,
+            53
+          ],
+          "roster": "21",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE15_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            13,
+            31
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE15_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            13,
+            35
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE15_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            11,
+            53
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_BEAUTY",
+          "text_id": "TEXT_ROUTE15_BEAUTY1"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            10,
+            41
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_BEAUTY",
+          "text_id": "TEXT_ROUTE15_BEAUTY2"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            10,
+            48
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE15_BIKER1"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            10,
+            46
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE15_BIKER2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            5,
+            37
+          ],
+          "roster": "22",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE15_COOLTRAINER_F3"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            13,
+            18
+          ],
+          "roster": "23",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE15_COOLTRAINER_F4"
+        }
       ],
       "warps": [
         {
@@ -2245,10 +3249,73 @@
       "constant": "ROUTE_16",
       "hex_id": "0x1B",
       "id": 27,
+      "items": [],
       "name": "Route 16",
       "size_blocks": [
         20,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            12,
+            17
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE16_BIKER1"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            13,
+            14
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE16_BIKER2"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            12,
+            11
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE16_BIKER3"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            11,
+            9
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE16_BIKER4"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            10,
+            6
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE16_BIKER5"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            12,
+            3
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE16_BIKER6"
+        }
       ],
       "warps": [
         {
@@ -2353,10 +3420,113 @@
       "constant": "ROUTE_17",
       "hex_id": "0x1C",
       "id": 28,
+      "items": [],
       "name": "Route 17",
       "size_blocks": [
         10,
         72
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            19,
+            12
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER1"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            16,
+            11
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER2"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            18,
+            4
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER3"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            32,
+            7
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER4"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            34,
+            14
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER5"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            58,
+            17
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER6"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            68,
+            2
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER7"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            98,
+            14
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER8"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            98,
+            5
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER9"
+        },
+        {
+          "opponent": "OPP_BIKER",
+          "position": [
+            118,
+            10
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_BIKER",
+          "text_id": "TEXT_ROUTE17_BIKER10"
+        }
       ],
       "warps": []
     },
@@ -2379,10 +3549,43 @@
       "constant": "ROUTE_18",
       "hex_id": "0x1D",
       "id": 29,
+      "items": [],
       "name": "Route 18",
       "size_blocks": [
         25,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            11,
+            36
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE18_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            15,
+            40
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE18_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            13,
+            42
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE18_COOLTRAINER_M3"
+        }
       ],
       "warps": [
         {
@@ -2442,10 +3645,113 @@
       "constant": "ROUTE_19",
       "hex_id": "0x1E",
       "id": 30,
+      "items": [],
       "name": "Route 19",
       "size_blocks": [
         10,
         27
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            7,
+            9
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE19_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            9,
+            12
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE19_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            25,
+            13
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER1"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            27,
+            4
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER2"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            31,
+            16
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER3"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            13,
+            9
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER4"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            43,
+            8
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER5"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            43,
+            11
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER6"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            42,
+            9
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER7"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            44,
+            10
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE19_SWIMMER8"
+        }
       ],
       "warps": [
         {
@@ -2478,10 +3784,113 @@
       "constant": "ROUTE_20",
       "hex_id": "0x1F",
       "id": 31,
+      "items": [],
       "name": "Route 20",
       "size_blocks": [
         50,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            8,
+            87
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER1"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            11,
+            68
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER2"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            10,
+            45
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER3"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            14,
+            55
+          ],
+          "roster": "24",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER4"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            13,
+            38
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER5"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            13,
+            87
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER6"
+        },
+        {
+          "opponent": "OPP_BIRD_KEEPER",
+          "position": [
+            9,
+            34
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE20_COOLTRAINER_M"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            7,
+            25
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER7"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            12,
+            24
+          ],
+          "roster": "16",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER8"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            8,
+            15
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE20_SWIMMER9"
+        }
       ],
       "warps": [
         {
@@ -2523,10 +3932,103 @@
       "constant": "ROUTE_21",
       "hex_id": "0x20",
       "id": 32,
+      "items": [],
       "name": "Route 21",
       "size_blocks": [
         10,
         45
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            24,
+            4
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE21_FISHER1"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            25,
+            6
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE21_FISHER2"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            31,
+            10
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE21_SWIMMER1"
+        },
+        {
+          "opponent": "OPP_CUE_BALL",
+          "position": [
+            30,
+            12
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE21_SWIMMER2"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            63,
+            16
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE21_SWIMMER3"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            71,
+            5
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE21_SWIMMER4"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            71,
+            15
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_ROUTE21_SWIMMER5"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            56,
+            14
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE21_FISHER3"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            57,
+            17
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_ROUTE21_FISHER4"
+        }
       ],
       "warps": []
     },
@@ -2549,11 +4051,13 @@
       "constant": "ROUTE_22",
       "hex_id": "0x21",
       "id": 33,
+      "items": [],
       "name": "Route 22",
       "size_blocks": [
         20,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_22_GATE",
@@ -2585,11 +4089,13 @@
       "constant": "ROUTE_23",
       "hex_id": "0x22",
       "id": 34,
+      "items": [],
       "name": "Route 23",
       "size_blocks": [
         10,
         72
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_22_GATE",
@@ -2648,10 +4154,93 @@
       "constant": "ROUTE_24",
       "hex_id": "0x23",
       "id": 35,
+      "items": [
+        {
+          "item": "TM_THUNDER_WAVE",
+          "position": [
+            5,
+            10
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE24_TM_THUNDER_WAVE"
+        }
+      ],
       "name": "Route 24",
       "size_blocks": [
         10,
         18
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            15,
+            11
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE24_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            20,
+            5
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE24_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            19,
+            11
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE24_COOLTRAINER_M3"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            22,
+            10
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE24_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            25,
+            11
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE24_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            28,
+            10
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE24_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            31,
+            11
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE24_YOUNGSTER2"
+        }
       ],
       "warps": []
     },
@@ -2668,10 +4257,113 @@
       "constant": "ROUTE_25",
       "hex_id": "0x24",
       "id": 36,
+      "items": [
+        {
+          "item": "TM_SEISMIC_TOSS",
+          "position": [
+            2,
+            22
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROUTE25_TM_SEISMIC_TOSS"
+        }
+      ],
       "name": "Route 25",
       "size_blocks": [
         30,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            2,
+            14
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE25_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            5,
+            18
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE25_YOUNGSTER2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            4,
+            24
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_ROUTE25_COOLTRAINER_M"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            8,
+            18
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE25_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            3,
+            32
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_ROUTE25_YOUNGSTER3"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            4,
+            37
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROUTE25_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            4,
+            8
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE25_HIKER1"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            9,
+            23
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE25_HIKER2"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            7,
+            13
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROUTE25_HIKER3"
+        }
       ],
       "warps": [
         {
@@ -2691,11 +4383,13 @@
       "constant": "REDS_HOUSE_1F",
       "hex_id": "0x25",
       "id": 37,
+      "items": [],
       "name": "Red's House 1F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -2732,11 +4426,13 @@
       "constant": "REDS_HOUSE_2F",
       "hex_id": "0x26",
       "id": 38,
+      "items": [],
       "name": "Red's House 2F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "REDS_HOUSE_1F",
@@ -2791,11 +4487,13 @@
       "constant": "BLUES_HOUSE",
       "hex_id": "0x27",
       "id": 39,
+      "items": [],
       "name": "Blue's House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -2823,10 +4521,23 @@
       "constant": "OAKS_LAB",
       "hex_id": "0x28",
       "id": 40,
+      "items": [],
       "name": "Oak's Lab",
       "size_blocks": [
         5,
         6
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_RIVAL1",
+          "position": [
+            3,
+            4
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_BLUE",
+          "text_id": "TEXT_OAKSLAB_RIVAL"
+        }
       ],
       "warps": [
         {
@@ -2855,11 +4566,13 @@
       "constant": "VIRIDIAN_POKECENTER",
       "hex_id": "0x29",
       "id": 41,
+      "items": [],
       "name": "Viridian Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -2887,11 +4600,13 @@
       "constant": "VIRIDIAN_MART",
       "hex_id": "0x2A",
       "id": 42,
+      "items": [],
       "name": "Viridian Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -2919,11 +4634,13 @@
       "constant": "VIRIDIAN_SCHOOL_HOUSE",
       "hex_id": "0x2B",
       "id": 43,
+      "items": [],
       "name": "Viridian School House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -2951,11 +4668,13 @@
       "constant": "VIRIDIAN_NICKNAME_HOUSE",
       "hex_id": "0x2C",
       "id": 44,
+      "items": [],
       "name": "Viridian Nickname House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -2983,10 +4702,113 @@
       "constant": "VIRIDIAN_GYM",
       "hex_id": "0x2D",
       "id": 45,
+      "items": [
+        {
+          "item": "REVIVE",
+          "position": [
+            9,
+            16
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VIRIDIANGYM_REVIVE"
+        }
+      ],
       "name": "Viridian Gym",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_GIOVANNI",
+          "position": [
+            1,
+            2
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_GIOVANNI",
+          "text_id": "TEXT_VIRIDIANGYM_GIOVANNI"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_M",
+          "position": [
+            7,
+            12
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_VIRIDIANGYM_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            11,
+            11
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_VIRIDIANGYM_HIKER1"
+        },
+        {
+          "opponent": "OPP_TAMER",
+          "position": [
+            7,
+            10
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_VIRIDIANGYM_ROCKER1"
+        },
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            7,
+            3
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_VIRIDIANGYM_HIKER2"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_M",
+          "position": [
+            5,
+            13
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_VIRIDIANGYM_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            1,
+            10
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_VIRIDIANGYM_HIKER3"
+        },
+        {
+          "opponent": "OPP_TAMER",
+          "position": [
+            16,
+            2
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_VIRIDIANGYM_ROCKER2"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_M",
+          "position": [
+            5,
+            6
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_VIRIDIANGYM_COOLTRAINER_M3"
+        }
       ],
       "warps": [
         {
@@ -3015,11 +4837,13 @@
       "constant": "DIGLETTS_CAVE_ROUTE_2",
       "hex_id": "0x2E",
       "id": 46,
+      "items": [],
       "name": "Digletts Cave Route 2",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3056,11 +4880,13 @@
       "constant": "VIRIDIAN_FOREST_NORTH_GATE",
       "hex_id": "0x2F",
       "id": 47,
+      "items": [],
       "name": "Viridian Forest North Gate",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3106,11 +4932,13 @@
       "constant": "ROUTE_2_TRADE_HOUSE",
       "hex_id": "0x30",
       "id": 48,
+      "items": [],
       "name": "Route 2 Trade House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3138,11 +4966,13 @@
       "constant": "ROUTE_2_GATE",
       "hex_id": "0x31",
       "id": 49,
+      "items": [],
       "name": "Route 2 Gate",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3188,11 +5018,13 @@
       "constant": "VIRIDIAN_FOREST_SOUTH_GATE",
       "hex_id": "0x32",
       "id": 50,
+      "items": [],
       "name": "Viridian Forest South Gate",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "VIRIDIAN_FOREST",
@@ -3238,10 +5070,91 @@
       "constant": "VIRIDIAN_FOREST",
       "hex_id": "0x33",
       "id": 51,
+      "items": [
+        {
+          "item": "POTION",
+          "position": [
+            11,
+            25
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VIRIDIANFOREST_POTION1"
+        },
+        {
+          "item": "POTION",
+          "position": [
+            29,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VIRIDIANFOREST_POTION2"
+        },
+        {
+          "item": "POKE_BALL",
+          "position": [
+            31,
+            1
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VIRIDIANFOREST_POKE_BALL"
+        }
+      ],
       "name": "Viridian Forest",
       "size_blocks": [
         17,
         24
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            33,
+            30
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_VIRIDIANFOREST_YOUNGSTER2"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            19,
+            30
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_VIRIDIANFOREST_YOUNGSTER3"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            18,
+            2
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_VIRIDIANFOREST_YOUNGSTER4"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            41,
+            2
+          ],
+          "roster": "19",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_VIRIDIANFOREST_COOLTRAINER_F"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            17,
+            13
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_VIRIDIANFOREST_YOUNGSTER5"
+        }
       ],
       "warps": [
         {
@@ -3306,11 +5219,13 @@
       "constant": "MUSEUM_1F",
       "hex_id": "0x34",
       "id": 52,
+      "items": [],
       "name": "Museum 1F",
       "size_blocks": [
         10,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3365,11 +5280,13 @@
       "constant": "MUSEUM_2F",
       "hex_id": "0x35",
       "id": 53,
+      "items": [],
       "name": "Museum 2F",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "MUSEUM_1F",
@@ -3388,10 +5305,33 @@
       "constant": "PEWTER_GYM",
       "hex_id": "0x36",
       "id": 54,
+      "items": [],
       "name": "Pewter Gym",
       "size_blocks": [
         5,
         7
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BROCK",
+          "position": [
+            1,
+            4
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_PEWTERGYM_BROCK"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_M",
+          "position": [
+            6,
+            3
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_PEWTERGYM_COOLTRAINER_M"
+        }
       ],
       "warps": [
         {
@@ -3420,11 +5360,13 @@
       "constant": "PEWTER_NIDORAN_HOUSE",
       "hex_id": "0x37",
       "id": 55,
+      "items": [],
       "name": "Pewter Nidoran House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3452,11 +5394,13 @@
       "constant": "PEWTER_MART",
       "hex_id": "0x38",
       "id": 56,
+      "items": [],
       "name": "Pewter Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3484,11 +5428,13 @@
       "constant": "PEWTER_SPEECH_HOUSE",
       "hex_id": "0x39",
       "id": 57,
+      "items": [],
       "name": "Pewter Speech House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3516,11 +5462,13 @@
       "constant": "PEWTER_POKECENTER",
       "hex_id": "0x3A",
       "id": 58,
+      "items": [],
       "name": "Pewter Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3548,10 +5496,138 @@
       "constant": "MT_MOON_1F",
       "hex_id": "0x3B",
       "id": 59,
+      "items": [
+        {
+          "item": "POTION",
+          "position": [
+            20,
+            2
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOON1F_POTION1"
+        },
+        {
+          "item": "MOON_STONE",
+          "position": [
+            2,
+            2
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOON1F_MOON_STONE"
+        },
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            31,
+            35
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOON1F_RARE_CANDY"
+        },
+        {
+          "item": "ESCAPE_ROPE",
+          "position": [
+            23,
+            36
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOON1F_ESCAPE_ROPE"
+        },
+        {
+          "item": "POTION",
+          "position": [
+            33,
+            20
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOON1F_POTION2"
+        },
+        {
+          "item": "TM_WATER_GUN",
+          "position": [
+            32,
+            5
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOON1F_TM_WATER_GUN"
+        }
+      ],
       "name": "Mt. Moon 1F",
       "size_blocks": [
         20,
         18
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            6,
+            5
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_MTMOON1F_HIKER"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            16,
+            12
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_MTMOON1F_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            4,
+            30
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_MTMOON1F_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            31,
+            24
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_MTMOON1F_SUPER_NERD"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            23,
+            16
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_MTMOON1F_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            22,
+            7
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_MTMOON1F_YOUNGSTER2"
+        },
+        {
+          "opponent": "OPP_BUG_CATCHER",
+          "position": [
+            27,
+            30
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_MTMOON1F_YOUNGSTER3"
+        }
       ],
       "warps": [
         {
@@ -3607,11 +5683,13 @@
       "constant": "MT_MOON_B1F",
       "hex_id": "0x3C",
       "id": 60,
+      "items": [],
       "name": "Mt. Moon B1f",
       "size_blocks": [
         14,
         14
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "MT_MOON_1F",
@@ -3693,10 +5771,72 @@
       "constant": "MT_MOON_B2F",
       "hex_id": "0x3D",
       "id": 61,
+      "items": [
+        {
+          "item": "HP_UP",
+          "position": [
+            21,
+            25
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOONB2F_HP_UP"
+        },
+        {
+          "item": "TM_MEGA_PUNCH",
+          "position": [
+            5,
+            29
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_MTMOONB2F_TM_MEGA_PUNCH"
+        }
+      ],
       "name": "Mt. Moon B2f",
       "size_blocks": [
         20,
         18
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            8,
+            12
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_MTMOONB2F_SUPER_NERD"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            22,
+            15
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_MTMOONB2F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            11,
+            29
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_MTMOONB2F_ROCKET2"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            17,
+            29
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_MTMOONB2F_ROCKET3"
+        }
       ],
       "warps": [
         {
@@ -3743,11 +5883,13 @@
       "constant": "CERULEAN_TRASHED_HOUSE",
       "hex_id": "0x3E",
       "id": 62,
+      "items": [],
       "name": "Cerulean Trashed House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3784,11 +5926,13 @@
       "constant": "CERULEAN_MELANIES_HOUSE",
       "hex_id": "0x3F",
       "id": 63,
+      "items": [],
       "name": "Cerulean Melanies House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3816,11 +5960,13 @@
       "constant": "CERULEAN_POKECENTER",
       "hex_id": "0x40",
       "id": 64,
+      "items": [],
       "name": "Cerulean Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3848,10 +5994,43 @@
       "constant": "CERULEAN_GYM",
       "hex_id": "0x41",
       "id": 65,
+      "items": [],
       "name": "Cerulean Gym",
       "size_blocks": [
         5,
         7
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_MISTY",
+          "position": [
+            2,
+            4
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_BRUNETTE_GIRL",
+          "text_id": "TEXT_CERULEANGYM_MISTY"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            3,
+            2
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_CERULEANGYM_COOLTRAINER_F"
+        },
+        {
+          "opponent": "OPP_SWIMMER",
+          "position": [
+            7,
+            8
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SWIMMER",
+          "text_id": "TEXT_CERULEANGYM_SWIMMER"
+        }
       ],
       "warps": [
         {
@@ -3880,11 +6059,13 @@
       "constant": "BIKE_SHOP",
       "hex_id": "0x42",
       "id": 66,
+      "items": [],
       "name": "Bike Shop",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3912,11 +6093,13 @@
       "constant": "CERULEAN_MART",
       "hex_id": "0x43",
       "id": 67,
+      "items": [],
       "name": "Cerulean Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3944,11 +6127,13 @@
       "constant": "MT_MOON_POKECENTER",
       "hex_id": "0x44",
       "id": 68,
+      "items": [],
       "name": "Mt. Moon Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -3976,11 +6161,13 @@
       "constant": "CERULEAN_TRASHED_HOUSE_COPY",
       "hex_id": "0x45",
       "id": 69,
+      "items": [],
       "name": "Cerulean Trashed House Copy",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -3989,11 +6176,13 @@
       "constant": "ROUTE_5_GATE",
       "hex_id": "0x46",
       "id": 70,
+      "items": [],
       "name": "Route 5 Gate",
       "size_blocks": [
         4,
         3
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4039,11 +6228,13 @@
       "constant": "UNDERGROUND_PATH_ROUTE_5",
       "hex_id": "0x47",
       "id": 71,
+      "items": [],
       "name": "Underground Path Route 5",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4080,11 +6271,13 @@
       "constant": "DAYCARE",
       "hex_id": "0x48",
       "id": 72,
+      "items": [],
       "name": "Daycare",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4112,11 +6305,13 @@
       "constant": "ROUTE_6_GATE",
       "hex_id": "0x49",
       "id": 73,
+      "items": [],
       "name": "Route 6 Gate",
       "size_blocks": [
         4,
         3
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4162,11 +6357,13 @@
       "constant": "UNDERGROUND_PATH_ROUTE_6",
       "hex_id": "0x4A",
       "id": 74,
+      "items": [],
       "name": "Underground Path Route 6",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4203,11 +6400,13 @@
       "constant": "UNDERGROUND_PATH_ROUTE_6_COPY",
       "hex_id": "0x4B",
       "id": 75,
+      "items": [],
       "name": "Underground Path Route 6 Copy",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -4216,11 +6415,13 @@
       "constant": "ROUTE_7_GATE",
       "hex_id": "0x4C",
       "id": 76,
+      "items": [],
       "name": "Route 7 Gate",
       "size_blocks": [
         3,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4266,11 +6467,13 @@
       "constant": "UNDERGROUND_PATH_ROUTE_7",
       "hex_id": "0x4D",
       "id": 77,
+      "items": [],
       "name": "Underground Path Route 7",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4307,11 +6510,13 @@
       "constant": "UNDERGROUND_PATH_ROUTE_7_COPY",
       "hex_id": "0x4E",
       "id": 78,
+      "items": [],
       "name": "Underground Path Route 7 Copy",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4348,11 +6553,13 @@
       "constant": "ROUTE_8_GATE",
       "hex_id": "0x4F",
       "id": 79,
+      "items": [],
       "name": "Route 8 Gate",
       "size_blocks": [
         3,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4398,11 +6605,13 @@
       "constant": "UNDERGROUND_PATH_ROUTE_8",
       "hex_id": "0x50",
       "id": 80,
+      "items": [],
       "name": "Underground Path Route 8",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4439,11 +6648,13 @@
       "constant": "ROCK_TUNNEL_POKECENTER",
       "hex_id": "0x51",
       "id": 81,
+      "items": [],
       "name": "Rock Tunnel Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4471,10 +6682,83 @@
       "constant": "ROCK_TUNNEL_1F",
       "hex_id": "0x52",
       "id": 82,
+      "items": [],
       "name": "Rock Tunnel 1F",
       "size_blocks": [
         20,
         18
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            5,
+            7
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROCKTUNNEL1F_HIKER1"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            16,
+            5
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROCKTUNNEL1F_HIKER2"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            15,
+            17
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROCKTUNNEL1F_HIKER3"
+        },
+        {
+          "opponent": "OPP_POKEMANIAC",
+          "position": [
+            8,
+            23
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROCKTUNNEL1F_SUPER_NERD"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            21,
+            37
+          ],
+          "roster": "17",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROCKTUNNEL1F_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            24,
+            22
+          ],
+          "roster": "18",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROCKTUNNEL1F_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            24,
+            32
+          ],
+          "roster": "19",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROCKTUNNEL1F_COOLTRAINER_F3"
+        }
       ],
       "warps": [
         {
@@ -4557,11 +6841,59 @@
       "constant": "POWER_PLANT",
       "hex_id": "0x53",
       "id": 83,
+      "items": [
+        {
+          "item": "CARBOS",
+          "position": [
+            25,
+            7
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POWERPLANT_CARBOS"
+        },
+        {
+          "item": "HP_UP",
+          "position": [
+            3,
+            28
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POWERPLANT_HP_UP"
+        },
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            3,
+            34
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POWERPLANT_RARE_CANDY"
+        },
+        {
+          "item": "TM_THUNDER",
+          "position": [
+            32,
+            26
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POWERPLANT_TM_THUNDER"
+        },
+        {
+          "item": "TM_REFLECT",
+          "position": [
+            32,
+            20
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POWERPLANT_TM_REFLECT"
+        }
+      ],
       "name": "Power Plant",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4598,11 +6930,13 @@
       "constant": "ROUTE_11_GATE_1F",
       "hex_id": "0x54",
       "id": 84,
+      "items": [],
       "name": "Route 11 Gate 1F",
       "size_blocks": [
         4,
         5
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4657,11 +6991,13 @@
       "constant": "DIGLETTS_CAVE_ROUTE_11",
       "hex_id": "0x55",
       "id": 85,
+      "items": [],
       "name": "Digletts Cave Route 11",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4698,11 +7034,13 @@
       "constant": "ROUTE_11_GATE_2F",
       "hex_id": "0x56",
       "id": 86,
+      "items": [],
       "name": "Route 11 Gate 2F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_11_GATE_1F",
@@ -4721,11 +7059,13 @@
       "constant": "ROUTE_12_GATE_1F",
       "hex_id": "0x57",
       "id": 87,
+      "items": [],
       "name": "Route 12 Gate 1F",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4780,11 +7120,13 @@
       "constant": "BILLS_HOUSE",
       "hex_id": "0x58",
       "id": 88,
+      "items": [],
       "name": "Bill's House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4812,11 +7154,13 @@
       "constant": "VERMILION_POKECENTER",
       "hex_id": "0x59",
       "id": 89,
+      "items": [],
       "name": "Vermilion Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4844,11 +7188,13 @@
       "constant": "POKEMON_FAN_CLUB",
       "hex_id": "0x5A",
       "id": 90,
+      "items": [],
       "name": "Pok\u00e9mon Fan Club",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4876,11 +7222,13 @@
       "constant": "VERMILION_MART",
       "hex_id": "0x5B",
       "id": 91,
+      "items": [],
       "name": "Vermilion Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4908,10 +7256,53 @@
       "constant": "VERMILION_GYM",
       "hex_id": "0x5C",
       "id": 92,
+      "items": [],
       "name": "Vermilion Gym",
       "size_blocks": [
         5,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_LT_SURGE",
+          "position": [
+            1,
+            5
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_VERMILIONGYM_LT_SURGE"
+        },
+        {
+          "opponent": "OPP_GENTLEMAN",
+          "position": [
+            6,
+            9
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_GENTLEMAN",
+          "text_id": "TEXT_VERMILIONGYM_GENTLEMAN"
+        },
+        {
+          "opponent": "OPP_ROCKER",
+          "position": [
+            8,
+            3
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_VERMILIONGYM_SUPER_NERD"
+        },
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            10,
+            0
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_VERMILIONGYM_SAILOR"
+        }
       ],
       "warps": [
         {
@@ -4940,11 +7331,13 @@
       "constant": "VERMILION_PIDGEY_HOUSE",
       "hex_id": "0x5D",
       "id": 93,
+      "items": [],
       "name": "Vermilion Pidgey House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -4972,11 +7365,13 @@
       "constant": "VERMILION_DOCK",
       "hex_id": "0x5E",
       "id": 94,
+      "items": [],
       "name": "Vermilion Dock",
       "size_blocks": [
         14,
         6
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -5004,11 +7399,13 @@
       "constant": "SS_ANNE_1F",
       "hex_id": "0x5F",
       "id": 95,
+      "items": [],
       "name": "S.s. Anne 1F",
       "size_blocks": [
         20,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "VERMILION_DOCK",
@@ -5117,10 +7514,23 @@
       "constant": "SS_ANNE_2F",
       "hex_id": "0x60",
       "id": 96,
+      "items": [],
       "name": "S.s. Anne 2F",
       "size_blocks": [
         20,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_RIVAL1",
+          "position": [
+            4,
+            36
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_BLUE",
+          "text_id": "TEXT_SSANNE2F_RIVAL"
+        }
       ],
       "warps": [
         {
@@ -5212,11 +7622,13 @@
       "constant": "SS_ANNE_3F",
       "hex_id": "0x61",
       "id": 97,
+      "items": [],
       "name": "S.s. Anne 3F",
       "size_blocks": [
         10,
         3
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SS_ANNE_BOW",
@@ -5244,11 +7656,13 @@
       "constant": "SS_ANNE_B1F",
       "hex_id": "0x62",
       "id": 98,
+      "items": [],
       "name": "S.s. Anne B1f",
       "size_blocks": [
         15,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SS_ANNE_B1F_ROOMS",
@@ -5312,10 +7726,33 @@
       "constant": "SS_ANNE_BOW",
       "hex_id": "0x63",
       "id": 99,
+      "items": [],
       "name": "S.s. Anne Bow",
       "size_blocks": [
         10,
         7
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            4,
+            4
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_SSANNEBOW_SAILOR2"
+        },
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            8,
+            10
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_SSANNEBOW_SAILOR3"
+        }
       ],
       "warps": [
         {
@@ -5344,11 +7781,13 @@
       "constant": "SS_ANNE_KITCHEN",
       "hex_id": "0x64",
       "id": 100,
+      "items": [],
       "name": "S.s. Anne Kitchen",
       "size_blocks": [
         7,
         8
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SS_ANNE_1F",
@@ -5367,11 +7806,13 @@
       "constant": "SS_ANNE_CAPTAINS_ROOM",
       "hex_id": "0x65",
       "id": 101,
+      "items": [],
       "name": "S.s. Anne Captains Room",
       "size_blocks": [
         3,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SS_ANNE_2F",
@@ -5390,10 +7831,63 @@
       "constant": "SS_ANNE_1F_ROOMS",
       "hex_id": "0x66",
       "id": 102,
+      "items": [
+        {
+          "item": "TM_BODY_SLAM",
+          "position": [
+            15,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SSANNE1FROOMS_TM_BODY_SLAM"
+        }
+      ],
       "name": "S.s. Anne 1F Rooms",
       "size_blocks": [
         12,
         8
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_GENTLEMAN",
+          "position": [
+            3,
+            2
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_GENTLEMAN",
+          "text_id": "TEXT_SSANNE1FROOMS_GENTLEMAN1"
+        },
+        {
+          "opponent": "OPP_GENTLEMAN",
+          "position": [
+            4,
+            11
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_GENTLEMAN",
+          "text_id": "TEXT_SSANNE1FROOMS_GENTLEMAN2"
+        },
+        {
+          "opponent": "OPP_YOUNGSTER",
+          "position": [
+            14,
+            11
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_SSANNE1FROOMS_YOUNGSTER"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            11,
+            13
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_SSANNE1FROOMS_COOLTRAINER_F"
+        }
       ],
       "warps": [
         {
@@ -5458,10 +7952,72 @@
       "constant": "SS_ANNE_2F_ROOMS",
       "hex_id": "0x67",
       "id": 103,
+      "items": [
+        {
+          "item": "MAX_ETHER",
+          "position": [
+            1,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SSANNE2FROOMS_MAX_ETHER"
+        },
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            12,
+            0
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SSANNE2FROOMS_RARE_CANDY"
+        }
+      ],
       "name": "S.s. Anne 2F Rooms",
       "size_blocks": [
         12,
         8
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_GENTLEMAN",
+          "position": [
+            2,
+            10
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_GENTLEMAN",
+          "text_id": "TEXT_SSANNE2FROOMS_GENTLEMAN1"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            4,
+            13
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_SSANNE2FROOMS_FISHER"
+        },
+        {
+          "opponent": "OPP_GENTLEMAN",
+          "position": [
+            14,
+            0
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_GENTLEMAN",
+          "text_id": "TEXT_SSANNE2FROOMS_GENTLEMAN2"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            11,
+            2
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_SSANNE2FROOMS_COOLTRAINER_F"
+        }
       ],
       "warps": [
         {
@@ -5580,10 +8136,101 @@
       "constant": "SS_ANNE_B1F_ROOMS",
       "hex_id": "0x68",
       "id": 104,
+      "items": [
+        {
+          "item": "ETHER",
+          "position": [
+            2,
+            20
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SSANNEB1FROOMS_ETHER"
+        },
+        {
+          "item": "TM_REST",
+          "position": [
+            2,
+            10
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SSANNEB1FROOMS_TM_REST"
+        },
+        {
+          "item": "MAX_POTION",
+          "position": [
+            11,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SSANNEB1FROOMS_MAX_POTION"
+        }
+      ],
       "name": "S.s. Anne B1f Rooms",
       "size_blocks": [
         12,
         8
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            13,
+            0
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_SSANNEB1FROOMS_SAILOR1"
+        },
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            11,
+            2
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_SSANNEB1FROOMS_SAILOR2"
+        },
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            3,
+            12
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_SSANNEB1FROOMS_SAILOR3"
+        },
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            2,
+            22
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_SSANNEB1FROOMS_SAILOR4"
+        },
+        {
+          "opponent": "OPP_SAILOR",
+          "position": [
+            2,
+            0
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_SAILOR",
+          "text_id": "TEXT_SSANNEB1FROOMS_SAILOR5"
+        },
+        {
+          "opponent": "OPP_FISHER",
+          "position": [
+            4,
+            0
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_FISHER",
+          "text_id": "TEXT_SSANNEB1FROOMS_FISHER"
+        }
       ],
       "warps": [
         {
@@ -5684,11 +8331,13 @@
       "constant": "UNUSED_MAP_69",
       "hex_id": "0x69",
       "id": 105,
+      "items": [],
       "name": "Unused Map 69",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5697,11 +8346,13 @@
       "constant": "UNUSED_MAP_6A",
       "hex_id": "0x6A",
       "id": 106,
+      "items": [],
       "name": "Unused Map 6a",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5710,11 +8361,13 @@
       "constant": "UNUSED_MAP_6B",
       "hex_id": "0x6B",
       "id": 107,
+      "items": [],
       "name": "Unused Map 6B",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5723,10 +8376,52 @@
       "constant": "VICTORY_ROAD_1F",
       "hex_id": "0x6C",
       "id": 108,
+      "items": [
+        {
+          "item": "TM_SKY_ATTACK",
+          "position": [
+            0,
+            11
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD1F_TM_SKY_ATTACK"
+        },
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            2,
+            9
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD1F_RARE_CANDY"
+        }
+      ],
       "name": "Victory Road 1F",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_COOLTRAINER_F",
+          "position": [
+            5,
+            7
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_VICTORYROAD1F_COOLTRAINER_F"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_M",
+          "position": [
+            2,
+            3
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_VICTORYROAD1F_COOLTRAINER_M"
+        }
       ],
       "warps": [
         {
@@ -5764,11 +8459,13 @@
       "constant": "UNUSED_MAP_6D",
       "hex_id": "0x6D",
       "id": 109,
+      "items": [],
       "name": "Unused Map 6d",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5777,11 +8474,13 @@
       "constant": "UNUSED_MAP_6E",
       "hex_id": "0x6E",
       "id": 110,
+      "items": [],
       "name": "Unused Map 6e",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5790,11 +8489,13 @@
       "constant": "UNUSED_MAP_6F",
       "hex_id": "0x6F",
       "id": 111,
+      "items": [],
       "name": "Unused Map 6F",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5803,11 +8504,13 @@
       "constant": "UNUSED_MAP_70",
       "hex_id": "0x70",
       "id": 112,
+      "items": [],
       "name": "Unused Map 70",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5816,10 +8519,23 @@
       "constant": "LANCES_ROOM",
       "hex_id": "0x71",
       "id": 113,
+      "items": [],
       "name": "Lances Room",
       "size_blocks": [
         13,
         13
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_LANCE",
+          "position": [
+            1,
+            6
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_LANCE",
+          "text_id": "TEXT_LANCESROOM_LANCE"
+        }
       ],
       "warps": [
         {
@@ -5857,11 +8573,13 @@
       "constant": "UNUSED_MAP_72",
       "hex_id": "0x72",
       "id": 114,
+      "items": [],
       "name": "Unused Map 72",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5870,11 +8588,13 @@
       "constant": "UNUSED_MAP_73",
       "hex_id": "0x73",
       "id": 115,
+      "items": [],
       "name": "Unused Map 73",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5883,11 +8603,13 @@
       "constant": "UNUSED_MAP_74",
       "hex_id": "0x74",
       "id": 116,
+      "items": [],
       "name": "Unused Map 74",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5896,11 +8618,13 @@
       "constant": "UNUSED_MAP_75",
       "hex_id": "0x75",
       "id": 117,
+      "items": [],
       "name": "Unused Map 75",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -5909,11 +8633,13 @@
       "constant": "HALL_OF_FAME",
       "hex_id": "0x76",
       "id": 118,
+      "items": [],
       "name": "Hall Of Fame",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CHAMPIONS_ROOM",
@@ -5941,11 +8667,13 @@
       "constant": "UNDERGROUND_PATH_NORTH_SOUTH",
       "hex_id": "0x77",
       "id": 119,
+      "items": [],
       "name": "Underground Path North South",
       "size_blocks": [
         4,
         24
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "UNDERGROUND_PATH_ROUTE_5",
@@ -5973,11 +8701,13 @@
       "constant": "CHAMPIONS_ROOM",
       "hex_id": "0x78",
       "id": 120,
+      "items": [],
       "name": "Champions Room",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LANCES_ROOM",
@@ -6023,11 +8753,13 @@
       "constant": "UNDERGROUND_PATH_WEST_EAST",
       "hex_id": "0x79",
       "id": 121,
+      "items": [],
       "name": "Underground Path West East",
       "size_blocks": [
         25,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "UNDERGROUND_PATH_ROUTE_7",
@@ -6055,11 +8787,13 @@
       "constant": "CELADON_MART_1F",
       "hex_id": "0x7A",
       "id": 122,
+      "items": [],
       "name": "Celadon Mart 1F",
       "size_blocks": [
         10,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6123,11 +8857,13 @@
       "constant": "CELADON_MART_2F",
       "hex_id": "0x7B",
       "id": 123,
+      "items": [],
       "name": "Celadon Mart 2F",
       "size_blocks": [
         10,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MART_1F",
@@ -6164,11 +8900,13 @@
       "constant": "CELADON_MART_3F",
       "hex_id": "0x7C",
       "id": 124,
+      "items": [],
       "name": "Celadon Mart 3F",
       "size_blocks": [
         10,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MART_4F",
@@ -6205,11 +8943,13 @@
       "constant": "CELADON_MART_4F",
       "hex_id": "0x7D",
       "id": 125,
+      "items": [],
       "name": "Celadon Mart 4F",
       "size_blocks": [
         10,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MART_3F",
@@ -6246,11 +8986,13 @@
       "constant": "CELADON_MART_ROOF",
       "hex_id": "0x7E",
       "id": 126,
+      "items": [],
       "name": "Celadon Mart Roof",
       "size_blocks": [
         10,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MART_5F",
@@ -6269,11 +9011,13 @@
       "constant": "CELADON_MART_ELEVATOR",
       "hex_id": "0x7F",
       "id": 127,
+      "items": [],
       "name": "Celadon Mart Elevator",
       "size_blocks": [
         2,
         2
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MART_1F",
@@ -6301,11 +9045,13 @@
       "constant": "CELADON_MANSION_1F",
       "hex_id": "0x80",
       "id": 128,
+      "items": [],
       "name": "Celadon Mansion 1F",
       "size_blocks": [
         4,
         6
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6360,11 +9106,13 @@
       "constant": "CELADON_MANSION_2F",
       "hex_id": "0x81",
       "id": 129,
+      "items": [],
       "name": "Celadon Mansion 2F",
       "size_blocks": [
         4,
         6
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MANSION_3F",
@@ -6410,11 +9158,13 @@
       "constant": "CELADON_MANSION_3F",
       "hex_id": "0x82",
       "id": 130,
+      "items": [],
       "name": "Celadon Mansion 3F",
       "size_blocks": [
         4,
         6
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MANSION_2F",
@@ -6460,11 +9210,13 @@
       "constant": "CELADON_MANSION_ROOF",
       "hex_id": "0x83",
       "id": 131,
+      "items": [],
       "name": "Celadon Mansion Roof",
       "size_blocks": [
         4,
         6
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MANSION_3F",
@@ -6501,11 +9253,13 @@
       "constant": "CELADON_MANSION_ROOF_HOUSE",
       "hex_id": "0x84",
       "id": 132,
+      "items": [],
       "name": "Celadon Mansion Roof House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MANSION_ROOF",
@@ -6533,11 +9287,13 @@
       "constant": "CELADON_POKECENTER",
       "hex_id": "0x85",
       "id": 133,
+      "items": [],
       "name": "Celadon Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6565,10 +9321,93 @@
       "constant": "CELADON_GYM",
       "hex_id": "0x86",
       "id": 134,
+      "items": [],
       "name": "Celadon Gym",
       "size_blocks": [
         5,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ERIKA",
+          "position": [
+            3,
+            4
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SILPH_WORKER_F",
+          "text_id": "TEXT_CELADONGYM_ERIKA"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            11,
+            2
+          ],
+          "roster": "17",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_CELADONGYM_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            10,
+            7
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_BEAUTY",
+          "text_id": "TEXT_CELADONGYM_BEAUTY1"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            5,
+            9
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_CELADONGYM_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            5,
+            1
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_BEAUTY",
+          "text_id": "TEXT_CELADONGYM_BEAUTY2"
+        },
+        {
+          "opponent": "OPP_LASS",
+          "position": [
+            3,
+            6
+          ],
+          "roster": "18",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_CELADONGYM_COOLTRAINER_F3"
+        },
+        {
+          "opponent": "OPP_BEAUTY",
+          "position": [
+            3,
+            3
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_BEAUTY",
+          "text_id": "TEXT_CELADONGYM_BEAUTY3"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_F",
+          "position": [
+            3,
+            5
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_CELADONGYM_COOLTRAINER_F4"
+        }
       ],
       "warps": [
         {
@@ -6597,10 +9436,23 @@
       "constant": "GAME_CORNER",
       "hex_id": "0x87",
       "id": 135,
+      "items": [],
       "name": "Game Corner",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            5,
+            9
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_GAMECORNER_ROCKET"
+        }
       ],
       "warps": [
         {
@@ -6638,11 +9490,13 @@
       "constant": "CELADON_MART_5F",
       "hex_id": "0x88",
       "id": 136,
+      "items": [],
       "name": "Celadon Mart 5F",
       "size_blocks": [
         10,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CELADON_MART_ROOF",
@@ -6679,11 +9533,13 @@
       "constant": "GAME_CORNER_PRIZE_ROOM",
       "hex_id": "0x89",
       "id": 137,
+      "items": [],
       "name": "Game Corner Prize Room",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6711,11 +9567,13 @@
       "constant": "CELADON_DINER",
       "hex_id": "0x8A",
       "id": 138,
+      "items": [],
       "name": "Celadon Diner",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6743,11 +9601,13 @@
       "constant": "CELADON_CHIEF_HOUSE",
       "hex_id": "0x8B",
       "id": 139,
+      "items": [],
       "name": "Celadon Chief House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6775,11 +9635,13 @@
       "constant": "CELADON_HOTEL",
       "hex_id": "0x8C",
       "id": 140,
+      "items": [],
       "name": "Celadon Hotel",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6807,11 +9669,13 @@
       "constant": "LAVENDER_POKECENTER",
       "hex_id": "0x8D",
       "id": 141,
+      "items": [],
       "name": "Lavender Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6839,11 +9703,13 @@
       "constant": "POKEMON_TOWER_1F",
       "hex_id": "0x8E",
       "id": 142,
+      "items": [],
       "name": "Pok\u00e9mon Tower 1F",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -6880,11 +9746,13 @@
       "constant": "POKEMON_TOWER_2F",
       "hex_id": "0x8F",
       "id": 143,
+      "items": [],
       "name": "Pok\u00e9mon Tower 2F",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "POKEMON_TOWER_3F",
@@ -6912,10 +9780,53 @@
       "constant": "POKEMON_TOWER_3F",
       "hex_id": "0x90",
       "id": 144,
+      "items": [
+        {
+          "item": "ESCAPE_ROPE",
+          "position": [
+            1,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONTOWER3F_ESCAPE_ROPE"
+        }
+      ],
       "name": "Pok\u00e9mon Tower 3F",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            3,
+            12
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER3F_CHANNELER1"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            8,
+            9
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER3F_CHANNELER2"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            13,
+            10
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER3F_CHANNELER3"
+        }
       ],
       "warps": [
         {
@@ -6944,10 +9855,71 @@
       "constant": "POKEMON_TOWER_4F",
       "hex_id": "0x91",
       "id": 145,
+      "items": [
+        {
+          "item": "ELIXER",
+          "position": [
+            10,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONTOWER4F_ELIXER"
+        },
+        {
+          "item": "AWAKENING",
+          "position": [
+            10,
+            9
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONTOWER4F_AWAKENING"
+        },
+        {
+          "item": "HP_UP",
+          "position": [
+            16,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONTOWER4F_HP_UP"
+        }
+      ],
       "name": "Pok\u00e9mon Tower 4F",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            10,
+            5
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER4F_CHANNELER1"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            7,
+            15
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER4F_CHANNELER2"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            12,
+            14
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER4F_CHANNELER3"
+        }
       ],
       "warps": [
         {
@@ -6976,10 +9948,63 @@
       "constant": "POKEMON_TOWER_5F",
       "hex_id": "0x92",
       "id": 146,
+      "items": [
+        {
+          "item": "NUGGET",
+          "position": [
+            14,
+            6
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONTOWER5F_NUGGET"
+        }
+      ],
       "name": "Pok\u00e9mon Tower 5F",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            7,
+            17
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER5F_CHANNELER2"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            3,
+            14
+          ],
+          "roster": "16",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER5F_CHANNELER3"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            10,
+            6
+          ],
+          "roster": "17",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER5F_CHANNELER4"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            16,
+            9
+          ],
+          "roster": "18",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER5F_CHANNELER5"
+        }
       ],
       "warps": [
         {
@@ -7008,10 +10033,62 @@
       "constant": "POKEMON_TOWER_6F",
       "hex_id": "0x93",
       "id": 147,
+      "items": [
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            8,
+            6
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONTOWER6F_RARE_CANDY"
+        },
+        {
+          "item": "X_ACCURACY",
+          "position": [
+            14,
+            14
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONTOWER6F_X_ACCURACY"
+        }
+      ],
       "name": "Pok\u00e9mon Tower 6F",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            10,
+            12
+          ],
+          "roster": "19",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER6F_CHANNELER1"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            5,
+            9
+          ],
+          "roster": "20",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER6F_CHANNELER2"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            5,
+            16
+          ],
+          "roster": "21",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_POKEMONTOWER6F_CHANNELER3"
+        }
       ],
       "warps": [
         {
@@ -7040,11 +10117,13 @@
       "constant": "POKEMON_TOWER_7F",
       "hex_id": "0x94",
       "id": 148,
+      "items": [],
       "name": "Pok\u00e9mon Tower 7F",
       "size_blocks": [
         10,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "POKEMON_TOWER_6F",
@@ -7063,11 +10142,13 @@
       "constant": "MR_FUJIS_HOUSE",
       "hex_id": "0x95",
       "id": 149,
+      "items": [],
       "name": "Mr. Fuji's House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7095,11 +10176,13 @@
       "constant": "LAVENDER_MART",
       "hex_id": "0x96",
       "id": 150,
+      "items": [],
       "name": "Lavender Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7127,11 +10210,13 @@
       "constant": "LAVENDER_CUBONE_HOUSE",
       "hex_id": "0x97",
       "id": 151,
+      "items": [],
       "name": "Lavender Cubone House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7159,11 +10244,13 @@
       "constant": "FUCHSIA_MART",
       "hex_id": "0x98",
       "id": 152,
+      "items": [],
       "name": "Fuchsia Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7191,11 +10278,13 @@
       "constant": "FUCHSIA_BILLS_GRANDPAS_HOUSE",
       "hex_id": "0x99",
       "id": 153,
+      "items": [],
       "name": "Fuchsia Bill's Grandpas House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7223,11 +10312,13 @@
       "constant": "FUCHSIA_POKECENTER",
       "hex_id": "0x9A",
       "id": 154,
+      "items": [],
       "name": "Fuchsia Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7255,11 +10346,23 @@
       "constant": "WARDENS_HOUSE",
       "hex_id": "0x9B",
       "id": 155,
+      "items": [
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            3,
+            8
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_WARDENSHOUSE_RARE_CANDY"
+        }
+      ],
       "name": "Wardens House",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7287,11 +10390,13 @@
       "constant": "SAFARI_ZONE_GATE",
       "hex_id": "0x9C",
       "id": 156,
+      "items": [],
       "name": "Safari Zone Gate",
       "size_blocks": [
         4,
         3
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7337,10 +10442,83 @@
       "constant": "FUCHSIA_GYM",
       "hex_id": "0x9D",
       "id": 157,
+      "items": [],
       "name": "Fuchsia Gym",
       "size_blocks": [
         5,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_KOGA",
+          "position": [
+            10,
+            4
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SILPH_WORKER_M",
+          "text_id": "TEXT_FUCHSIAGYM_KOGA"
+        },
+        {
+          "opponent": "OPP_JUGGLER",
+          "position": [
+            13,
+            8
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_FUCHSIAGYM_ROCKER1"
+        },
+        {
+          "opponent": "OPP_JUGGLER",
+          "position": [
+            8,
+            7
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_FUCHSIAGYM_ROCKER2"
+        },
+        {
+          "opponent": "OPP_JUGGLER",
+          "position": [
+            12,
+            1
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_FUCHSIAGYM_ROCKER3"
+        },
+        {
+          "opponent": "OPP_TAMER",
+          "position": [
+            5,
+            3
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_FUCHSIAGYM_ROCKER4"
+        },
+        {
+          "opponent": "OPP_TAMER",
+          "position": [
+            2,
+            8
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_FUCHSIAGYM_ROCKER5"
+        },
+        {
+          "opponent": "OPP_JUGGLER",
+          "position": [
+            7,
+            2
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_FUCHSIAGYM_ROCKER6"
+        }
       ],
       "warps": [
         {
@@ -7369,11 +10547,13 @@
       "constant": "FUCHSIA_MEETING_ROOM",
       "hex_id": "0x9E",
       "id": 158,
+      "items": [],
       "name": "Fuchsia Meeting Room",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7401,11 +10581,13 @@
       "constant": "SEAFOAM_ISLANDS_B1F",
       "hex_id": "0x9F",
       "id": 159,
+      "items": [],
       "name": "Seafoam Islands B1f",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SEAFOAM_ISLANDS_B2F",
@@ -7478,11 +10660,13 @@
       "constant": "SEAFOAM_ISLANDS_B2F",
       "hex_id": "0xA0",
       "id": 160,
+      "items": [],
       "name": "Seafoam Islands B2f",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SEAFOAM_ISLANDS_B1F",
@@ -7555,11 +10739,13 @@
       "constant": "SEAFOAM_ISLANDS_B3F",
       "hex_id": "0xA1",
       "id": 161,
+      "items": [],
       "name": "Seafoam Islands B3f",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SEAFOAM_ISLANDS_B2F",
@@ -7632,11 +10818,13 @@
       "constant": "SEAFOAM_ISLANDS_B4F",
       "hex_id": "0xA2",
       "id": 162,
+      "items": [],
       "name": "Seafoam Islands B4f",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SEAFOAM_ISLANDS_B3F",
@@ -7682,11 +10870,13 @@
       "constant": "VERMILION_OLD_ROD_HOUSE",
       "hex_id": "0xA3",
       "id": 163,
+      "items": [],
       "name": "Vermilion Old Rod House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7714,11 +10904,13 @@
       "constant": "FUCHSIA_GOOD_ROD_HOUSE",
       "hex_id": "0xA4",
       "id": 164,
+      "items": [],
       "name": "Fuchsia Good Rod House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7755,10 +10947,42 @@
       "constant": "POKEMON_MANSION_1F",
       "hex_id": "0xA5",
       "id": 165,
+      "items": [
+        {
+          "item": "ESCAPE_ROPE",
+          "position": [
+            3,
+            14
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSION1F_ESCAPE_ROPE"
+        },
+        {
+          "item": "CARBOS",
+          "position": [
+            21,
+            18
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSION1F_CARBOS"
+        }
+      ],
       "name": "Pok\u00e9mon Mansion 1F",
       "size_blocks": [
         15,
         14
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            17,
+            17
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_POKEMONMANSION1F_SCIENTIST"
+        }
       ],
       "warps": [
         {
@@ -7841,10 +11065,93 @@
       "constant": "CINNABAR_GYM",
       "hex_id": "0xA6",
       "id": 166,
+      "items": [],
       "name": "Cinnabar Gym",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BLAINE",
+          "position": [
+            3,
+            3
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_SILPH_PRESIDENT",
+          "text_id": "TEXT_CINNABARGYM_BLAINE"
+        },
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            2,
+            17
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_CINNABARGYM_SUPER_NERD1"
+        },
+        {
+          "opponent": "OPP_BURGLAR",
+          "position": [
+            8,
+            17
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_CINNABARGYM_SUPER_NERD2"
+        },
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            4,
+            11
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_CINNABARGYM_SUPER_NERD3"
+        },
+        {
+          "opponent": "OPP_BURGLAR",
+          "position": [
+            8,
+            11
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_CINNABARGYM_SUPER_NERD4"
+        },
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            14,
+            11
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_CINNABARGYM_SUPER_NERD5"
+        },
+        {
+          "opponent": "OPP_BURGLAR",
+          "position": [
+            14,
+            3
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_CINNABARGYM_SUPER_NERD6"
+        },
+        {
+          "opponent": "OPP_SUPER_NERD",
+          "position": [
+            8,
+            3
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_CINNABARGYM_SUPER_NERD7"
+        }
       ],
       "warps": [
         {
@@ -7873,11 +11180,13 @@
       "constant": "CINNABAR_LAB",
       "hex_id": "0xA7",
       "id": 167,
+      "items": [],
       "name": "Cinnabar Lab",
       "size_blocks": [
         9,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -7932,11 +11241,13 @@
       "constant": "CINNABAR_LAB_TRADE_ROOM",
       "hex_id": "0xA8",
       "id": 168,
+      "items": [],
       "name": "Cinnabar Lab Trade Room",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CINNABAR_LAB",
@@ -7964,11 +11275,13 @@
       "constant": "CINNABAR_LAB_METRONOME_ROOM",
       "hex_id": "0xA9",
       "id": 169,
+      "items": [],
       "name": "Cinnabar Lab Metronome Room",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CINNABAR_LAB",
@@ -7996,11 +11309,13 @@
       "constant": "CINNABAR_LAB_FOSSIL_ROOM",
       "hex_id": "0xAA",
       "id": 170,
+      "items": [],
       "name": "Cinnabar Lab Fossil Room",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CINNABAR_LAB",
@@ -8028,11 +11343,13 @@
       "constant": "CINNABAR_POKECENTER",
       "hex_id": "0xAB",
       "id": 171,
+      "items": [],
       "name": "Cinnabar Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8060,11 +11377,13 @@
       "constant": "CINNABAR_MART",
       "hex_id": "0xAC",
       "id": 172,
+      "items": [],
       "name": "Cinnabar Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8092,11 +11411,13 @@
       "constant": "CINNABAR_MART_COPY",
       "hex_id": "0xAD",
       "id": 173,
+      "items": [],
       "name": "Cinnabar Mart Copy",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -8105,11 +11426,13 @@
       "constant": "INDIGO_PLATEAU_LOBBY",
       "hex_id": "0xAE",
       "id": 174,
+      "items": [],
       "name": "Indigo Plateau Lobby",
       "size_blocks": [
         8,
         6
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8146,11 +11469,13 @@
       "constant": "COPYCATS_HOUSE_1F",
       "hex_id": "0xAF",
       "id": 175,
+      "items": [],
       "name": "Copycats House 1F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8187,11 +11512,13 @@
       "constant": "COPYCATS_HOUSE_2F",
       "hex_id": "0xB0",
       "id": 176,
+      "items": [],
       "name": "Copycats House 2F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "COPYCATS_HOUSE_1F",
@@ -8210,10 +11537,63 @@
       "constant": "FIGHTING_DOJO",
       "hex_id": "0xB1",
       "id": 177,
+      "items": [],
       "name": "Fighting Dojo",
       "size_blocks": [
         5,
         6
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            3,
+            5
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_FIGHTINGDOJO_KARATE_MASTER"
+        },
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            4,
+            3
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_FIGHTINGDOJO_BLACKBELT1"
+        },
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            6,
+            3
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_FIGHTINGDOJO_BLACKBELT2"
+        },
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            5,
+            5
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_FIGHTINGDOJO_BLACKBELT3"
+        },
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            7,
+            5
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_FIGHTINGDOJO_BLACKBELT4"
+        }
       ],
       "warps": [
         {
@@ -8242,10 +11622,93 @@
       "constant": "SAFFRON_GYM",
       "hex_id": "0xB2",
       "id": 178,
+      "items": [],
       "name": "Saffron Gym",
       "size_blocks": [
         10,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SABRINA",
+          "position": [
+            8,
+            9
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_SAFFRONGYM_SABRINA"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            1,
+            10
+          ],
+          "roster": "22",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_SAFFRONGYM_CHANNELER1"
+        },
+        {
+          "opponent": "OPP_PSYCHIC_TR",
+          "position": [
+            1,
+            17
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_SAFFRONGYM_YOUNGSTER1"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            7,
+            3
+          ],
+          "roster": "23",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_SAFFRONGYM_CHANNELER2"
+        },
+        {
+          "opponent": "OPP_PSYCHIC_TR",
+          "position": [
+            7,
+            17
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_SAFFRONGYM_YOUNGSTER2"
+        },
+        {
+          "opponent": "OPP_CHANNELER",
+          "position": [
+            13,
+            3
+          ],
+          "roster": "24",
+          "sprite": "SPRITE_CHANNELER",
+          "text_id": "TEXT_SAFFRONGYM_CHANNELER3"
+        },
+        {
+          "opponent": "OPP_PSYCHIC_TR",
+          "position": [
+            13,
+            17
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_SAFFRONGYM_YOUNGSTER3"
+        },
+        {
+          "opponent": "OPP_PSYCHIC_TR",
+          "position": [
+            1,
+            3
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_YOUNGSTER",
+          "text_id": "TEXT_SAFFRONGYM_YOUNGSTER4"
+        }
       ],
       "warps": [
         {
@@ -8544,11 +12007,13 @@
       "constant": "SAFFRON_PIDGEY_HOUSE",
       "hex_id": "0xB3",
       "id": 179,
+      "items": [],
       "name": "Saffron Pidgey House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8576,11 +12041,13 @@
       "constant": "SAFFRON_MART",
       "hex_id": "0xB4",
       "id": 180,
+      "items": [],
       "name": "Saffron Mart",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8608,11 +12075,13 @@
       "constant": "SILPH_CO_1F",
       "hex_id": "0xB5",
       "id": 181,
+      "items": [],
       "name": "Silph Co 1F",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8667,11 +12136,13 @@
       "constant": "SAFFRON_POKECENTER",
       "hex_id": "0xB6",
       "id": 182,
+      "items": [],
       "name": "Saffron Pok\u00e9mon Center",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8699,11 +12170,13 @@
       "constant": "MR_PSYCHICS_HOUSE",
       "hex_id": "0xB7",
       "id": 183,
+      "items": [],
       "name": "Mr. Psychic's House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8731,11 +12204,13 @@
       "constant": "ROUTE_15_GATE_1F",
       "hex_id": "0xB8",
       "id": 184,
+      "items": [],
       "name": "Route 15 Gate 1F",
       "size_blocks": [
         4,
         5
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8790,11 +12265,13 @@
       "constant": "ROUTE_15_GATE_2F",
       "hex_id": "0xB9",
       "id": 185,
+      "items": [],
       "name": "Route 15 Gate 2F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_15_GATE_1F",
@@ -8813,11 +12290,13 @@
       "constant": "ROUTE_16_GATE_1F",
       "hex_id": "0xBA",
       "id": 186,
+      "items": [],
       "name": "Route 16 Gate 1F",
       "size_blocks": [
         4,
         7
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8908,11 +12387,13 @@
       "constant": "ROUTE_16_GATE_2F",
       "hex_id": "0xBB",
       "id": 187,
+      "items": [],
       "name": "Route 16 Gate 2F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_16_GATE_1F",
@@ -8931,11 +12412,13 @@
       "constant": "ROUTE_16_FLY_HOUSE",
       "hex_id": "0xBC",
       "id": 188,
+      "items": [],
       "name": "Route 16 Fly House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8963,11 +12446,13 @@
       "constant": "ROUTE_12_SUPER_ROD_HOUSE",
       "hex_id": "0xBD",
       "id": 189,
+      "items": [],
       "name": "Route 12 Super Rod House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -8995,11 +12480,13 @@
       "constant": "ROUTE_18_GATE_1F",
       "hex_id": "0xBE",
       "id": 190,
+      "items": [],
       "name": "Route 18 Gate 1F",
       "size_blocks": [
         4,
         5
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -9054,11 +12541,13 @@
       "constant": "ROUTE_18_GATE_2F",
       "hex_id": "0xBF",
       "id": 191,
+      "items": [],
       "name": "Route 18 Gate 2F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_18_GATE_1F",
@@ -9077,11 +12566,13 @@
       "constant": "SEAFOAM_ISLANDS_1F",
       "hex_id": "0xC0",
       "id": 192,
+      "items": [],
       "name": "Seafoam Islands 1F",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -9154,11 +12645,13 @@
       "constant": "ROUTE_22_GATE",
       "hex_id": "0xC1",
       "id": 193,
+      "items": [],
       "name": "Route 22 Gate",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -9204,10 +12697,100 @@
       "constant": "VICTORY_ROAD_2F",
       "hex_id": "0xC2",
       "id": 194,
+      "items": [
+        {
+          "item": "TM_SUBMISSION",
+          "position": [
+            5,
+            27
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD2F_TM_SUBMISSION"
+        },
+        {
+          "item": "FULL_HEAL",
+          "position": [
+            9,
+            18
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD2F_FULL_HEAL"
+        },
+        {
+          "item": "TM_MEGA_KICK",
+          "position": [
+            11,
+            9
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD2F_TM_MEGA_KICK"
+        },
+        {
+          "item": "GUARD_SPEC",
+          "position": [
+            0,
+            11
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD2F_GUARD_SPEC"
+        }
+      ],
       "name": "Victory Road 2F",
       "size_blocks": [
         15,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BLACKBELT",
+          "position": [
+            9,
+            12
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_VICTORYROAD2F_HIKER"
+        },
+        {
+          "opponent": "OPP_JUGGLER",
+          "position": [
+            13,
+            21
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_VICTORYROAD2F_SUPER_NERD1"
+        },
+        {
+          "opponent": "OPP_TAMER",
+          "position": [
+            8,
+            19
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_VICTORYROAD2F_COOLTRAINER_M"
+        },
+        {
+          "opponent": "OPP_POKEMANIAC",
+          "position": [
+            2,
+            4
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_VICTORYROAD2F_SUPER_NERD2"
+        },
+        {
+          "opponent": "OPP_JUGGLER",
+          "position": [
+            3,
+            26
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_VICTORYROAD2F_SUPER_NERD3"
+        }
       ],
       "warps": [
         {
@@ -9281,11 +12864,13 @@
       "constant": "ROUTE_12_GATE_2F",
       "hex_id": "0xC3",
       "id": 195,
+      "items": [],
       "name": "Route 12 Gate 2F",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROUTE_12_GATE_1F",
@@ -9304,11 +12889,13 @@
       "constant": "VERMILION_TRADE_HOUSE",
       "hex_id": "0xC4",
       "id": 196,
+      "items": [],
       "name": "Vermilion Trade House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -9336,11 +12923,13 @@
       "constant": "DIGLETTS_CAVE",
       "hex_id": "0xC5",
       "id": 197,
+      "items": [],
       "name": "Digletts Cave",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "DIGLETTS_CAVE_ROUTE_2",
@@ -9368,10 +12957,72 @@
       "constant": "VICTORY_ROAD_3F",
       "hex_id": "0xC6",
       "id": 198,
+      "items": [
+        {
+          "item": "MAX_REVIVE",
+          "position": [
+            5,
+            26
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD3F_MAX_REVIVE"
+        },
+        {
+          "item": "TM_EXPLOSION",
+          "position": [
+            7,
+            7
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_VICTORYROAD3F_TM_EXPLOSION"
+        }
+      ],
       "name": "Victory Road 3F",
       "size_blocks": [
         15,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_COOLTRAINER_M",
+          "position": [
+            5,
+            28
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_VICTORYROAD3F_COOLTRAINER_M1"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_F",
+          "position": [
+            13,
+            7
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_VICTORYROAD3F_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_M",
+          "position": [
+            14,
+            6
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_COOLTRAINER_M",
+          "text_id": "TEXT_VICTORYROAD3F_COOLTRAINER_M2"
+        },
+        {
+          "opponent": "OPP_COOLTRAINER_F",
+          "position": [
+            3,
+            13
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_VICTORYROAD3F_COOLTRAINER_F2"
+        }
       ],
       "warps": [
         {
@@ -9418,10 +13069,82 @@
       "constant": "ROCKET_HIDEOUT_B1F",
       "hex_id": "0xC7",
       "id": 199,
+      "items": [
+        {
+          "item": "ESCAPE_ROPE",
+          "position": [
+            14,
+            11
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB1F_ESCAPE_ROPE"
+        },
+        {
+          "item": "HYPER_POTION",
+          "position": [
+            17,
+            9
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB1F_HYPER_POTION"
+        }
+      ],
       "name": "Rocket Hideout B1f",
       "size_blocks": [
         15,
         14
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            8,
+            26
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB1F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            6,
+            12
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB1F_ROCKET2"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            17,
+            18
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB1F_ROCKET3"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            25,
+            15
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB1F_ROCKET4"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            18,
+            28
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB1F_ROCKET5"
+        }
       ],
       "warps": [
         {
@@ -9477,10 +13200,60 @@
       "constant": "ROCKET_HIDEOUT_B2F",
       "hex_id": "0xC8",
       "id": 200,
+      "items": [
+        {
+          "item": "MOON_STONE",
+          "position": [
+            11,
+            1
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB2F_MOON_STONE"
+        },
+        {
+          "item": "NUGGET",
+          "position": [
+            8,
+            16
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB2F_NUGGET"
+        },
+        {
+          "item": "TM_HORN_DRILL",
+          "position": [
+            12,
+            6
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB2F_TM_HORN_DRILL"
+        },
+        {
+          "item": "SUPER_POTION",
+          "position": [
+            21,
+            3
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB2F_SUPER_POTION"
+        }
+      ],
       "name": "Rocket Hideout B2f",
       "size_blocks": [
         15,
         14
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            12,
+            20
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB2F_ROCKET"
+        }
       ],
       "warps": [
         {
@@ -9536,10 +13309,52 @@
       "constant": "ROCKET_HIDEOUT_B3F",
       "hex_id": "0xC9",
       "id": 201,
+      "items": [
+        {
+          "item": "TM_DOUBLE_EDGE",
+          "position": [
+            17,
+            26
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE"
+        },
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            14,
+            20
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB3F_RARE_CANDY"
+        }
+      ],
       "name": "Rocket Hideout B3f",
       "size_blocks": [
         15,
         14
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            22,
+            10
+          ],
+          "roster": "14",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB3F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            12,
+            26
+          ],
+          "roster": "15",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB3F_ROCKET2"
+        }
       ],
       "warps": [
         {
@@ -9568,10 +13383,79 @@
       "constant": "ROCKET_HIDEOUT_B4F",
       "hex_id": "0xCA",
       "id": 202,
+      "items": [
+        {
+          "item": "HP_UP",
+          "position": [
+            12,
+            10
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB4F_HP_UP"
+        },
+        {
+          "item": "TM_RAZOR_WIND",
+          "position": [
+            4,
+            9
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB4F_TM_RAZOR_WIND"
+        },
+        {
+          "item": "IRON",
+          "position": [
+            20,
+            12
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB4F_IRON"
+        },
+        {
+          "item": "SILPH_SCOPE",
+          "position": [
+            2,
+            25
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB4F_SILPH_SCOPE"
+        },
+        {
+          "item": "LIFT_KEY",
+          "position": [
+            2,
+            10
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_ROCKETHIDEOUTB4F_LIFT_KEY"
+        }
+      ],
       "name": "Rocket Hideout B4f",
       "size_blocks": [
         15,
         12
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_GIOVANNI",
+          "position": [
+            3,
+            25
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_GIOVANNI",
+          "text_id": "TEXT_ROCKETHIDEOUTB4F_GIOVANNI"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            2,
+            11
+          ],
+          "roster": "18",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_ROCKETHIDEOUTB4F_ROCKET"
+        }
       ],
       "warps": [
         {
@@ -9609,11 +13493,13 @@
       "constant": "ROCKET_HIDEOUT_ELEVATOR",
       "hex_id": "0xCB",
       "id": 203,
+      "items": [],
       "name": "Rocket Hideout Elevator",
       "size_blocks": [
         3,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "ROCKET_HIDEOUT_B1F",
@@ -9641,11 +13527,13 @@
       "constant": "UNUSED_MAP_CC",
       "hex_id": "0xCC",
       "id": 204,
+      "items": [],
       "name": "Unused Map Cc",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -9654,11 +13542,13 @@
       "constant": "UNUSED_MAP_CD",
       "hex_id": "0xCD",
       "id": 205,
+      "items": [],
       "name": "Unused Map Cd",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -9667,11 +13557,13 @@
       "constant": "UNUSED_MAP_CE",
       "hex_id": "0xCE",
       "id": 206,
+      "items": [],
       "name": "Unused Map Ce",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -9680,10 +13572,53 @@
       "constant": "SILPH_CO_2F",
       "hex_id": "0xCF",
       "id": 207,
+      "items": [],
       "name": "Silph Co 2F",
       "size_blocks": [
         15,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            12,
+            5
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO2F_SCIENTIST1"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            13,
+            24
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO2F_SCIENTIST2"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            11,
+            16
+          ],
+          "roster": "23",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO2F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            7,
+            24
+          ],
+          "roster": "24",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO2F_ROCKET2"
+        }
       ],
       "warps": [
         {
@@ -9757,10 +13692,43 @@
       "constant": "SILPH_CO_3F",
       "hex_id": "0xD0",
       "id": 208,
+      "items": [
+        {
+          "item": "HYPER_POTION",
+          "position": [
+            5,
+            8
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO3F_HYPER_POTION"
+        }
+      ],
       "name": "Silph Co 3F",
       "size_blocks": [
         15,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            7,
+            20
+          ],
+          "roster": "25",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO3F_ROCKET"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            9,
+            7
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO3F_SCIENTIST"
+        }
       ],
       "warps": [
         {
@@ -9861,10 +13829,71 @@
       "constant": "SILPH_CO_4F",
       "hex_id": "0xD1",
       "id": 209,
+      "items": [
+        {
+          "item": "FULL_HEAL",
+          "position": [
+            9,
+            3
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO4F_FULL_HEAL"
+        },
+        {
+          "item": "MAX_REVIVE",
+          "position": [
+            7,
+            4
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO4F_MAX_REVIVE"
+        },
+        {
+          "item": "ESCAPE_ROPE",
+          "position": [
+            8,
+            5
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO4F_ESCAPE_ROPE"
+        }
+      ],
       "name": "Silph Co 4F",
       "size_blocks": [
         15,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            14,
+            9
+          ],
+          "roster": "26",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO4F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            6,
+            14
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO4F_SCIENTIST"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            10,
+            26
+          ],
+          "roster": "27",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO4F_ROCKET2"
+        }
       ],
       "warps": [
         {
@@ -9938,10 +13967,81 @@
       "constant": "SILPH_CO_5F",
       "hex_id": "0xD2",
       "id": 210,
+      "items": [
+        {
+          "item": "TM_TAKE_DOWN",
+          "position": [
+            13,
+            2
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO5F_TM_TAKE_DOWN"
+        },
+        {
+          "item": "PROTEIN",
+          "position": [
+            6,
+            4
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO5F_PROTEIN"
+        },
+        {
+          "item": "CARD_KEY",
+          "position": [
+            16,
+            21
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO5F_CARD_KEY"
+        }
+      ],
       "name": "Silph Co 5F",
       "size_blocks": [
         15,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            16,
+            8
+          ],
+          "roster": "28",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO5F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            3,
+            8
+          ],
+          "roster": "6",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO5F_SCIENTIST"
+        },
+        {
+          "opponent": "OPP_JUGGLER",
+          "position": [
+            10,
+            18
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_ROCKER",
+          "text_id": "TEXT_SILPHCO5F_ROCKER"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            4,
+            28
+          ],
+          "roster": "29",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO5F_ROCKET2"
+        }
       ],
       "warps": [
         {
@@ -10015,10 +14115,62 @@
       "constant": "SILPH_CO_6F",
       "hex_id": "0xD3",
       "id": 211,
+      "items": [
+        {
+          "item": "HP_UP",
+          "position": [
+            12,
+            3
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO6F_HP_UP"
+        },
+        {
+          "item": "X_ACCURACY",
+          "position": [
+            15,
+            2
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO6F_X_ACCURACY"
+        }
+      ],
       "name": "Silph Co 6F",
       "size_blocks": [
         13,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            3,
+            17
+          ],
+          "roster": "30",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO6F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            8,
+            7
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO6F_SCIENTIST"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            15,
+            14
+          ],
+          "roster": "31",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO6F_ROCKET2"
+        }
       ],
       "warps": [
         {
@@ -10074,10 +14226,72 @@
       "constant": "SILPH_CO_7F",
       "hex_id": "0xD4",
       "id": 212,
+      "items": [
+        {
+          "item": "CALCIUM",
+          "position": [
+            9,
+            1
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO7F_CALCIUM"
+        },
+        {
+          "item": "TM_SWORDS_DANCE",
+          "position": [
+            11,
+            24
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO7F_TM_SWORDS_DANCE"
+        }
+      ],
       "name": "Silph Co 7F",
       "size_blocks": [
         13,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            1,
+            13
+          ],
+          "roster": "32",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO7F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            13,
+            2
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO7F_SCIENTIST"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            2,
+            20
+          ],
+          "roster": "33",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO7F_ROCKET2"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            14,
+            19
+          ],
+          "roster": "34",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO7F_ROCKET3"
+        }
       ],
       "warps": [
         {
@@ -10142,10 +14356,43 @@
       "constant": "SILPH_CO_8F",
       "hex_id": "0xD5",
       "id": 213,
+      "items": [],
       "name": "Silph Co 8F",
       "size_blocks": [
         13,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            2,
+            19
+          ],
+          "roster": "35",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO8F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            2,
+            10
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO8F_SCIENTIST"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            15,
+            12
+          ],
+          "roster": "36",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO8F_ROCKET2"
+        }
       ],
       "warps": [
         {
@@ -10219,10 +14466,33 @@
       "constant": "POKEMON_MANSION_2F",
       "hex_id": "0xD6",
       "id": 214,
+      "items": [
+        {
+          "item": "CALCIUM",
+          "position": [
+            7,
+            28
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSION2F_CALCIUM"
+        }
+      ],
       "name": "Pok\u00e9mon Mansion 2F",
       "size_blocks": [
         15,
         14
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BURGLAR",
+          "position": [
+            17,
+            3
+          ],
+          "roster": "7",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_POKEMONMANSION2F_SUPER_NERD"
+        }
       ],
       "warps": [
         {
@@ -10269,10 +14539,52 @@
       "constant": "POKEMON_MANSION_3F",
       "hex_id": "0xD7",
       "id": 215,
+      "items": [
+        {
+          "item": "MAX_POTION",
+          "position": [
+            16,
+            1
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSION3F_MAX_POTION"
+        },
+        {
+          "item": "IRON",
+          "position": [
+            5,
+            25
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSION3F_IRON"
+        }
+      ],
       "name": "Pok\u00e9mon Mansion 3F",
       "size_blocks": [
         15,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BURGLAR",
+          "position": [
+            11,
+            5
+          ],
+          "roster": "8",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_POKEMONMANSION3F_SUPER_NERD"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            11,
+            20
+          ],
+          "roster": "12",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_POKEMONMANSION3F_SCIENTIST"
+        }
       ],
       "warps": [
         {
@@ -10310,10 +14622,79 @@
       "constant": "POKEMON_MANSION_B1F",
       "hex_id": "0xD8",
       "id": 216,
+      "items": [
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            2,
+            10
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSIONB1F_RARE_CANDY"
+        },
+        {
+          "item": "FULL_RESTORE",
+          "position": [
+            22,
+            1
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSIONB1F_FULL_RESTORE"
+        },
+        {
+          "item": "TM_BLIZZARD",
+          "position": [
+            25,
+            19
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSIONB1F_TM_BLIZZARD"
+        },
+        {
+          "item": "TM_SOLARBEAM",
+          "position": [
+            4,
+            5
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSIONB1F_TM_SOLARBEAM"
+        },
+        {
+          "item": "SECRET_KEY",
+          "position": [
+            13,
+            5
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_POKEMONMANSIONB1F_SECRET_KEY"
+        }
+      ],
       "name": "Pok\u00e9mon Mansion B1f",
       "size_blocks": [
         15,
         14
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BURGLAR",
+          "position": [
+            23,
+            16
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_POKEMONMANSIONB1F_BURGLAR"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            11,
+            27
+          ],
+          "roster": "13",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_POKEMONMANSIONB1F_SCIENTIST"
+        }
       ],
       "warps": [
         {
@@ -10333,11 +14714,50 @@
       "constant": "SAFARI_ZONE_EAST",
       "hex_id": "0xD9",
       "id": 217,
+      "items": [
+        {
+          "item": "FULL_RESTORE",
+          "position": [
+            10,
+            21
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEEAST_FULL_RESTORE"
+        },
+        {
+          "item": "MAX_POTION",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEEAST_MAX_RESTORE"
+        },
+        {
+          "item": "CARBOS",
+          "position": [
+            13,
+            20
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEEAST_CARBOS"
+        },
+        {
+          "item": "TM_EGG_BOMB",
+          "position": [
+            12,
+            15
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEEAST_TM_EGG_BOMB"
+        }
+      ],
       "name": "Safari Zone East",
       "size_blocks": [
         15,
         13
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_NORTH",
@@ -10392,11 +14812,32 @@
       "constant": "SAFARI_ZONE_NORTH",
       "hex_id": "0xDA",
       "id": 218,
+      "items": [
+        {
+          "item": "PROTEIN",
+          "position": [
+            1,
+            25
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONENORTH_PROTEIN"
+        },
+        {
+          "item": "TM_SKULL_BASH",
+          "position": [
+            7,
+            19
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONENORTH_TM_SKULL_BASH"
+        }
+      ],
       "name": "Safari Zone North",
       "size_blocks": [
         20,
         18
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_WEST",
@@ -10487,11 +14928,50 @@
       "constant": "SAFARI_ZONE_WEST",
       "hex_id": "0xDB",
       "id": 219,
+      "items": [
+        {
+          "item": "MAX_POTION",
+          "position": [
+            20,
+            8
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEWEST_MAX_POTION"
+        },
+        {
+          "item": "TM_DOUBLE_TEAM",
+          "position": [
+            7,
+            9
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEWEST_TM_DOUBLE_TEAM"
+        },
+        {
+          "item": "MAX_REVIVE",
+          "position": [
+            18,
+            18
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEWEST_MAX_REVIVE"
+        },
+        {
+          "item": "GOLD_TEETH",
+          "position": [
+            7,
+            19
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONEWEST_GOLD_TEETH"
+        }
+      ],
       "name": "Safari Zone West",
       "size_blocks": [
         15,
         13
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_NORTH",
@@ -10573,11 +15053,23 @@
       "constant": "SAFARI_ZONE_CENTER",
       "hex_id": "0xDC",
       "id": 220,
+      "items": [
+        {
+          "item": "NUGGET",
+          "position": [
+            10,
+            14
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SAFARIZONECENTER_NUGGET"
+        }
+      ],
       "name": "Safari Zone Center",
       "size_blocks": [
         15,
         13
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_GATE",
@@ -10668,11 +15160,13 @@
       "constant": "SAFARI_ZONE_CENTER_REST_HOUSE",
       "hex_id": "0xDD",
       "id": 221,
+      "items": [],
       "name": "Safari Zone Center Rest House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_CENTER",
@@ -10700,11 +15194,13 @@
       "constant": "SAFARI_ZONE_SECRET_HOUSE",
       "hex_id": "0xDE",
       "id": 222,
+      "items": [],
       "name": "Safari Zone Secret House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_WEST",
@@ -10732,11 +15228,13 @@
       "constant": "SAFARI_ZONE_WEST_REST_HOUSE",
       "hex_id": "0xDF",
       "id": 223,
+      "items": [],
       "name": "Safari Zone West Rest House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_WEST",
@@ -10764,11 +15262,13 @@
       "constant": "SAFARI_ZONE_EAST_REST_HOUSE",
       "hex_id": "0xE0",
       "id": 224,
+      "items": [],
       "name": "Safari Zone East Rest House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_EAST",
@@ -10796,11 +15296,13 @@
       "constant": "SAFARI_ZONE_NORTH_REST_HOUSE",
       "hex_id": "0xE1",
       "id": 225,
+      "items": [],
       "name": "Safari Zone North Rest House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "SAFARI_ZONE_NORTH",
@@ -10828,11 +15330,50 @@
       "constant": "CERULEAN_CAVE_2F",
       "hex_id": "0xE2",
       "id": 226,
+      "items": [
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            11,
+            0
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE2F_RARE_CANDY"
+        },
+        {
+          "item": "ULTRA_BALL",
+          "position": [
+            7,
+            16
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE2F_ULTRA_BALL"
+        },
+        {
+          "item": "MAX_REVIVE",
+          "position": [
+            11,
+            19
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE2F_MAX_REVIVE"
+        },
+        {
+          "item": "FULL_RESTORE",
+          "position": [
+            9,
+            27
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE2F_FULL_RESTORE"
+        }
+      ],
       "name": "Cerulean Cave 2F",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CERULEAN_CAVE_1F",
@@ -10896,11 +15437,50 @@
       "constant": "CERULEAN_CAVE_B1F",
       "hex_id": "0xE3",
       "id": 227,
+      "items": [
+        {
+          "item": "ULTRA_BALL",
+          "position": [
+            1,
+            26
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVEB1F_ULTRA_BALL1"
+        },
+        {
+          "item": "ULTRA_BALL",
+          "position": [
+            13,
+            2
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVEB1F_ULTRA_BALL2"
+        },
+        {
+          "item": "MAX_REVIVE",
+          "position": [
+            13,
+            3
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVEB1F_MAX_REVIVE"
+        },
+        {
+          "item": "MAX_ELIXER",
+          "position": [
+            3,
+            15
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVEB1F_MAX_ELIXER"
+        }
+      ],
       "name": "Cerulean Cave B1f",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "CERULEAN_CAVE_1F",
@@ -10919,11 +15499,50 @@
       "constant": "CERULEAN_CAVE_1F",
       "hex_id": "0xE4",
       "id": 228,
+      "items": [
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            16,
+            29
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE1F_RARE_CANDY"
+        },
+        {
+          "item": "MAX_ELIXER",
+          "position": [
+            11,
+            7
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE1F_MAX_ELIXER"
+        },
+        {
+          "item": "MAX_REVIVE",
+          "position": [
+            9,
+            29
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE1F_MAX_REVIVE"
+        },
+        {
+          "item": "ULTRA_BALL",
+          "position": [
+            3,
+            18
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_CERULEANCAVE1F_ULTRA_BALL"
+        }
+      ],
       "name": "Cerulean Cave 1F",
       "size_blocks": [
         15,
         9
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -11014,11 +15633,13 @@
       "constant": "NAME_RATERS_HOUSE",
       "hex_id": "0xE5",
       "id": 229,
+      "items": [],
       "name": "Name Raters House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -11046,11 +15667,13 @@
       "constant": "CERULEAN_BADGE_HOUSE",
       "hex_id": "0xE6",
       "id": 230,
+      "items": [],
       "name": "Cerulean Badge House",
       "size_blocks": [
         4,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",
@@ -11087,11 +15710,13 @@
       "constant": "UNUSED_MAP_E7",
       "hex_id": "0xE7",
       "id": 231,
+      "items": [],
       "name": "Unused Map E7",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11100,10 +15725,93 @@
       "constant": "ROCK_TUNNEL_B1F",
       "hex_id": "0xE8",
       "id": 232,
+      "items": [],
       "name": "Rock Tunnel B1f",
       "size_blocks": [
         20,
         18
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            13,
+            11
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROCKTUNNELB1F_COOLTRAINER_F1"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            10,
+            6
+          ],
+          "roster": "9",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROCKTUNNELB1F_HIKER1"
+        },
+        {
+          "opponent": "OPP_POKEMANIAC",
+          "position": [
+            5,
+            3
+          ],
+          "roster": "3",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROCKTUNNELB1F_SUPER_NERD1"
+        },
+        {
+          "opponent": "OPP_POKEMANIAC",
+          "position": [
+            21,
+            20
+          ],
+          "roster": "4",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROCKTUNNELB1F_SUPER_NERD2"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            10,
+            30
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROCKTUNNELB1F_HIKER2"
+        },
+        {
+          "opponent": "OPP_JR_TRAINER_F",
+          "position": [
+            28,
+            14
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_COOLTRAINER_F",
+          "text_id": "TEXT_ROCKTUNNELB1F_COOLTRAINER_F2"
+        },
+        {
+          "opponent": "OPP_HIKER",
+          "position": [
+            5,
+            33
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_HIKER",
+          "text_id": "TEXT_ROCKTUNNELB1F_HIKER3"
+        },
+        {
+          "opponent": "OPP_POKEMANIAC",
+          "position": [
+            30,
+            26
+          ],
+          "roster": "5",
+          "sprite": "SPRITE_SUPER_NERD",
+          "text_id": "TEXT_ROCKTUNNELB1F_SUPER_NERD3"
+        }
       ],
       "warps": [
         {
@@ -11150,10 +15858,43 @@
       "constant": "SILPH_CO_9F",
       "hex_id": "0xE9",
       "id": 233,
+      "items": [],
       "name": "Silph Co 9F",
       "size_blocks": [
         13,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            4,
+            2
+          ],
+          "roster": "37",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO9F_ROCKET1"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            13,
+            21
+          ],
+          "roster": "10",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO9F_SCIENTIST"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            16,
+            13
+          ],
+          "roster": "38",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO9F_ROCKET2"
+        }
       ],
       "warps": [
         {
@@ -11209,10 +15950,61 @@
       "constant": "SILPH_CO_10F",
       "hex_id": "0xEA",
       "id": 234,
+      "items": [
+        {
+          "item": "TM_EARTHQUAKE",
+          "position": [
+            12,
+            2
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO10F_TM_EARTHQUAKE"
+        },
+        {
+          "item": "RARE_CANDY",
+          "position": [
+            14,
+            4
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO10F_RARE_CANDY"
+        },
+        {
+          "item": "CARBOS",
+          "position": [
+            11,
+            5
+          ],
+          "sprite": "SPRITE_POKE_BALL",
+          "text_id": "TEXT_SILPHCO10F_CARBOS"
+        }
+      ],
       "name": "Silph Co 10F",
       "size_blocks": [
         8,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            9,
+            1
+          ],
+          "roster": "39",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO10F_ROCKET"
+        },
+        {
+          "opponent": "OPP_SCIENTIST",
+          "position": [
+            2,
+            10
+          ],
+          "roster": "11",
+          "sprite": "SPRITE_SCIENTIST",
+          "text_id": "TEXT_SILPHCO10F_SCIENTIST"
+        }
       ],
       "warps": [
         {
@@ -11277,10 +16069,33 @@
       "constant": "SILPH_CO_11F",
       "hex_id": "0xEB",
       "id": 235,
+      "items": [],
       "name": "Silph Co 11F",
       "size_blocks": [
         9,
         9
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_GIOVANNI",
+          "position": [
+            9,
+            6
+          ],
+          "roster": "2",
+          "sprite": "SPRITE_GIOVANNI",
+          "text_id": "TEXT_SILPHCO11F_GIOVANNI"
+        },
+        {
+          "opponent": "OPP_ROCKET",
+          "position": [
+            9,
+            15
+          ],
+          "roster": "40",
+          "sprite": "SPRITE_ROCKET",
+          "text_id": "TEXT_SILPHCO11F_ROCKET"
+        }
       ],
       "warps": [
         {
@@ -11327,11 +16142,13 @@
       "constant": "SILPH_CO_ELEVATOR",
       "hex_id": "0xEC",
       "id": 236,
+      "items": [],
       "name": "Silph Co Elevator",
       "size_blocks": [
         2,
         2
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "UNUSED_MAP_ED",
@@ -11359,11 +16176,13 @@
       "constant": "UNUSED_MAP_ED",
       "hex_id": "0xED",
       "id": 237,
+      "items": [],
       "name": "Unused Map Ed",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11372,11 +16191,13 @@
       "constant": "UNUSED_MAP_EE",
       "hex_id": "0xEE",
       "id": 238,
+      "items": [],
       "name": "Unused Map Ee",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11385,11 +16206,13 @@
       "constant": "TRADE_CENTER",
       "hex_id": "0xEF",
       "id": 239,
+      "items": [],
       "name": "Trade Center",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11398,11 +16221,13 @@
       "constant": "COLOSSEUM",
       "hex_id": "0xF0",
       "id": 240,
+      "items": [],
       "name": "Colosseum",
       "size_blocks": [
         5,
         4
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11411,11 +16236,13 @@
       "constant": "UNUSED_MAP_F1",
       "hex_id": "0xF1",
       "id": 241,
+      "items": [],
       "name": "Unused Map F1",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11424,11 +16251,13 @@
       "constant": "UNUSED_MAP_F2",
       "hex_id": "0xF2",
       "id": 242,
+      "items": [],
       "name": "Unused Map F2",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11437,11 +16266,13 @@
       "constant": "UNUSED_MAP_F3",
       "hex_id": "0xF3",
       "id": 243,
+      "items": [],
       "name": "Unused Map F3",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11450,11 +16281,13 @@
       "constant": "UNUSED_MAP_F4",
       "hex_id": "0xF4",
       "id": 244,
+      "items": [],
       "name": "Unused Map F4",
       "size_blocks": [
         0,
         0
       ],
+      "trainers": [],
       "warps": []
     },
     {
@@ -11463,10 +16296,23 @@
       "constant": "LORELEIS_ROOM",
       "hex_id": "0xF5",
       "id": 245,
+      "items": [],
       "name": "Loreleis Room",
       "size_blocks": [
         5,
         6
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_LORELEI",
+          "position": [
+            2,
+            5
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_LORELEI",
+          "text_id": "TEXT_LORELEISROOM_LORELEI"
+        }
       ],
       "warps": [
         {
@@ -11513,10 +16359,23 @@
       "constant": "BRUNOS_ROOM",
       "hex_id": "0xF6",
       "id": 246,
+      "items": [],
       "name": "Brunos Room",
       "size_blocks": [
         5,
         6
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_BRUNO",
+          "position": [
+            2,
+            5
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_BRUNO",
+          "text_id": "TEXT_BRUNOSROOM_BRUNO"
+        }
       ],
       "warps": [
         {
@@ -11563,10 +16422,23 @@
       "constant": "AGATHAS_ROOM",
       "hex_id": "0xF7",
       "id": 247,
+      "items": [],
       "name": "Agathas Room",
       "size_blocks": [
         5,
         6
+      ],
+      "trainers": [
+        {
+          "opponent": "OPP_AGATHA",
+          "position": [
+            2,
+            5
+          ],
+          "roster": "1",
+          "sprite": "SPRITE_AGATHA",
+          "text_id": "TEXT_AGATHASROOM_AGATHA"
+        }
       ],
       "warps": [
         {
@@ -11613,11 +16485,13 @@
       "constant": "SUMMER_BEACH_HOUSE",
       "hex_id": "0xF8",
       "id": 248,
+      "items": [],
       "name": "Summer Beach House",
       "size_blocks": [
         7,
         4
       ],
+      "trainers": [],
       "warps": [
         {
           "destination_constant": "LAST_MAP",

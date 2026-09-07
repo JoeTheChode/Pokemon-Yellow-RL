@@ -1,8 +1,0 @@
-backup 05d_forest_south.state -> 05d_forest_south.state
-backup 05e_forest_north.state -> 05e_forest_north.state
-backup 05f_gate_transition.state -> 05f_gate_transition.state
-backup progress.json -> progress.json
-install forest_entrance_from_gate_fixed.state -> 05d_forest_south.state
-install teleport_main_body.state -> 05e_forest_north.state
-remove 05f_gate_transition.state (force fresh hit-state handoff)
-set progress.json milestone_index=10

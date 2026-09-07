@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon Yellow Custom Map Viewer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111;
+      --panel: rgba(8, 12, 20, 0.94);
+      --border: rgba(255,255,255,0.14);
+      --text: #f3f3f3;
+      --muted: #9aa4b2;
+      --accent: #4cc9f0;
+      --good: #3ddc84;
+      --warn: #f0c419;
+      --bad: #ff5c5c;
+    }
+
+    /* ---------- splits (LiveSplit-style segment ledger) ---------- */
+    /* Scrolls vertically only. `table-layout: fixed` plus the <col> widths
+       below pin the three number columns and give the rest to the objective
+       name, which ellipsizes -- so a long name can never widen the table and
+       force a horizontal scrollbar in the sidebar. */
+    /* Trainer card. Badge order matches the in-game card, and an unearned
+       badge stays visible-but-dim so the gaps read as gaps -- an out-of-order
+       set (Rainbow without Thunder) is then obvious at a glance, which is how
+       the OR-aggregation bug was spotted in the first place. */
+    .tcard { flex: 0 0 auto; border: 1px solid var(--border); border-radius: 5px; padding: 8px 9px; display: flex; flex-direction: column; gap: 7px; background: rgba(255,255,255,0.02); }
+    .tcard[hidden] { display: none; }
+    .tcard-top { display: flex; align-items: flex-start; gap: 10px; }
+    .tcard-fields { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+    .tcard-row { display: flex; gap: 7px; font-size: 11px; align-items: baseline; }
+    .tcard-row span { color: var(--muted); letter-spacing: .06em; font-size: 9px; text-transform: uppercase; width: 3.4em; flex: 0 0 auto; }
+    .tcard-row b { color: var(--text); font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .tcard-badge-count { text-align: right; flex: 0 0 auto; }
+    .tcard-badge-num { font-size: 17px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.1; }
+    .tcard-badge-label { color: var(--muted); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
+    .tcard-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+    .tcard-badge {
+      width: 21px; height: 21px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 10px; font-weight: 700;
+      border: 1px solid var(--border); color: var(--muted); opacity: .45;
+    }
+    .tcard-badge.earned { background: var(--warn); color: #1a1a1a; border-color: var(--warn); opacity: 1; }
+    .tcard-note { font-size: 10px; color: var(--muted); line-height: 1.35; margin: 0; }
+    .tcard-note.warn { color: var(--warn); }
+    #splitsStatus { font-size: 12px; color: var(--muted); }
+    #splitsStatus .status-strong { color: var(--text); font-weight: 700; }
+    .splits-scroll { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; border: 1px solid var(--border); border-radius: 8px; background: rgba(0,0,0,.12); }
+    .splits-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 11.5px; font-variant-numeric: tabular-nums; }
+    .splits-table th {
+      position: sticky; top: 0; z-index: 1; background: #0b1018; color: var(--muted);
+      font-weight: 600; font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+      text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--border);
+    }
+    .splits-table td { padding: 5px 6px; height: 27px; border-bottom: 1px solid rgba(255,255,255,0.055); white-space: nowrap; overflow: hidden; }
+    .splits-table td:first-child { overflow: hidden; text-overflow: ellipsis; }
+    .splits-table .r { text-align: right; }
+    .splits-table tbody tr.done td:first-child { color: var(--text); }
+    .splits-table tbody tr.pending td { color: var(--muted); opacity: .65; }
+    /* The objective the frontier is on -- LiveSplit's active segment. */
+    .splits-table tbody tr:hover { background: rgba(255,255,255,.035); }
+    .splits-table tbody tr.current { background: rgba(76,201,240,0.15); box-shadow: inset 3px 0 0 var(--accent); }
+    .splits-table tbody tr.current td:first-child { color: var(--accent); font-weight: 650; }
+    .split-phase { display: inline-block; min-width: 20px; color: var(--muted); font-size: 9.5px; margin-right: 5px; text-align: right; }
+    .split-objective { text-transform: none; }
+    .splits-table td:last-child { color: #fff; font-weight: 650; }
+    .delta-ahead { color: var(--good); }
+    .delta-behind { color: var(--bad); }
+    .delta-none { color: var(--muted); }
+    .splits-totals { flex: 0 0 auto; display: flex; flex-direction: column; gap: 3px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .splits-totals .srow { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+    .splits-totals .srow b { color: var(--text); font-variant-numeric: tabular-nums; }
+    /* Mastery gate: a compact, high-contrast summary of the active rule. */
+    .gate { flex: 0 0 auto; border: 1px solid rgba(76,201,240,.32); border-left: 3px solid var(--accent); border-radius: 9px; padding: 10px 11px; display: flex; flex-direction: column; gap: 8px; background: linear-gradient(135deg, rgba(76,201,240,.09), rgba(255,255,255,.025)); }
+    .gate[hidden] { display: none; }
+    .gate-head { display: flex; align-items: flex-start; gap: 8px; min-width: 0; }
+    .gate-identity { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    .gate-kicker { color: var(--muted); font-size: 9.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+    .gate-title { font-size: 13px; line-height: 1.25; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .gate-verdict { flex: 0 0 auto; padding: 3px 7px; border-radius: 999px; font-size: 9px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+    .gate-verdict.pass { color: #07170e; background: var(--good); }
+    .gate-verdict.wait { color: #1c1500; background: var(--warn); }
+    .gate-mode { align-self: flex-start; padding: 2px 6px; border: 1px solid var(--border); border-radius: 999px; color: var(--accent); font-size: 9.5px; font-weight: 650; }
+    .gate-bar { height: 7px; border-radius: 4px; background: rgba(255,255,255,0.10); overflow: hidden; }
+    .gate-bar span { display: block; height: 100%; width: 0; background: var(--warn); border-radius: 3px; }
+    .gate-bar span.pass { background: var(--good); }
+    .gate-line { font-size: 11.5px; line-height: 1.35; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .gate-line b { color: var(--text); font-size: 12.5px; }
+    .gate-rule { padding-top: 7px; border-top: 1px solid rgba(255,255,255,.09); font-size: 10.5px; }
+    .splits-note { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: Segoe UI, Arial, sans-serif; }
+
+    body { display: flex; flex-direction: column; }
+
+    /* ---------- top training-health dashboard bar ---------- */
+    .dash-bar {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+      padding: 8px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      font-size: 12.5px;
+      z-index: 6;
+    }
+    .dash-group { display: flex; align-items: center; gap: 10px; }
+    .dash-stat { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+    .dash-stat .label { color: var(--muted); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .dash-stat .value { font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+    .service-pill { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 999px; background: rgba(255,255,255,0.04); }
+    .service-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); flex: 0 0 auto; }
+    .service-dot.is-active { background: var(--good); box-shadow: 0 0 6px var(--good); }
+    .service-dot.is-inactive { background: var(--bad); box-shadow: 0 0 6px var(--bad); }
+    .service-meta { color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .dash-stale { color: var(--bad); font-size: 11px; font-weight: 600; }
+    .trend-up { color: var(--good); }
+    .trend-down { color: var(--bad); }
+    .crit-row { display: flex; gap: 12px; margin-left: auto; }
+    .crit-stat { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.2; }
+    .crit-stat .label { color: var(--muted); font-size: 10px; text-transform: uppercase; }
+    .crit-value { font-size: 13px; font-weight: 600; }
+    .health-good { color: var(--good); }
+    .health-warn { color: var(--warn); }
+    .health-bad { color: var(--bad); }
+
+    /* ---------- body layout: sidebar + map ---------- */
+    .main-grid { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(260px, 320px) 1fr; }
+
+    .sidebar {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .tabs { display: flex; border-bottom: 1px solid var(--border); flex: 0 0 auto; }
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      border-radius: 0;
+      color: var(--muted);
+      padding: 10px 6px;
+      font-size: 12.5px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-btn:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+    .tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+
+    .tab-panel { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 14px 16px; gap: 10px; overflow: hidden; }
+    .tab-panel[hidden] { display: none; }
+    .tab-panel h1 { font-size: 15px; margin: 0; }
+    .tab-panel p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.4; }
+
+    #statusLine { font-size: 11.5px; color: var(--muted); }
+
+    .marker-list {
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px;
+      background: rgba(255,255,255,0.03);
+      flex: 1;
+      min-height: 0;
+    }
+
+    .marker-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 7px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 12.5px;
+    }
+    .marker-item:last-child { border-bottom: none; }
+    .marker-item button { padding: 4px 8px; font-size: 12px; }
+    .marker-item .row-top { display: flex; align-items: center; gap: 6px; }
+    .marker-item.live-agent-row { cursor: pointer; border-radius: 7px; }
+    .marker-item.live-agent-row:hover { background: rgba(76, 201, 240, 0.10); }
+    .marker-item.live-agent-row:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
+    .marker-item.live-agent-row.is-focused {
+      background: rgba(76, 201, 240, 0.20);
+      box-shadow: inset 3px 0 0 var(--accent);
+    }
+    .marker.live.is-focused {
+      filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px var(--accent));
+    }
+    .marker-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .live-detail { color: var(--muted); font-size: 11px; }
+    .battle-dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; background: var(--muted); opacity: 0.4; }
+    .battle-dot.battle-overworld { background: var(--good); opacity: 1; }
+    .battle-dot.battle-wild { background: #ff9f4c; opacity: 1; }
+    .battle-dot.battle-trainer { background: var(--bad); opacity: 1; }
+    .level-badge {
+      font-size: 10.5px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: var(--muted);
+      flex: 0 0 auto;
+    }
+
+    /* ---------- swarm progress tab ---------- */
+    .swarm-stats { display: flex; flex-direction: column; gap: 10px; overflow: auto; }
+    .swarm-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 12.5px; }
+    .swarm-row .swarm-label { color: var(--muted); }
+    .swarm-row .swarm-value { font-weight: 600; }
+    .progress-track { height: 8px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--good)); width: 0%; transition: width 300ms ease; }
+
+    /* ---------- charts tab ---------- */
+    .chart-history-status { color: var(--muted); font-size: 11px; margin: -2px 0 10px; }
+    .charts-list { display: flex; flex-direction: column; gap: 12px; overflow: auto; }
+    .chart-card { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: rgba(255,255,255,0.03); }
+    .chart-card .chart-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .chart-card .chart-title { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+    .chart-card .chart-value { font-size: 14px; font-weight: 600; }
+    .chart-card canvas { width: 100%; height: 60px; display: block; }
+
+    /* ---------- map area ---------- */
+    .map-shell {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0b1017 0%, #111 100%);
+      touch-action: none;
+      min-height: 0;
+    }
+
+    .map-toolbar {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 5;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      width: 220px;
+    }
+    .map-toolbar .controls { display: flex; gap: 6px; flex-wrap: wrap; }
+    .map-toolbar button, .map-toolbar select, .map-toolbar a { border-radius: 8px; border: 1px solid var(--border); background: #1b2430; color: var(--text); padding: 6px 8px; font-size: 11.5px; }
+    .map-toolbar a { text-decoration: none; }
+    .map-toolbar button:hover, .map-toolbar a:hover { background: #243041; cursor: pointer; }
+    .map-toolbar select { width: 100%; }
+    .legend-gradient { height: 10px; border-radius: 999px; border: 1px solid var(--border); }
+    .legend-labels { display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; }
+    #heatmapStatus { color: var(--muted); font-size: 10.5px; line-height: 1.3; }
+
+    .tile-tooltip {
+      position: fixed;
+      z-index: 20;
+      background: rgba(8,12,20,0.95);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 11.5px;
+      pointer-events: none;
+      max-width: 260px;
+    }
+    .tile-tooltip[hidden] { display: none; }
+
+    .map-stage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      will-change: transform;
+      transform-origin: 0 0;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .map-stage.dragging { cursor: grabbing; }
+
+    .map-stage img {
+      display: block;
+      max-width: none;
+      image-rendering: auto;
+      pointer-events: none;
+    }
+
+    .heatmap-overlay {
+      position: absolute;
+      inset: 0;
+      width: 6976px;
+      height: 7104px;
+      pointer-events: none;
+      image-rendering: pixelated;
+      /* Was opacity:0.72 + mix-blend-mode:screen -- screen only ever
+         lightens, so colors never read as true/saturated and hot tiles
+         couldn't visually dominate the way a real heatmap should. Normal
+         blending (the default) plus per-pixel alpha from heatColor() lets
+         cold tiles stay near-invisible while hot tiles approach opaque. */
+      opacity: 0.9;
+    }
+
+    .trail-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .landmark-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      --inverse-scale: 1;
+    }
+
+    .landmark {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 50%;
+      transform: scale(var(--inverse-scale)) translate(-50%, -50%);
+      transform-origin: 0 0;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.8);
+      pointer-events: auto;
+      z-index: 4;
+    }
+
+    .landmark.item { background: #ffd43b; }
+    .landmark.trainer { background: #ff5d73; }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      --inverse-scale: 1;
+    }
+
+    .marker {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
+      transform: scale(var(--inverse-scale)) translate(-50%, -50%);
+      transform-origin: 0 0;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .marker.live {
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 0;
+      background-color: transparent !important;
+      background-image: url('./pokerl_map_assets/trainer_agent_sprites.png');
+      background-repeat: no-repeat;
+      background-size: 128px 32px;
+      background-position: var(--sprite-x, 0px) 0;
+      image-rendering: pixelated;
+      transition: left 120ms linear, top 120ms linear;
+      will-change: left, top;
+      filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px var(--agent-color, #FFD700));
+      box-shadow: none;
+    }
+
+    .marker-label.live-label { display: none; }
+    .marker.live:hover + .marker-label.live-label { display: block; }
+
+    .marker-label {
+      position: absolute;
+      transform: scale(var(--inverse-scale)) translate(8px, -8px);
+      transform-origin: 0 0;
+      background: rgba(8,12,20,0.92);
+      color: white;
+      padding: 3px 6px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 12px;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .reset-ring-anchor {
+      position: absolute;
+      transform: scale(var(--inverse-scale)) translate(-50%, -50%);
+      transform-origin: 0 0;
+      pointer-events: none;
+    }
+    .reset-ring {
+      width: 28px;
+      height: 28px;
+      margin-left: -14px;
+      margin-top: -14px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      animation: resetRing 1.1s ease-out forwards;
+    }
+    @keyframes resetRing {
+      0% { transform: scale(0.3); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+
+    .hint {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 10px 12px;
+      background: rgba(8,12,20,0.8);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      z-index: 4;
+    }
+
+    @media (max-width: 900px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid var(--border); max-height: 42vh; }
+      .map-shell { min-height: 58vh; }
+      .crit-row { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="dash-bar" id="dashBar">
+    <div class="dash-group">
+      <div class="service-pill">
+        <span class="service-dot" id="servicePillDot"></span>
+        <span id="servicePillText">Connecting…</span>
+      </div>
+      <span class="service-meta" id="servicePid"></span>
+      <span class="service-meta" id="serviceUptime"></span>
+      <span class="service-meta" id="serviceRestarts"></span>
+      <span class="service-meta" id="dashMetricsAge"></span>
+      <span class="dash-stale" id="dashStale" hidden>&#9888; log stale</span>
+    </div>
+    <div class="dash-stat"><span class="label">Phase</span><span class="value" id="dashPhase">—</span></div>
+    <div class="dash-stat"><span class="label">Total steps</span><span class="value" id="dashSteps">—</span></div>
+    <div class="dash-stat"><span class="label">Session steps</span><span class="value" id="dashSessionSteps">—</span></div>
+    <div class="dash-stat"><span class="label">FPS</span><span class="value" id="dashFps">—</span></div>
+    <div class="dash-stat"><span class="label">Avg reward</span><span class="value" id="dashReward">— <span id="dashRewardTrend"></span></span></div>
+    <div class="dash-stat"><span class="label">Milestone hits</span><span class="value" id="dashMilestoneHits">—</span></div>
+    <div class="crit-row">
+      <div class="crit-stat"><span class="label">expl.var</span><span class="crit-value" id="critExplVar">—</span></div>
+      <div class="crit-stat"><span class="label">value loss</span><span class="crit-value" id="critValueLoss">—</span></div>
+      <div class="crit-stat"><span class="label">kl</span><span class="crit-value" id="critKl">—</span></div>
+      <div class="crit-stat"><span class="label">clip</span><span class="crit-value" id="critClip">—</span></div>
+      <div class="crit-stat"><span class="label">entropy</span><span class="crit-value" id="critEntropy">—</span></div>
+    </div>
+  </header>
+
+  <div class="main-grid">
+    <aside class="sidebar">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="agents" type="button">Agents</button>
+        <button class="tab-btn" data-tab="swarm" type="button">Swarm</button>
+        <button class="tab-btn" data-tab="splits" type="button">Splits</button>
+        <button class="tab-btn" data-tab="charts" type="button">Charts</button>
+      </div>
+
+      <div class="tab-panel" id="panel-agents">
+        <p>Click a live agent below to center and follow it. Drag the map to stop following. Double-click the map to add a marker.</p>
+        <div id="statusLine">Waiting for live stream…</div>
+        <div class="marker-list" id="markerList">No markers yet.</div>
+      </div>
+
+      <div class="tab-panel" id="panel-swarm" hidden>
+        <h1>Swarm progress</h1>
+        <div class="swarm-stats">
+          <div class="swarm-row"><span class="swarm-label">Agents online</span><span class="swarm-value" id="swarmAgentsOnline">—</span></div>
+          <div>
+            <div class="swarm-row"><span class="swarm-label" id="swarmEventsLabel">Named events reached</span></div>
+            <div class="progress-track"><div class="progress-fill" id="swarmEventsBarFill"></div></div>
+          </div>
+          <div class="swarm-row"><span class="swarm-label">Completed episodes (swarm)</span><span class="swarm-value" id="swarmEpisodes">—</span></div>
+          <div class="swarm-row"><span class="swarm-label">Total whiteouts (swarm)</span><span class="swarm-value" id="swarmWhiteouts">—</span></div>
+          <div class="swarm-row"><span class="swarm-label">Swarm whiteout rate</span><span class="swarm-value" id="swarmWhiteoutRate">—</span></div>
+          <div class="swarm-row"><span class="swarm-label">Max Pikachu level (live)</span><span class="swarm-value" id="swarmMaxLevel">—</span></div>
+          <div class="swarm-row"><span class="swarm-label">Avg Pikachu level (live)</span><span class="swarm-value" id="swarmAvgLevel">—</span></div>
+          <div class="swarm-row"><span class="swarm-label" title="Persists across episode resets, unlike the live snapshot above">Highest level ever reached</span><span class="swarm-value" id="swarmMaxLevelEver">—</span></div>
+          <div class="swarm-row"><span class="swarm-label">Level milestones hit</span><span class="swarm-value" id="swarmLevelCounts">—</span></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-splits" hidden>
+        <h1>Splits</h1>
+        <p id="splitsStatus">Loading splits…</p>
+        <div class="tcard" id="playerCard" hidden>
+          <div class="tcard-top">
+            <div class="tcard-fields">
+              <div class="tcard-row"><span>NAME</span><b id="tcardName">—</b></div>
+              <div class="tcard-row"><span>MONEY</span><b id="tcardMoney">—</b></div>
+              <div class="tcard-row"><span>TIME</span><b id="tcardTime">—</b></div>
+            </div>
+            <div class="tcard-badge-count">
+              <div class="tcard-badge-num" id="tcardBadgeCount">0/8</div>
+              <div class="tcard-badge-label">badges</div>
+            </div>
+          </div>
+          <div class="tcard-badges" id="tcardBadges"></div>
+          <p class="tcard-note" id="tcardNote"></p>
+        </div>
+        <div class="gate" id="gateBox" hidden>
+          <div class="gate-head">
+            <div class="gate-identity">
+              <span class="gate-kicker" id="gateKicker">Current objective</span>
+              <span class="gate-title" id="gateTitle">Mastery gate</span>
+            </div>
+            <span class="gate-verdict" id="gateVerdict">—</span>
+          </div>
+          <span class="gate-mode" id="gateMode">—</span>
+          <div class="gate-bar"><span id="gateFill"></span></div>
+          <div class="gate-line" id="gateCounts">—</div>
+          <div class="gate-line gate-rule" id="gateRule">—</div>
+          <div class="gate-line" id="gateLive">—</div>
+        </div>
+        <div class="splits-scroll" id="splitsScroll">
+          <table class="splits-table">
+            <colgroup>
+              <col />
+              <col style="width: 3.8em" />
+              <col style="width: 3.8em" />
+              <col style="width: 3.8em" />
+            </colgroup>
+            <thead>
+              <tr><th>Objective</th><th class="r" title="Last minus best">Δ</th><th class="r">Last</th><th class="r">Best</th></tr>
+            </thead>
+            <tbody id="splitsBody"></tbody>
+          </table>
+        </div>
+        <div class="splits-totals">
+          <div class="srow"><span>Sum of best segments</span><b id="splitsSumBest">—</b></div>
+          <div class="srow"><span>Sum of medians</span><b id="splitsSumMedian">—</b></div>
+          <div class="srow"><span>Objectives timed</span><b id="splitsTimed">—</b></div>
+          <div class="srow"><span>Frontier</span><b id="splitsFrontier">—</b></div>
+        </div>
+        <p class="splits-note" id="splitsNote"></p>
+      </div>
+
+      <div class="tab-panel" id="panel-charts" hidden>
+        <h1>Training history</h1>
+        <div class="chart-history-status" id="chartHistoryStatus">Loading training history…</div>
+        <div class="charts-list">
+          <div class="chart-card">
+            <div class="chart-head"><span class="chart-title">Avg episode reward</span><span class="chart-value" id="chartRewardValue">—</span></div>
+            <canvas id="chartReward" width="260" height="60"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><span class="chart-title">FPS</span><span class="chart-value" id="chartFpsValue">—</span></div>
+            <canvas id="chartFps" width="260" height="60"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><span class="chart-title">Explained variance</span><span class="chart-value" id="chartExplVarValue">—</span></div>
+            <canvas id="chartExplVar" width="260" height="60"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><span class="chart-title">Entropy loss</span><span class="chart-value" id="chartEntropyValue">—</span></div>
+            <canvas id="chartEntropy" width="260" height="60"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><span class="chart-title">Avg episode length</span><span class="chart-value" id="chartLengthValue">—</span></div>
+            <canvas id="chartLength" width="260" height="60"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><span class="chart-title">Value loss</span><span class="chart-value" id="chartValueLossValue">—</span></div>
+            <canvas id="chartValueLoss" width="260" height="60"></canvas>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="map-shell" id="mapShell">
+      <div class="map-toolbar">
+        <div class="controls">
+          <button id="zoomIn" type="button">Zoom +</button>
+          <button id="zoomOut" type="button">Zoom -</button>
+          <button id="resetView" type="button">Reset view</button>
+        </div>
+        <div class="controls">
+          <button id="toggleHeatmap" type="button">Heatmap: On</button>
+          <button id="toggleItems" type="button">Items: Off</button>
+          <button id="toggleTrainers" type="button">Trainers: Off</button>
+          <a href="https://pokemonmap.b-cdn.net/yellow/full.png" target="_blank" rel="noopener noreferrer">Annotated map ↗</a>
+        </div>
+        <select id="heatmapMode" title="Heatmap mode">
+          <option value="cumulative">Cumulative (all-time)</option>
+          <option value="recent">Last 5 min ("hot right now")</option>
+          <option value="episode">This episode (per agent)</option>
+        </select>
+        <select id="heatmapAgent" title="Heatmap agent">
+          <option value="all">All agents</option>
+        </select>
+        <div class="legend-gradient" id="heatLegendGradient"></div>
+        <div class="legend-labels"><span>cold</span><span>hot (log-scaled)</span></div>
+        <div id="heatmapStatus">Coverage recording starts with this deployment.</div>
+      </div>
+
+      <div class="map-stage" id="mapStage">
+        <!-- Background + tile-offset table from github.com/PWhiddy/pokerl-map-viz (MIT License,
+             Copyright (c) 2024 Peter Whidden) -- reused locally so live agent x,y (per-map local
+             tile coords) can be placed correctly via each map's known global tile offset. -->
+        <img id="mapImage" src="./pokerl_map_assets/kanto_big_done1.png" alt="Kanto overworld map" />
+        <canvas class="heatmap-overlay" id="heatmapCanvas" width="436" height="444"></canvas>
+        <svg class="trail-layer" id="trailLayer"></svg>
+        <div class="landmark-layer" id="landmarkLayer"></div>
+        <div class="overlay" id="overlay"></div>
+      </div>
+      <div class="tile-tooltip" id="tileTooltip" hidden></div>
+      <div class="hint">Double-click to add a marker. Drag to pan. Mouse wheel zooms in and out.</div>
+    </main>
+  </div>
+
+  <script>
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+    const shell = document.getElementById('mapShell');
+    const stage = document.getElementById('mapStage');
+    const img = document.getElementById('mapImage');
+    const overlay = document.getElementById('overlay');
+    const trailLayer = document.getElementById('trailLayer');
+    const markerList = document.getElementById('markerList');
+    const heatmapCanvas = document.getElementById('heatmapCanvas');
+    const heatmapContext = heatmapCanvas.getContext('2d');
+    const heatmapAgent = document.getElementById('heatmapAgent');
+    const heatmapMode = document.getElementById('heatmapMode');
+    const toggleHeatmap = document.getElementById('toggleHeatmap');
+    const toggleItems = document.getElementById('toggleItems');
+    const toggleTrainers = document.getElementById('toggleTrainers');
+    const landmarkLayer = document.getElementById('landmarkLayer');
+    const tileTooltip = document.getElementById('tileTooltip');
+
+    const TRAIL_LENGTH = 8;
+    // train.log gains [EP] lines every few seconds while training is healthy,
+    // so two minutes of total silence is a real signal rather than normal
+    // between-rollout quiet. The fallback bound only applies against an older
+    // viewer server that publishes metrics_updated_at but not log_updated_at;
+    // it has to clear one full PPO rollout, which can run past ten minutes.
+    const LOG_STALE_SECONDS = 120;
+    const METRICS_STALE_FALLBACK_SECONDS = 900;
+    // The ranked agent list must not re-sort its DOM on every stream tick.
+    // Rows are ranked partly by visited-tile count, which changes for all 96
+    // agents every tick, so an unthrottled re-sort moved every row several
+    // times a second -- and a row that moves between pointerdown and pointerup
+    // never receives a `click` (the browser retargets it to the common
+    // ancestor). That is what broke click-to-follow.
+    const ROW_REORDER_MIN_INTERVAL_MS = 4000;
+    const DRAG_SLOP_PX = 4;
+    // Must match BATTLE_SOURCE_REV in stream_agent_wrapper.py.
+    const TRUSTED_BATTLE_SOURCE = 'wIsInBattle@D056';
+
+    const state = {
+      scale: 1,
+      offsetX: 0,
+      offsetY: 0,
+      dragging: false,
+      startX: 0,
+      startY: 0,
+      manualMarkers: [],
+      liveAgents: [],
+      lastAgentPositions: {},
+      lastStreamMessageAt: 0,
+      eventSource: null,
+      heatmapEnabled: true,
+      heatmapEnv: 'all',
+      heatmapMode: 'cumulative',
+      heatmapCounts: new Map(),
+      heatmapVersion: -1,
+      heatmapTotalVisits: 0,
+      landmarks: [],
+      itemsEnabled: false,
+      trainersEnabled: false,
+      focusedEnvId: null,
+      previousReward: NaN,
+      lastResetSeq: new Map(),
+      trailHistory: new Map(),
+      pendingResetFlashes: [],
+      history: [],
+      listHovered: false,
+      lastRowOrderAt: 0,
+      lastRowOrderKey: '',
+      dragMoved: false,
+      dragOriginX: 0,
+      dragOriginY: 0
+    };
+
+    const trailSegmentsByEnv = new Map();
+
+    function applyTransform() {
+      stage.style.transform = `translate(${state.offsetX}px, ${state.offsetY}px) scale(${state.scale})`;
+      overlay.style.setProperty('--inverse-scale', String(1 / Math.max(state.scale, 0.001)));
+      landmarkLayer.style.setProperty('--inverse-scale', String(1 / Math.max(state.scale, 0.001)));
+    }
+
+    function fitToViewport() {
+      const viewportWidth = shell.clientWidth;
+      const viewportHeight = shell.clientHeight;
+      const imageWidth = img.naturalWidth || 6976;
+      const imageHeight = img.naturalHeight || 7104;
+      const fitScale = Math.min(viewportWidth / imageWidth, viewportHeight / imageHeight, 1.1);
+      state.scale = fitScale;
+      state.offsetX = (viewportWidth - imageWidth * fitScale) / 2;
+      state.offsetY = (viewportHeight - imageHeight * fitScale) / 2;
+      applyTransform();
+    }
+
+    function screenToStage(clientX, clientY) {
+      const rect = shell.getBoundingClientRect();
+      return {
+        x: (clientX - rect.left - state.offsetX) / state.scale,
+        y: (clientY - rect.top - state.offsetY) / state.scale
+      };
+    }
+
+    function updateFocusStyles() {
+      const focusedKey = state.focusedEnvId;
+      document.querySelectorAll('[data-env-id]').forEach((node) => {
+        const isFocused = focusedKey !== null && node.dataset.envId === focusedKey;
+        node.classList.toggle('is-focused', isFocused);
+        if (node.classList.contains('live-agent-row')) {
+          node.setAttribute('aria-pressed', String(isFocused));
+        }
+      });
+    }
+
+    function centerFocusedAgent(raiseZoom = false) {
+      if (state.focusedEnvId === null) return;
+      const marker = state.liveAgents.find(
+        (agent) => String(agent.envId) === state.focusedEnvId
+      );
+      if (!marker) return;
+      if (raiseZoom) state.scale = Math.max(state.scale, 1.25);
+      state.offsetX = shell.clientWidth / 2 - marker.x * state.scale;
+      state.offsetY = shell.clientHeight / 2 - marker.y * state.scale;
+      applyTransform();
+    }
+
+    function focusLiveAgent(envId) {
+      state.focusedEnvId = String(envId);
+      updateFocusStyles();
+      centerFocusedAgent(true);
+    }
+
+    // Delegated activation for the ranked agent list. `pointerdown` (not
+    // `click`) is deliberate: it resolves on press, so it cannot be defeated
+    // by the list re-sorting between press and release.
+    markerList.addEventListener('pointerdown', (event) => {
+      const row = event.target.closest('.live-agent-row[data-env-id]');
+      if (!row) return;
+      focusLiveAgent(row.dataset.envId);
+    });
+
+    markerList.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      const row = event.target.closest('.live-agent-row[data-env-id]');
+      if (!row) return;
+      event.preventDefault();
+      focusLiveAgent(row.dataset.envId);
+    });
+
+    // Freeze rank reordering while the pointer is over the list, so a row
+    // never slides out from under the cursor mid-click.
+    markerList.addEventListener('pointerenter', () => { state.listHovered = true; });
+    markerList.addEventListener('pointerleave', () => { state.listHovered = false; });
+
+    function stopFollowingAgent() {
+      if (state.focusedEnvId === null) return;
+      state.focusedEnvId = null;
+      updateFocusStyles();
+    }
+
+    function readableEventName(eventName) {
+      if (!eventName) return '';
+      return String(eventName).split(',').map((name) =>
+        name.trim()
+          .replace(/^EVENT_/, '')
+          .split('_')
+          .filter(Boolean)
+          .map((word) => word.charAt(0) + word.slice(1).toLowerCase())
+          .join(' ')
+      ).filter(Boolean).join(', ');
+    }
+
+    function battleClass(status) {
+      if (status === 'wild') return 'battle-wild';
+      if (status === 'trainer') return 'battle-trainer';
+      if (status === 'overworld') return 'battle-overworld';
+      return '';
+    }
+
+    function battleTitle(status) {
+      if (status === 'wild') return 'In a wild battle';
+      if (status === 'trainer') return 'In a trainer battle';
+      if (status === 'overworld') return 'Overworld';
+      return 'Battle status unavailable (trainer still running the pre-fix wrapper; applies on next restart)';
+    }
+
+    // ---------- movement trails ----------
+    function getTrailSegments(envId) {
+      let segs = trailSegmentsByEnv.get(envId);
+      if (!segs) {
+        segs = [];
+        for (let i = 0; i < TRAIL_LENGTH - 1; i += 1) {
+          const line = document.createElementNS(SVG_NS, 'line');
+          line.setAttribute('stroke-width', '3');
+          line.setAttribute('stroke-linecap', 'round');
+          line.setAttribute('vector-effect', 'non-scaling-stroke');
+          line.style.display = 'none';
+          trailLayer.appendChild(line);
+          segs.push(line);
+        }
+        trailSegmentsByEnv.set(envId, segs);
+      }
+      return segs;
+    }
+
+    function updateTrail(key, x, y) {
+      let hist = state.trailHistory.get(key);
+      if (!hist) {
+        hist = [];
+        state.trailHistory.set(key, hist);
+      }
+      const last = hist[hist.length - 1];
+      if (!last || Math.hypot(last.x - x, last.y - y) > 2) {
+        hist.push({ x, y });
+        if (hist.length > TRAIL_LENGTH) hist.shift();
+      }
+    }
+
+    function renderTrail(key, color) {
+      const hist = state.trailHistory.get(key) || [];
+      const segs = getTrailSegments(key);
+      for (let i = 0; i < segs.length; i += 1) {
+        const p1 = hist[i];
+        const p2 = hist[i + 1];
+        const line = segs[i];
+        if (!p1 || !p2) {
+          line.style.display = 'none';
+          continue;
+        }
+        line.style.display = '';
+        line.setAttribute('x1', p1.x);
+        line.setAttribute('y1', p1.y);
+        line.setAttribute('x2', p2.x);
+        line.setAttribute('y2', p2.y);
+        line.setAttribute('stroke', color);
+        line.setAttribute('opacity', String(0.06 + 0.4 * (i / segs.length)));
+      }
+    }
+
+    function clearTrail(key) {
+      state.trailHistory.delete(key);
+      const segs = trailSegmentsByEnv.get(key);
+      if (segs) segs.forEach((line) => { line.style.display = 'none'; });
+    }
+
+    // ---------- episode-reset flash ----------
+    function flashReset(entry) {
+      const anchor = document.createElement('div');
+      anchor.className = 'reset-ring-anchor';
+      anchor.style.left = `${entry.x}px`;
+      anchor.style.top = `${entry.y}px`;
+      const ring = document.createElement('div');
+      ring.className = 'reset-ring';
+      anchor.title = entry.signal === 'exact'
+        ? `${entry.label}: episode reset`
+        : `${entry.label}: possible episode reset`;
+      anchor.appendChild(ring);
+      overlay.appendChild(anchor);
+      ring.addEventListener('animationend', () => anchor.remove());
+    }
+
+    function flushResetFlashes() {
+      if (!state.pendingResetFlashes.length) return;
+      const flashes = state.pendingResetFlashes;
+      state.pendingResetFlashes = [];
+      flashes.forEach(flashReset);
+    }
+
+    function renderMarkers() {
+      overlay.innerHTML = '';
+      markerList.innerHTML = '';
+      // A full rebuild lays rows out in current rank order, so the throttle
+      // bookkeeping has to agree or the next tick would immediately reorder.
+      state.lastRowOrderKey = state.liveAgents.map((marker) => marker.envId).join(',');
+      state.lastRowOrderAt = Date.now();
+
+      const allMarkers = [
+        ...state.manualMarkers.map((marker) => ({ ...marker, type: 'manual' })),
+        ...state.liveAgents.map((agent) => ({ ...agent, type: 'live' }))
+      ];
+
+      if (!allMarkers.length) {
+        markerList.innerHTML = 'No markers yet.';
+        return;
+      }
+
+      allMarkers.forEach((marker) => {
+        const node = document.createElement('div');
+        node.className = `marker${marker.type === 'live' ? ' live' : ''}`;
+        if (marker.type === 'live') node.dataset.envId = String(marker.envId);
+        node.style.left = `${marker.x}px`;
+        node.style.top = `${marker.y}px`;
+        if (marker.type === 'live') {
+          const frame = { down: 0, left: 1, right: 2, up: 3 }[marker.direction] ?? 0;
+          node.style.setProperty('--sprite-x', `${-32 * frame}px`);
+          node.style.setProperty('--agent-color', marker.color || '#FFD700');
+          node.style.zIndex = String(10 + (Number(marker.envId) || 0));
+        } else {
+          node.style.background = marker.color || '#4cc9f0';
+        }
+        node.title = `${marker.label} (${marker.x.toFixed(0)}, ${marker.y.toFixed(0)})`;
+        if (marker.type === 'manual') {
+          node.addEventListener('click', () => {
+            const next = prompt('Rename marker', marker.label);
+            if (next !== null) {
+              marker.label = next || 'Marker';
+              renderMarkers();
+            }
+          });
+        }
+        const label = document.createElement('div');
+        label.className = `marker-label${marker.type === 'live' ? ' live-label' : ''}`;
+        if (marker.type === 'live') label.dataset.envId = String(marker.envId);
+        label.textContent = marker.label;
+        label.style.left = `${marker.x}px`;
+        label.style.top = `${marker.y}px`;
+        overlay.appendChild(node);
+        overlay.appendChild(label);
+
+        const item = document.createElement('div');
+        item.className = 'marker-item';
+        if (marker.type === 'live') {
+          item.dataset.envId = String(marker.envId);
+          item.classList.add('live-agent-row');
+          item.tabIndex = 0;
+          item.setAttribute('role', 'button');
+          item.setAttribute('aria-label', `Focus map on ${marker.label}`);
+          item.title = `Center and follow ${marker.label}`;
+          // No per-row listeners: markerList carries one delegated pointerdown
+          // handler instead (see below). Per-row `click` handlers were the
+          // original bug -- rows are recreated and reordered underneath the
+          // cursor, so the click either landed on a replaced node or got
+          // retargeted to the container and never reached this row at all.
+          const top = document.createElement('div');
+          top.className = 'row-top';
+          const dot = document.createElement('span');
+          dot.className = `battle-dot ${battleClass(marker.battleStatus)}`;
+          dot.title = battleTitle(marker.battleStatus);
+          const text = document.createElement('span');
+          text.className = 'marker-name';
+          text.textContent = `#${marker.progressRank} ${marker.label}`;
+          const level = document.createElement('span');
+          level.className = 'level-badge';
+          level.textContent = marker.pikachuLevel ? `Lv ${marker.pikachuLevel}` : 'Lv —';
+          level.title = marker.pikachuLevel ? 'Pikachu level' : 'Unavailable (pending next trainer restart)';
+          top.appendChild(dot);
+          top.appendChild(text);
+          top.appendChild(level);
+          const detail = document.createElement('div');
+          detail.className = 'live-detail';
+          detail.textContent = marker.extra || 'live';
+          item.appendChild(top);
+          item.appendChild(detail);
+        } else {
+          const text = document.createElement('span');
+          text.className = 'marker-name';
+          text.textContent = marker.label;
+          const remove = document.createElement('button');
+          remove.textContent = 'Remove';
+          remove.addEventListener('click', () => {
+            state.manualMarkers = state.manualMarkers.filter((entry) => entry !== marker);
+            renderMarkers();
+          });
+          const row = document.createElement('div');
+          row.className = 'row-top';
+          row.appendChild(text);
+          row.appendChild(remove);
+          item.appendChild(row);
+        }
+        markerList.appendChild(item);
+      });
+      updateFocusStyles();
+    }
+
+    function updateLiveMarkerNodes() {
+      const nodes = new Map(
+        Array.from(overlay.querySelectorAll('.marker.live[data-env-id]'))
+          .map((node) => [node.dataset.envId, node])
+      );
+      const labels = new Map(
+        Array.from(overlay.querySelectorAll('.marker-label.live-label[data-env-id]'))
+          .map((node) => [node.dataset.envId, node])
+      );
+      const items = new Map(
+        Array.from(markerList.querySelectorAll('.marker-item[data-env-id]'))
+          .map((node) => [node.dataset.envId, node])
+      );
+      if (nodes.size !== state.liveAgents.length || labels.size !== state.liveAgents.length) {
+        return false;
+      }
+      // Decide once per tick whether the rows may physically move. Content
+      // (rank number, level, detail line) always updates in place; only the
+      // DOM ordering is rate-limited, so the list still tracks the ranking
+      // without yanking rows out from under the pointer.
+      const orderKey = state.liveAgents.map((marker) => marker.envId).join(',');
+      const now = Date.now();
+      const mayReorder = orderKey !== state.lastRowOrderKey
+        && !state.listHovered
+        && now - state.lastRowOrderAt >= ROW_REORDER_MIN_INTERVAL_MS;
+      if (mayReorder) {
+        state.lastRowOrderKey = orderKey;
+        state.lastRowOrderAt = now;
+      }
+      for (const marker of state.liveAgents) {
+        const key = String(marker.envId);
+        const node = nodes.get(key);
+        const label = labels.get(key);
+        if (!node || !label) return false;
+        const frame = { down: 0, left: 1, right: 2, up: 3 }[marker.direction] ?? 0;
+        node.style.left = `${marker.x}px`;
+        node.style.top = `${marker.y}px`;
+        node.style.setProperty('--sprite-x', `${-32 * frame}px`);
+        node.style.setProperty('--agent-color', marker.color || '#FFD700');
+        node.title = `${marker.label} (${marker.x.toFixed(0)}, ${marker.y.toFixed(0)})`;
+        label.style.left = `${marker.x}px`;
+        label.style.top = `${marker.y}px`;
+        const rowItem = items.get(key);
+        if (rowItem) {
+          const dot = rowItem.querySelector('.battle-dot');
+          if (dot) {
+            dot.className = `battle-dot ${battleClass(marker.battleStatus)}`;
+            dot.title = battleTitle(marker.battleStatus);
+          }
+          const levelBadge = rowItem.querySelector('.level-badge');
+          if (levelBadge) {
+            levelBadge.textContent = marker.pikachuLevel ? `Lv ${marker.pikachuLevel}` : 'Lv —';
+          }
+          const detail = rowItem.querySelector('.live-detail');
+          if (detail) detail.textContent = marker.extra || 'live';
+          const name = rowItem.querySelector('.marker-name');
+          if (name) name.textContent = `#${marker.progressRank} ${marker.label}`;
+          if (mayReorder) markerList.appendChild(rowItem);
+        }
+      }
+      updateFocusStyles();
+      return true;
+    }
+
+    function addMarker(x, y) {
+      const label = prompt('Marker label', 'Marker');
+      if (label === null) return;
+      state.manualMarkers.push({ x, y, label: label || 'Marker' });
+      renderMarkers();
+    }
+
+    // Per-map global tile offsets, from github.com/PWhiddy/pokerl-map-viz's
+    // assets/map_data.json (MIT license). The stream payload's x/y are LOCAL
+    // tile coordinates within whatever map_id the agent is standing on -- they
+    // only mean something on this shared overworld image once each map's own
+    // known tile offset is added in. kanto_big_done1.png is 16px/tile.
+    let mapRegions = null;
+    const TILE_PX = 16;
+
+    async function loadMapRegions() {
+      try {
+        const response = await fetch('./pokerl_map_assets/map_data.json');
+        const data = await response.json();
+        mapRegions = {};
+        for (const region of data.regions || []) {
+          mapRegions[String(region.id)] = region;
+        }
+      } catch (error) {
+        console.error('Failed to load map region offsets:', error);
+        mapRegions = {};
+      }
+    }
+
+    function readableConstant(value) {
+      return String(value || '').replace(/^(OPP_|TM_)/, '').replaceAll('_', ' ').toLowerCase()
+        .replace(/\b\w/g, (letter) => letter.toUpperCase());
+    }
+
+    function renderLandmarks() {
+      landmarkLayer.innerHTML = '';
+      for (const landmark of state.landmarks) {
+        if (landmark.type === 'item' && !state.itemsEnabled) continue;
+        if (landmark.type === 'trainer' && !state.trainersEnabled) continue;
+        const node = document.createElement('div');
+        node.className = `landmark ${landmark.type}`;
+        node.style.left = `${landmark.x}px`;
+        node.style.top = `${landmark.y}px`;
+        node.title = `${landmark.label} — ${landmark.mapName} (${landmark.localX}, ${landmark.localY})`;
+        landmarkLayer.appendChild(node);
+      }
+    }
+
+    async function loadLandmarks() {
+      try {
+        const response = await fetch('./navigation_data/yellow_catalog.json');
+        const catalog = await response.json();
+        const landmarks = [];
+        for (const map of catalog.game_maps || []) {
+          for (const item of map.items || []) {
+            const [localY, localX] = item.position;
+            const point = toImagePosition([localX, localY, map.id]);
+            landmarks.push({
+              ...point, localX, localY, type: 'item', mapName: map.name,
+              label: readableConstant(item.item),
+            });
+          }
+          for (const trainer of map.trainers || []) {
+            const [localY, localX] = trainer.position;
+            const point = toImagePosition([localX, localY, map.id]);
+            landmarks.push({
+              ...point, localX, localY, type: 'trainer', mapName: map.name,
+              label: readableConstant(trainer.opponent),
+            });
+          }
+        }
+        state.landmarks = landmarks;
+        renderLandmarks();
+      } catch (error) {
+        console.error('Failed to load item/trainer landmarks:', error);
+      }
+    }
+
+    function toImagePosition(position) {
+      const [x, y, mapId] = position || [0, 0, 0];
+      const clampedX = Math.max(0, Math.min(255, Number(x) || 0));
+      const clampedY = Math.max(0, Math.min(255, Number(y) || 0));
+
+      const region = mapRegions ? mapRegions[String(mapId)] : null;
+      if (region && Array.isArray(region.coordinates)) {
+        return {
+          x: TILE_PX * (clampedX + region.coordinates[0]),
+          y: TILE_PX * (clampedY + region.coordinates[1])
+        };
+      }
+
+      // Fallback: if the map region is unknown, keep the marker inside the map
+      // bounds by scaling the local tile coordinate into the Kanto overview.
+      return {
+        x: TILE_PX * clampedX,
+        y: TILE_PX * clampedY
+      };
+    }
+
+    // Each training worker writes its OWN file (live_agent_positions.envN.json)
+    // rather than all workers sharing one combined file -- a shared file needs
+    // every writer to read-modify-write the whole agent list with no locking,
+    // which reliably lost updates once enough workers wrote concurrently
+    // (entries missing, stale ghosts reappearing). Per-env files make that
+    // race impossible; this merges across them at read time instead.
+    // MAX_PROBE_ENVS is just generous headroom -- envs beyond the real count
+    // 404 harmlessly (all localhost, effectively free).
+    const MAX_PROBE_ENVS = 96;
+
+    // Classic "jet"-style colormap (deep blue -> cyan -> green -> yellow ->
+    // red), matching standard sports/analytics heatmaps.
+    const HEAT_STOPS = [
+      [0.00, [30, 40, 160]],
+      [0.25, [30, 170, 220]],
+      [0.50, [60, 200, 80]],
+      [0.75, [240, 210, 40]],
+      [1.00, [225, 30, 30]],
+    ];
+
+    document.getElementById('heatLegendGradient').style.background =
+      `linear-gradient(to right, ${HEAT_STOPS.map(([t, [r, g, b]]) => `rgb(${r},${g},${b}) ${t * 100}%`).join(', ')})`;
+
+    // A tile stays fully "hot" for DECAY_HOLD_SECONDS after its last visit,
+    // then fades linearly back toward cold blue over DECAY_FADE_SECONDS,
+    // reaching full blue once nobody has stepped on it for HOLD+FADE. Only
+    // applies to cumulative mode -- recent/episode already have their own
+    // recency built in (a sliding window / a per-episode reset), and pass
+    // no lastSeen (0), which is treated as "no decay data" below.
+    const DECAY_HOLD_SECONDS = 5 * 60;
+    const DECAY_FADE_SECONDS = 25 * 60;
+
+    function recencyFactor(lastSeen) {
+      if (!lastSeen) return 1;
+      const ageSeconds = (Date.now() / 1000) - lastSeen;
+      if (ageSeconds <= DECAY_HOLD_SECONDS) return 1;
+      if (ageSeconds >= DECAY_HOLD_SECONDS + DECAY_FADE_SECONDS) return 0;
+      return 1 - (ageSeconds - DECAY_HOLD_SECONDS) / DECAY_FADE_SECONDS;
+    }
+
+    function heatColor(count, lastSeen) {
+      const safeCount = Math.max(0, Number(count) || 0);
+      const rawStrength = Math.min(1, Math.log1p(safeCount) / Math.log1p(2048));
+      const strength = rawStrength * recencyFactor(lastSeen);
+      let lo = HEAT_STOPS[0];
+      let hi = HEAT_STOPS[HEAT_STOPS.length - 1];
+      for (let i = 0; i < HEAT_STOPS.length - 1; i++) {
+        if (strength >= HEAT_STOPS[i][0] && strength <= HEAT_STOPS[i + 1][0]) {
+          lo = HEAT_STOPS[i];
+          hi = HEAT_STOPS[i + 1];
+          break;
+        }
+      }
+      const span = hi[0] - lo[0] || 1;
+      const t = (strength - lo[0]) / span;
+      const r = Math.round(lo[1][0] + (hi[1][0] - lo[1][0]) * t);
+      const g = Math.round(lo[1][1] + (hi[1][1] - lo[1][1]) * t);
+      const b = Math.round(lo[1][2] + (hi[1][2] - lo[1][2]) * t);
+      const alpha = 0.15 + 0.8 * strength;
+      return `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
+    }
+
+    function drawHeatmap() {
+      heatmapContext.clearRect(0, 0, heatmapCanvas.width, heatmapCanvas.height);
+      if (!state.heatmapEnabled || !state.heatmapCounts.size) return;
+      for (const [key, entry] of state.heatmapCounts) {
+        const [count, lastSeen] = Array.isArray(entry) ? entry : [entry, 0];
+        const [x, y] = key.split(',').map(Number);
+        heatmapContext.fillStyle = heatColor(count, lastSeen);
+        heatmapContext.fillRect(x, y, 1, 1);
+      }
+    }
+
+    function heatmapModeLabel() {
+      if (state.heatmapMode === 'recent') return 'last 5 min';
+      if (state.heatmapMode === 'episode') return 'this episode';
+      return 'all-time';
+    }
+
+    async function refreshHeatmap() {
+      try {
+        const response = await fetch(
+          `./live_agent_heatmap.json?env=${encodeURIComponent(state.heatmapEnv)}&mode=${encodeURIComponent(state.heatmapMode)}&ts=${Date.now()}`,
+          { cache: 'no-store' }
+        );
+        if (!response.ok) return;
+        const payload = await response.json();
+        state.heatmapCounts = new Map(
+          payload.tiles.map(([x, y, count, lastSeen]) => [`${x},${y}`, [count, lastSeen || 0]])
+        );
+        state.heatmapTotalVisits = payload.tiles.reduce((sum, tile) => sum + Number(tile[2] || 0), 0);
+        state.heatmapVersion = payload.version;
+        drawHeatmap();
+        const scope = state.heatmapEnv === 'all' ? 'all agents' : `agent ${state.heatmapEnv}`;
+        document.getElementById('heatmapStatus').textContent =
+          `Coverage: ${state.heatmapCounts.size.toLocaleString()} tiles • ${state.heatmapTotalVisits.toLocaleString()} visits • ${scope} • ${heatmapModeLabel()} • live ${new Date().toLocaleTimeString()}`;
+      } catch (error) {
+        console.error('Failed to load heatmap:', error);
+      }
+    }
+
+    function applyHeatmapDelta(delta, version) {
+      if (!state.heatmapEnabled || state.heatmapMode !== 'cumulative' || !Array.isArray(delta)) return;
+      let changed = false;
+      for (const [envId, x, y, envCount, globalCount, lastSeen] of delta) {
+        if (state.heatmapEnv === 'all' || String(envId) === state.heatmapEnv) {
+          const count = state.heatmapEnv === 'all' ? globalCount : envCount;
+          state.heatmapCounts.set(`${x},${y}`, [count, lastSeen || 0]);
+          state.heatmapTotalVisits += 1;
+          changed = true;
+        }
+      }
+      state.heatmapVersion = version ?? state.heatmapVersion;
+      if (changed) {
+        drawHeatmap();
+        const scope = state.heatmapEnv === 'all' ? 'all agents' : `agent ${state.heatmapEnv}`;
+        document.getElementById('heatmapStatus').textContent =
+          `Coverage: ${state.heatmapCounts.size.toLocaleString()} tiles • ${state.heatmapTotalVisits.toLocaleString()} visits • ${scope} • ${heatmapModeLabel()} • live ${new Date().toLocaleTimeString()}`;
+      }
+    }
+
+    let heatmapPollTimer = null;
+    function updateHeatmapPollTimer() {
+      clearInterval(heatmapPollTimer);
+      if (state.heatmapEnabled && state.heatmapMode !== 'cumulative') {
+        heatmapPollTimer = setInterval(refreshHeatmap, 7000);
+      }
+    }
+
+    // ---------- tile hover detail ----------
+    let tileHoverTimer = null;
+    async function fetchTileDetail(x, y) {
+      try {
+        const response = await fetch(`./tile_detail.json?x=${x}&y=${y}`, { cache: 'no-store' });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!data.total) {
+          tileTooltip.hidden = true;
+          return;
+        }
+        const top = (data.contributors || []).slice(0, 3).map((c) => `env ${c.env_id} (${c.count})`).join(', ');
+        tileTooltip.textContent =
+          `Tile (${x}, ${y}): ${data.total.toLocaleString()} visits, ${data.recent.toLocaleString()} recent` +
+          (top ? ` • top: ${top}` : '');
+        tileTooltip.hidden = false;
+      } catch (error) {
+        tileTooltip.hidden = true;
+      }
+    }
+
+    shell.addEventListener('mousemove', (event) => {
+      if (!state.heatmapEnabled || state.dragging) {
+        tileTooltip.hidden = true;
+        return;
+      }
+      const stagePoint = screenToStage(event.clientX, event.clientY);
+      const tileX = Math.floor(stagePoint.x / TILE_PX);
+      const tileY = Math.floor(stagePoint.y / TILE_PX);
+      if (tileX < 0 || tileY < 0 || tileX >= 436 || tileY >= 444) {
+        tileTooltip.hidden = true;
+        return;
+      }
+      tileTooltip.style.left = `${event.clientX + 14}px`;
+      tileTooltip.style.top = `${event.clientY + 14}px`;
+      clearTimeout(tileHoverTimer);
+      tileHoverTimer = setTimeout(() => fetchTileDetail(tileX, tileY), 150);
+    });
+    shell.addEventListener('mouseleave', () => { tileTooltip.hidden = true; });
+
+    // ---------- training dashboard ----------
+    function formatNumber(value) {
+      if (value === null || value === undefined || value === '') return '—';
+      const num = Number(value);
+      if (!Number.isFinite(num)) return '—';
+      return num.toLocaleString();
+    }
+
+    function formatUptime(seconds) {
+      const num = Number(seconds);
+      if (!Number.isFinite(num)) return '—';
+      const total = Math.floor(num);
+      const days = Math.floor(total / 86400);
+      const hours = Math.floor((total % 86400) / 3600);
+      const minutes = Math.floor((total % 3600) / 60);
+      if (days > 0) return `${days}d ${hours}h`;
+      if (hours > 0) return `${hours}h ${minutes}m`;
+      return `${minutes}m`;
+    }
+
+    // Like formatUptime but keeps second-level resolution, which matters for
+    // freshness readouts where "1m" and "90s" mean different things.
+    function formatAge(seconds) {
+      const num = Number(seconds);
+      if (!Number.isFinite(num)) return '—';
+      const total = Math.max(0, Math.floor(num));
+      if (total < 90) return `${total}s`;
+      return formatUptime(total);
+    }
+
+    function setCriticStat(id, value, goodBound, warnBound, lowerIsBetter) {
+      const el = document.getElementById(id);
+      const num = Number(value);
+      if (!Number.isFinite(num)) {
+        el.textContent = '—';
+        el.className = 'crit-value';
+        return;
+      }
+      el.textContent = num;
+      let cls = 'health-bad';
+      if (lowerIsBetter) {
+        if (num <= goodBound) cls = 'health-good';
+        else if (num <= warnBound) cls = 'health-warn';
+      } else if (num >= goodBound) {
+        cls = 'health-good';
+      } else if (num >= warnBound) {
+        cls = 'health-warn';
+      }
+      el.className = `crit-value ${cls}`;
+    }
+
+    function setNeutralStat(id, value) {
+      document.getElementById(id).textContent = value ?? '—';
+    }
+
+    function applySwarmAggregate(aggregate) {
+      if (!aggregate) return;
+      document.getElementById('swarmAgentsOnline').textContent = aggregate.agents_online ?? '—';
+      const reached = aggregate.named_events_reached ?? 0;
+      const total = aggregate.named_events_total;
+      document.getElementById('swarmEventsLabel').textContent =
+        total ? `Named events reached: ${reached} / ${total}` : `Named events reached: ${reached}`;
+      const pct = total ? Math.min(100, (100 * reached) / total) : 0;
+      document.getElementById('swarmEventsBarFill').style.width = `${pct}%`;
+      document.getElementById('swarmEpisodes').textContent = formatNumber(aggregate.total_completed_episodes);
+      document.getElementById('swarmWhiteouts').textContent = formatNumber(aggregate.total_whiteouts);
+      document.getElementById('swarmWhiteoutRate').textContent =
+        Number.isFinite(aggregate.swarm_whiteout_rate) ? `${aggregate.swarm_whiteout_rate.toFixed(1)}%` : '—';
+      document.getElementById('swarmMaxLevel').textContent =
+        aggregate.max_pikachu_level ?? '— (after next trainer restart)';
+      document.getElementById('swarmAvgLevel').textContent =
+        Number.isFinite(aggregate.avg_pikachu_level) ? aggregate.avg_pikachu_level.toFixed(1) : '—';
+      document.getElementById('swarmMaxLevelEver').textContent =
+        aggregate.max_pikachu_level_ever ?? '— (after next trainer restart)';
+      const counts = aggregate.level_reached_counts || {};
+      const countEntries = Object.entries(counts);
+      document.getElementById('swarmLevelCounts').textContent = countEntries.length
+        ? countEntries.map(([level, count]) => `Lv${level}×${count}`).join(' ')
+        : '—';
+    }
+
+    function applyTrainingStatus(training) {
+      if (!training) return;
+      const service = training.service || {};
+      const pillDot = document.getElementById('servicePillDot');
+      const pillText = document.getElementById('servicePillText');
+      const activeState = service.active_state || 'unknown';
+      pillDot.className = `service-dot ${activeState === 'active' ? 'is-active' : 'is-inactive'}`;
+      pillText.textContent = activeState === 'active' ? 'Training active' : `Training: ${activeState}`;
+      document.getElementById('servicePid').textContent = service.pid ? `PID ${service.pid}` : '';
+      document.getElementById('serviceUptime').textContent =
+        Number.isFinite(service.uptime_seconds) ? `up ${formatUptime(service.uptime_seconds)}` : '';
+      document.getElementById('serviceRestarts').textContent =
+        service.restarts !== undefined && service.restarts !== null ? `${service.restarts} restarts` : '';
+
+      const metrics = training.metrics;
+      const rows = metrics?.rows || {};
+      // "Stale" must mean "the trainer stopped writing", so key it off the
+      // last time train.log actually grew -- [EP] lines land every few
+      // seconds. The old check used metrics_updated_at, but a [METRICS] block
+      // is only printed once per PPO rollout (minutes apart at n_steps=1024 x
+      // 96 envs), so it flagged a perfectly healthy trainer as stale between
+      // every pair of updates. Fall back to metrics age only on an old server
+      // build that doesn't publish log_updated_at yet.
+      const nowSeconds = Date.now() / 1000;
+      const metricsAgeSeconds = Number.isFinite(training.metrics_updated_at)
+        ? nowSeconds - training.metrics_updated_at
+        : null;
+      const logAgeSeconds = Number.isFinite(training.log_updated_at)
+        ? nowSeconds - training.log_updated_at
+        : null;
+      const staleEl = document.getElementById('dashStale');
+      const staleAge = logAgeSeconds !== null ? logAgeSeconds : metricsAgeSeconds;
+      const staleLimit = logAgeSeconds !== null ? LOG_STALE_SECONDS : METRICS_STALE_FALLBACK_SECONDS;
+      const isStale = staleAge !== null && staleAge > staleLimit;
+      staleEl.hidden = !isStale;
+      if (isStale) {
+        staleEl.textContent = `⚠ no log output for ${formatAge(staleAge)}`;
+        staleEl.title = logAgeSeconds !== null
+          ? 'train.log has not grown since then -- the trainer may be wedged.'
+          : 'No [METRICS] block seen since then (viewer server predates log_updated_at).';
+      }
+      const metricsAgeEl = document.getElementById('dashMetricsAge');
+      if (metricsAgeEl) {
+        metricsAgeEl.textContent = metricsAgeSeconds !== null
+          ? `metrics ${formatAge(metricsAgeSeconds)} old`
+          : '';
+        metricsAgeEl.title = 'Age of the most recent [METRICS] block (one per PPO update).';
+      }
+
+      document.getElementById('dashPhase').textContent = metrics?.phase || '—';
+      document.getElementById('dashSteps').textContent = formatNumber(metrics?.total_steps);
+      document.getElementById('dashSessionSteps').textContent = formatNumber(metrics?.session_steps);
+      document.getElementById('dashFps').textContent = Number.isFinite(metrics?.fps) ? metrics.fps : '—';
+
+      const rewardNum = rows.avg_ep_reward?.value_num;
+      document.getElementById('dashReward').firstChild.textContent =
+        Number.isFinite(rewardNum) ? `${formatNumber(rewardNum)} ` : `${rows.avg_ep_reward?.value ?? '—'} `;
+      const trendEl = document.getElementById('dashRewardTrend');
+      if (Number.isFinite(rewardNum) && Number.isFinite(state.previousReward) && rewardNum !== state.previousReward) {
+        const up = rewardNum > state.previousReward;
+        trendEl.textContent = up ? '▲' : '▼';
+        trendEl.className = up ? 'trend-up' : 'trend-down';
+      }
+      if (Number.isFinite(rewardNum)) state.previousReward = rewardNum;
+
+      document.getElementById('dashMilestoneHits').textContent = rows.milestone_hits?.value || '—';
+
+      setCriticStat('critExplVar', rows.critic_expl_var?.value_num, 0.7, 0.3, false);
+      setCriticStat('critKl', rows.kl_divergence?.value_num, 0.02, 0.05, true);
+      setCriticStat('critClip', rows.clip_fraction?.value_num, 0.1, 0.3, true);
+      setNeutralStat('critValueLoss', rows.value_loss?.value);
+      setNeutralStat('critEntropy', rows.entropy_loss?.value);
+
+      applySwarmAggregate(training.aggregate);
+    }
+
+    // ---------- charts ----------
+    function drawSparkline(canvas, points, accessor, color) {
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+      const values = points.map(accessor);
+      const finiteValues = values.filter((v) => Number.isFinite(v));
+      if (finiteValues.length < 2) {
+        ctx.fillStyle = '#77839a';
+        ctx.font = '11px system-ui, sans-serif';
+        ctx.fillText(finiteValues.length ? 'Collecting more updates…' : 'No data yet', 5, h / 2 + 4);
+        return;
+      }
+      const min = Math.min(...finiteValues);
+      const max = Math.max(...finiteValues);
+      const span = (max - min) || 1;
+      ctx.beginPath();
+      let started = false;
+      points.forEach((point, i) => {
+        const v = accessor(point);
+        if (!Number.isFinite(v)) return;
+        const x = (i / (points.length - 1)) * (w - 4) + 2;
+        const y = h - 2 - ((v - min) / span) * (h - 4);
+        if (!started) {
+          ctx.moveTo(x, y);
+          started = true;
+        } else {
+          ctx.lineTo(x, y);
+        }
+      });
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    function latestFinite(points, accessor) {
+      for (let i = points.length - 1; i >= 0; i -= 1) {
+        const value = accessor(points[i]);
+        if (Number.isFinite(value)) return value;
+      }
+      return null;
+    }
+
+    function renderCharts() {
+      const points = state.history || [];
+      drawSparkline(document.getElementById('chartReward'), points, (p) => p['rollout/ep_rew_mean'], '#4cc9f0');
+      drawSparkline(document.getElementById('chartFps'), points, (p) => p['time/fps'], '#3ddc84');
+      drawSparkline(document.getElementById('chartExplVar'), points, (p) => p['train/explained_variance'], '#f0c419');
+      drawSparkline(document.getElementById('chartEntropy'), points, (p) => p['train/entropy_loss'], '#ff9f4c');
+      drawSparkline(document.getElementById('chartLength'), points, (p) => p['rollout/ep_len_mean'], '#b388ff');
+      drawSparkline(document.getElementById('chartValueLoss'), points, (p) => p['train/value_loss'], '#ff6685');
+      const reward = latestFinite(points, (p) => p['rollout/ep_rew_mean']);
+      const fps = latestFinite(points, (p) => p['time/fps']);
+      const explained = latestFinite(points, (p) => p['train/explained_variance']);
+      const entropy = latestFinite(points, (p) => p['train/entropy_loss']);
+      const episodeLength = latestFinite(points, (p) => p['rollout/ep_len_mean']);
+      const valueLoss = latestFinite(points, (p) => p['train/value_loss']);
+      document.getElementById('chartRewardValue').textContent = formatNumber(reward);
+      document.getElementById('chartFpsValue').textContent = formatNumber(fps);
+      document.getElementById('chartExplVarValue').textContent = explained === null ? '—' : explained.toFixed(3);
+      document.getElementById('chartEntropyValue').textContent = entropy === null ? '—' : entropy.toFixed(3);
+      document.getElementById('chartLengthValue').textContent = formatNumber(episodeLength);
+      document.getElementById('chartValueLossValue').textContent = valueLoss === null ? '—' : valueLoss.toFixed(4);
+      const firstStep = points.length ? points[0].step : null;
+      const lastStep = points.length ? points[points.length - 1].step : null;
+      document.getElementById('chartHistoryStatus').textContent = points.length
+        ? `${formatNumber(points.length)} PPO updates • ${formatNumber(firstStep)}–${formatNumber(lastStep)} steps`
+        : 'No PPO history rows available yet.';
+    }
+
+    async function refreshHistory() {
+      try {
+        const response = await fetch('./training_history.json?ts=' + Date.now(), { cache: 'no-store' });
+        if (!response.ok) return;
+        const data = await response.json();
+        state.history = data.points || [];
+        renderCharts();
+      } catch (error) {
+        console.error('Failed to load training history:', error);
+      }
+    }
+
+    document.querySelectorAll('.tab-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach((b) => b.classList.toggle('active', b === btn));
+        const target = btn.dataset.tab;
+        document.querySelectorAll('.tab-panel').forEach((panel) => {
+          panel.hidden = panel.id !== `panel-${target}`;
+        });
+        if (target === 'charts') renderCharts();
+        if (target === 'splits') renderSplits();
+      });
+    });
+
+    // ---------- splits ----------
+    // The clock here is emulator steps, not wall time: steps are what the
+    // trainer optimizes and what a split is measured in.
+    const splitsState = { rows: [], meta: null, frontier: null, fetching: false };
+
+    function formatSteps(value) {
+      if (!Number.isFinite(value)) return '—';
+      return value.toLocaleString();
+    }
+
+    function formatTableSteps(value) {
+      if (!Number.isFinite(value)) return '—';
+      const magnitude = Math.abs(value);
+      if (magnitude < 1000) return value.toLocaleString();
+      const digits = magnitude >= 10000 ? 0 : 1;
+      return `${(value / 1000).toFixed(digits).replace(/\.0$/, '')}k`;
+    }
+
+    function readableObjective(name) {
+      return String(name || 'unnamed objective').replaceAll('_', ' ');
+    }
+
+    function formatDelta(last, best) {
+      if (!Number.isFinite(last) || !Number.isFinite(best)) {
+        return { text: '—', cls: 'delta-none' };
+      }
+      const diff = last - best;
+      if (diff === 0) return { text: '±0', cls: 'delta-none' };
+      const sign = diff > 0 ? '+' : '−';
+      return {
+        text: `${sign}${formatTableSteps(Math.abs(diff))}`,
+        cls: diff > 0 ? 'delta-behind' : 'delta-ahead',
+      };
+    }
+
+    function renderGate() {
+      const box = document.getElementById('gateBox');
+      if (!box) return;
+      const mastery = splitsState.meta && splitsState.meta.mastery;
+      const g = mastery && mastery.frontier;
+      if (!g) { box.hidden = true; return; }
+      box.hidden = false;
+
+      const cfg = mastery.config || {};
+      const published = mastery.published || null;
+      const live = mastery.live || null;
+      const name = g.name || `phase ${g.phase}`;
+      const mode = g.mode || 'plateau';
+      const target = Math.max(1, g.target || (mode === 'reliability'
+        ? cfg.grind_successes : cfg.no_improve_rotations) || 1);
+      const progress = Math.min(target, Math.max(0, g.progress || 0));
+      const liveAhead = published && Number(g.phase) !== Number(published.phase);
+      document.getElementById('gateKicker').textContent = `Current objective · Phase ${g.phase}`;
+      document.getElementById('gateTitle').textContent = readableObjective(name);
+      document.getElementById('gateMode').textContent = mode === 'reliability'
+        ? 'RNG reliability' : 'Route optimization';
+
+      const verdict = document.getElementById('gateVerdict');
+      if (liveAhead) {
+        verdict.textContent = 'live';
+        verdict.className = 'gate-verdict wait';
+      } else {
+        verdict.textContent = g.allowed ? 'ready' : 'in progress';
+        verdict.className = `gate-verdict ${g.allowed ? 'pass' : 'wait'}`;
+      }
+
+      const pct = Math.min(100, (100 * progress) / target);
+      const fill = document.getElementById('gateFill');
+      fill.style.width = `${pct}%`;
+      fill.className = g.allowed && !liveAhead ? 'pass' : '';
+
+      if (mode === 'reliability') {
+        document.getElementById('gateCounts').innerHTML =
+          `<b>${progress} of ${target}</b> successful clears` +
+          (g.allowed && !liveAhead ? ' · requirement met' : ` · ${target - progress} remaining`);
+        document.getElementById('gateRule').textContent =
+          'Timing is recorded for reference, but RNG does not affect promotion.';
+      } else {
+        document.getElementById('gateCounts').innerHTML =
+          `<b>${progress} of ${target}</b> clears without a faster time` +
+          (g.allowed && !liveAhead ? ' · plateau confirmed' : ` · ${target - progress} remaining`);
+        document.getElementById('gateRule').textContent =
+          `Promotion waits for ${target} consecutive clears that do not improve the best route.`;
+      }
+
+      const liveEl = document.getElementById('gateLive');
+      if (liveEl) {
+        const bits = [];
+        if (live && live.n) {
+          const age = Number.isFinite(live.age_s) ? `${Math.max(0, live.age_s).toFixed(1)}s ago` : 'live';
+          bits.push(`${live.majority || live.n}/${live.n} on ${readableObjective(live.name || ('phase ' + live.phase))} · ${age}`);
+        }
+        if (liveAhead && published) {
+          bits.push(`published frontier still phase ${published.phase} ${readableObjective(published.name)}`);
+        } else if (Number.isFinite(mastery.frontier_age_s)) {
+          bits.push(`frontier file ${Math.round(mastery.frontier_age_s)}s old`);
+        }
+        liveEl.textContent = bits.join(' · ') || '—';
+      }
+    }
+
+    function formatPlayTime(seconds) {
+      if (!Number.isFinite(seconds)) return '—';
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      return `${h}:${String(m).padStart(2, '0')}`;
+    }
+
+    function renderPlayerCard(meta) {
+      const box = document.getElementById('playerCard');
+      if (!box) return;
+      const card = meta && meta.player_card;
+      if (!card) { box.hidden = true; return; }
+      box.hidden = false;
+      document.getElementById('tcardName').textContent = card.name || '—';
+      document.getElementById('tcardMoney').textContent =
+        Number.isFinite(card.money) ? `¥${card.money.toLocaleString()}` : '—';
+      document.getElementById('tcardTime').textContent =
+        formatPlayTime(card.play_time_seconds) + (card.play_time_maxed ? ' (max)' : '');
+
+      const badges = card.badges || [];
+      document.getElementById('tcardBadgeCount').textContent =
+        `${card.badge_count || 0}/${badges.length || 8}`;
+      const wrap = document.getElementById('tcardBadges');
+      wrap.innerHTML = '';
+      badges.forEach((b, i) => {
+        const el = document.createElement('div');
+        el.className = 'tcard-badge' + (b.earned ? ' earned' : '');
+        el.textContent = String(i + 1);
+        el.title = `${b.name} Badge — ${b.earned ? 'earned' : 'not yet'}`;
+        wrap.appendChild(el);
+      });
+
+      // Workers should all read the same badge byte since they share one
+      // frontier state. Anything less than full agreement means some are
+      // reading WRAM mid-transition, so say so rather than showing a settled
+      // number -- that silence is what let an impossible badge set stand.
+      const noteEl = document.getElementById('tcardNote');
+      const agree = card.badge_agreement;
+      if (Number.isFinite(agree) && agree < 1) {
+        noteEl.className = 'tcard-note warn';
+        noteEl.textContent =
+          `Live across ${card.workers || 0} workers — only ${Math.round(agree * 100)}% agree ` +
+          `on the badge byte, so some are mid-transition. Showing the majority.`;
+      } else {
+        noteEl.className = 'tcard-note';
+        noteEl.textContent =
+          `Live across ${card.workers || 0} workers, all agreeing. ` +
+          `Badges are the run's real milestone.`;
+      }
+    }
+
+    function renderSplits() {
+      const body = document.getElementById('splitsBody');
+      const status = document.getElementById('splitsStatus');
+      const note = document.getElementById('splitsNote');
+      if (!body) return;
+      const meta = splitsState.meta;
+      const rows = splitsState.rows || [];
+      const frontier = splitsState.frontier;
+
+      if (!meta) {
+        status.textContent = 'Loading splits…';
+        return;
+      }
+      if (!rows.length) {
+        status.textContent = 'No objectives cleared yet — splits appear as the swarm clears them.';
+        body.innerHTML = '';
+      } else {
+        const total = meta.total_phases || '?';
+        const remaining = Number.isFinite(meta.total_phases)
+          ? Math.max(0, meta.total_phases - meta.phases_cleared) : '?';
+        status.innerHTML =
+          `<span class="status-strong">${meta.phases_cleared}</span> cleared` +
+          ` · ${remaining} remaining · ${total} total`;
+      }
+
+      renderPlayerCard(meta);
+
+      const frag = document.createDocumentFragment();
+      rows.forEach((r) => {
+        const tr = document.createElement('tr');
+        const isCurrent = Number.isFinite(frontier) && r.phase === frontier;
+        tr.className = isCurrent ? 'current' : 'done';
+        const delta = formatDelta(r.last, r.best);
+        // Names are ellipsized to keep the table inside the sidebar, so the
+        // full name lives in the tooltip.
+        tr.innerHTML =
+          `<td title="${r.phase} ${readableObjective(r.name)}"><span class="split-phase">${r.phase}</span>` +
+          `<span class="split-objective">${readableObjective(r.name)}</span></td>` +
+          `<td class="r ${delta.cls}" title="${formatSteps(Number.isFinite(r.last) && Number.isFinite(r.best) ? r.last - r.best : null)}">${delta.text}</td>` +
+          `<td class="r" title="${formatSteps(r.last)}">${formatTableSteps(r.last)}</td>` +
+          `<td class="r" title="${formatSteps(r.best)}">${formatTableSteps(r.best)}</td>`;
+        frag.appendChild(tr);
+      });
+      body.innerHTML = '';
+      body.appendChild(frag);
+
+      renderGate();
+
+      document.getElementById('splitsSumBest').textContent = formatSteps(meta.sum_of_bests);
+      document.getElementById('splitsSumMedian').textContent = formatSteps(meta.sum_of_medians);
+      document.getElementById('splitsTimed').textContent =
+        `${meta.timed_phases} of ${meta.phases_cleared}`;
+      document.getElementById('splitsFrontier').textContent =
+        Number.isFinite(frontier) ? `phase ${frontier}` : '—';
+
+      // Be explicit that this is not a single continuous run: the swarm
+      // clears objectives across many episodes and agents, so "sum of best
+      // segments" is a floor, not a run that has happened.
+      note.textContent = meta.timed_phases < meta.phases_cleared
+        ? 'Objectives cleared before per-split logging landed have no time yet; they are counted but excluded from the sums.'
+        : 'Sum of best segments is a floor across all agents, not a single continuous run.';
+
+      const current = body.querySelector('tr.current');
+      if (current && current.scrollIntoView) {
+        current.scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    async function refreshSplits() {
+      if (splitsState.fetching) return;
+      splitsState.fetching = true;
+      try {
+        const res = await fetch('./quest_splits.json?ts=' + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          splitsState.meta = data;
+          splitsState.rows = data.rows || [];
+          renderGate();
+          if (!document.getElementById('panel-splits').hidden) renderSplits();
+        }
+      } catch (err) {
+        /* transient: the next tick retries */
+      } finally {
+        splitsState.fetching = false;
+      }
+    }
+
+    function applyAgentPayload(rawAgents, transport = 'HTTP') {
+      const agents = (rawAgents || []).slice(0, MAX_PROBE_ENVS);
+      // Furthest objective any agent is working on -- the split the run is
+      // currently "on", highlighted like LiveSplit's active segment.
+      const phases = agents
+        .map((a) => Number(a && a.quest_phase))
+        .filter((n) => Number.isFinite(n));
+      splitsState.frontier = phases.length ? Math.max(...phases) : null;
+      const seenKeys = new Set();
+      const mappedAgents = agents.map((agent) => {
+        const position = agent.last_position || [0, 0, 0];
+        const point = toImagePosition(position);
+        const envId = agent.env_id ?? '';
+        const key = String(envId);
+        seenKeys.add(key);
+        const localX = Number(position[0]) || 0;
+        const localY = Number(position[1]) || 0;
+        const mapId = Number(position[2]) || 0;
+        const visitedCount = Number(agent.visited_count);
+        const pikachuLevel = Number(agent.pikachu_level);
+        const hasPikachuLevel = Number.isFinite(pikachuLevel) && pikachuLevel > 0;
+        // Only trust battle_status from a wrapper that reports reading it
+        // from wIsInBattle. Before that fix the field came from
+        // wPartyGainExpFlags (a Red/Blue offset), which pinned every agent to
+        // "wild" forever; showing a grey "unavailable" dot is better than a
+        // confident wrong one while an older trainer process is still live.
+        const battleStatus = agent.battle_source === TRUSTED_BATTLE_SOURCE
+          ? (agent.battle_status || null)
+          : null;
+        const whiteoutCount = Math.max(0, Number(agent.whiteout_count) || 0);
+        const completedEpisodes = Math.max(0, Number(agent.completed_episodes) || 0);
+        const whiteoutEpisodes = Math.max(0, Number(agent.whiteout_episodes) || 0);
+        const episodeWhiteouts = Math.max(0, Number(agent.episode_whiteouts) || 0);
+        const hasWhiteoutStats = agent.whiteout_count !== undefined;
+        const whiteoutRate = completedEpisodes > 0
+          ? 100 * whiteoutEpisodes / completedEpisodes
+          : 0;
+        const progressCount = Math.max(0, Number(agent.progress_count) || 0);
+        const questPhase = Math.max(0, Number(agent.quest_phase) || 0);
+        const questTotal = Math.max(0, Number(agent.quest_total) || 0);
+        const questNext = String(agent.quest_next || '').replaceAll('_', ' ');
+        const latestEvent = readableEventName(agent.latest_event);
+        const region = mapRegions ? mapRegions[String(mapId)] : null;
+        const mapName = region?.name || `Map ${mapId}`;
+        const details = [
+          `${mapName} (map ${mapId})`,
+          `x ${localX}, y ${localY}`,
+          hasWhiteoutStats
+            ? `whiteouts ${whiteoutCount} • ${whiteoutRate.toFixed(1)}% of ${completedEpisodes} episodes`
+            : null,
+          episodeWhiteouts > 0 ? `${episodeWhiteouts} this episode` : null,
+          Number.isFinite(visitedCount)
+            ? `${visitedCount.toLocaleString()} tiles`
+            : null,
+          `${progressCount} named event${progressCount === 1 ? '' : 's'}`,
+          questTotal > 0
+            ? `quest ${questPhase}/${questTotal}${questNext ? ` → ${questNext}` : ''}`
+            : null,
+          latestEvent ? `latest: ${latestEvent}` : null,
+        ].filter(Boolean);
+        const previous = state.lastAgentPositions[key];
+        let direction = previous?.direction || 'down';
+        if (previous && previous.mapId === mapId) {
+          const dx = localX - previous.x;
+          const dy = localY - previous.y;
+          if (Math.abs(dx) >= Math.abs(dy) && dx !== 0) {
+            direction = dx > 0 ? 'right' : 'left';
+          } else if (dy !== 0) {
+            direction = dy > 0 ? 'down' : 'up';
+          }
+        }
+        state.lastAgentPositions[key] = {
+          x: localX,
+          y: localY,
+          mapId,
+          direction
+        };
+
+        const resetSeq = Number(agent.reset_seq) || 0;
+        const resetSignal = agent.reset_signal || null;
+        const prevResetSeq = state.lastResetSeq.get(key);
+        if (prevResetSeq !== undefined && resetSeq > prevResetSeq) {
+          state.pendingResetFlashes.push({
+            envId, x: point.x, y: point.y,
+            label: `${agent.user || 'Agent'} ${envId}`.trim(),
+            signal: resetSignal
+          });
+          clearTrail(key);
+        }
+        state.lastResetSeq.set(key, resetSeq);
+
+        return {
+          x: point.x,
+          y: point.y,
+          label: `${agent.user || 'Agent'} ${envId}`.trim(),
+          color: agent.color || '#FFD700',
+          extra: details.join(' • '),
+          rawPosition: position,
+          mapId,
+          mapName,
+          envId,
+          direction,
+          visitedCount: Number.isFinite(visitedCount) ? visitedCount : 0,
+          progressCount,
+          questPhase,
+          latestEvent,
+          pikachuLevel: hasPikachuLevel ? pikachuLevel : null,
+          battleStatus,
+          whiteoutCount,
+          completedEpisodes,
+          whiteoutEpisodes,
+          episodeWhiteouts,
+          whiteoutRate,
+        };
+      });
+      mappedAgents.sort((left, right) =>
+        right.progressCount - left.progressCount
+        || right.questPhase - left.questPhase
+        || right.visitedCount - left.visitedCount
+        || Number(left.envId) - Number(right.envId)
+      );
+      mappedAgents.forEach((agent, index) => {
+        agent.progressRank = index + 1;
+        const key = String(agent.envId);
+        updateTrail(key, agent.x, agent.y);
+        renderTrail(key, agent.color);
+      });
+      // Drop trail state for envs that dropped out of the live set entirely.
+      for (const key of Array.from(state.trailHistory.keys())) {
+        if (!seenKeys.has(key)) clearTrail(key);
+      }
+      state.liveAgents = mappedAgents;
+
+      if (!agents.length) {
+        document.getElementById('statusLine').textContent = 'Waiting for live stream…';
+      } else if (mapRegions === null) {
+        document.getElementById('statusLine').textContent = 'Loading map region data…';
+      } else {
+        const mostRecent = agents.reduce((max, a) => Math.max(max, a.last_seen || 0), 0);
+        document.getElementById('statusLine').textContent =
+          `Live ${transport} • ${new Date(mostRecent * 1000).toLocaleTimeString()} (${agents.length} agents, ranked by named-event and quest progress)`;
+      }
+      if (!updateLiveMarkerNodes()) renderMarkers();
+      flushResetFlashes();
+      centerFocusedAgent();
+    }
+
+    async function refreshLiveAgents() {
+      try {
+        const response = await fetch('./live_agent_positions.json?ts=' + Date.now(), { cache: 'no-store' });
+        if (response.ok) {
+          const payload = await response.json();
+          applyAgentPayload(Array.isArray(payload) ? payload : (payload.agents || []), 'HTTP');
+          if (!Array.isArray(payload)) applyTrainingStatus(payload.training);
+        }
+      } catch (error) {
+        console.error('Failed to load live agent positions:', error);
+      }
+    }
+
+    function connectLiveStream() {
+      if (!window.EventSource) return;
+      if (state.eventSource) state.eventSource.close();
+      const source = new EventSource('./live_agent_positions.stream');
+      state.eventSource = source;
+      source.onmessage = (event) => {
+        try {
+          const payload = JSON.parse(event.data);
+          state.lastStreamMessageAt = Date.now();
+          applyAgentPayload(payload.agents || [], 'SSE');
+          applyHeatmapDelta(payload.heatmap_delta, payload.heatmap_version);
+          applyTrainingStatus(payload.training);
+        } catch (error) {
+          console.error('Invalid live stream payload:', error);
+        }
+      };
+      source.onopen = () => refreshHeatmap();
+      source.onerror = () => {
+        document.getElementById('statusLine').textContent = 'Live stream reconnecting…';
+      };
+    }
+
+    img.addEventListener('load', fitToViewport);
+    window.addEventListener('resize', fitToViewport);
+
+    shell.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      stopFollowingAgent();
+      const delta = event.deltaY < 0 ? 1.08 : 0.92;
+      const oldScale = state.scale;
+      const nextScale = Math.min(4, Math.max(0.45, oldScale * delta));
+      const rect = shell.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+      const focusX = (mouseX - state.offsetX) / oldScale;
+      const focusY = (mouseY - state.offsetY) / oldScale;
+      state.scale = nextScale;
+      state.offsetX = mouseX - focusX * nextScale;
+      state.offsetY = mouseY - focusY * nextScale;
+      applyTransform();
+    }, { passive: false });
+
+    shell.addEventListener('mousedown', (event) => {
+      // Don't drop follow-mode on the mousedown itself. A bare click on the
+      // map (or the start of a double-click to drop a marker) used to cancel
+      // following before the pointer had moved at all; only a real drag past
+      // the slop threshold should mean "stop following".
+      state.dragging = true;
+      state.dragMoved = false;
+      state.dragOriginX = event.clientX;
+      state.dragOriginY = event.clientY;
+      state.startX = event.clientX - state.offsetX;
+      state.startY = event.clientY - state.offsetY;
+      stage.classList.add('dragging');
+    });
+
+    window.addEventListener('mousemove', (event) => {
+      if (!state.dragging) return;
+      if (!state.dragMoved) {
+        const movedFar = Math.abs(event.clientX - state.dragOriginX) > DRAG_SLOP_PX
+          || Math.abs(event.clientY - state.dragOriginY) > DRAG_SLOP_PX;
+        if (!movedFar) return;
+        state.dragMoved = true;
+        stopFollowingAgent();
+      }
+      state.offsetX = event.clientX - state.startX;
+      state.offsetY = event.clientY - state.startY;
+      applyTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      state.dragging = false;
+      stage.classList.remove('dragging');
+    });
+
+    shell.addEventListener('dblclick', (event) => {
+      const point = screenToStage(event.clientX, event.clientY);
+      addMarker(point.x, point.y);
+    });
+
+    document.getElementById('zoomIn').addEventListener('click', () => {
+      const rect = shell.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const oldScale = state.scale;
+      const nextScale = Math.min(4, oldScale * 1.12);
+      const focusX = (centerX - state.offsetX) / oldScale;
+      const focusY = (centerY - state.offsetY) / oldScale;
+      state.scale = nextScale;
+      state.offsetX = centerX - focusX * nextScale;
+      state.offsetY = centerY - focusY * nextScale;
+      applyTransform();
+    });
+
+    document.getElementById('zoomOut').addEventListener('click', () => {
+      const rect = shell.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const oldScale = state.scale;
+      const nextScale = Math.max(0.45, oldScale / 1.12);
+      const focusX = (centerX - state.offsetX) / oldScale;
+      const focusY = (centerY - state.offsetY) / oldScale;
+      state.scale = nextScale;
+      state.offsetX = centerX - focusX * nextScale;
+      state.offsetY = centerY - focusY * nextScale;
+      applyTransform();
+    });
+
+    document.getElementById('resetView').addEventListener('click', () => {
+      stopFollowingAgent();
+      fitToViewport();
+    });
+
+    for (let envId = 0; envId < MAX_PROBE_ENVS; envId += 1) {
+      const option = document.createElement('option');
+      option.value = String(envId);
+      option.textContent = `Agent ${envId}`;
+      heatmapAgent.appendChild(option);
+    }
+    heatmapAgent.addEventListener('change', () => {
+      state.heatmapEnv = heatmapAgent.value;
+      refreshHeatmap();
+    });
+    heatmapMode.addEventListener('change', () => {
+      state.heatmapMode = heatmapMode.value;
+      const allOption = heatmapAgent.querySelector('option[value="all"]');
+      if (allOption) allOption.disabled = state.heatmapMode === 'episode';
+      if (state.heatmapMode === 'episode' && heatmapAgent.value === 'all') {
+        const fallback = state.liveAgents[0]?.envId;
+        heatmapAgent.value = fallback !== undefined ? String(fallback) : '0';
+        state.heatmapEnv = heatmapAgent.value;
+      }
+      refreshHeatmap();
+      updateHeatmapPollTimer();
+    });
+    toggleHeatmap.addEventListener('click', () => {
+      state.heatmapEnabled = !state.heatmapEnabled;
+      toggleHeatmap.textContent = `Heatmap: ${state.heatmapEnabled ? 'On' : 'Off'}`;
+      heatmapCanvas.style.display = state.heatmapEnabled ? 'block' : 'none';
+      if (state.heatmapEnabled) refreshHeatmap();
+      updateHeatmapPollTimer();
+    });
+    toggleItems.addEventListener('click', () => {
+      state.itemsEnabled = !state.itemsEnabled;
+      toggleItems.textContent = `Items: ${state.itemsEnabled ? 'On' : 'Off'}`;
+      renderLandmarks();
+    });
+    toggleTrainers.addEventListener('click', () => {
+      state.trainersEnabled = !state.trainersEnabled;
+      toggleTrainers.textContent = `Trainers: ${state.trainersEnabled ? 'On' : 'Off'}`;
+      renderLandmarks();
+    });
+
+    fitToViewport();
+    renderMarkers();
+    loadMapRegions().then(() => {
+      loadLandmarks();
+      refreshLiveAgents();
+      refreshHeatmap();
+      refreshHistory();
+      connectLiveStream();
+      setInterval(() => {
+        if (!state.eventSource || state.eventSource.readyState !== EventSource.OPEN) {
+          refreshLiveAgents();
+        }
+      }, 3000);
+      setInterval(refreshHistory, 15000);
+      refreshSplits();
+      setInterval(refreshSplits, 2000);
+    });
+
+    // Test surface for dom_test.js (jsdom). Deliberately tiny and read/drive
+    // only -- it exposes no behaviour the UI doesn't already have. Kept in the
+    // shipped page so the agent-list regressions (click-to-follow dying under
+    // list churn, the battle-dot trust gate) stay covered by an automated
+    // test instead of manual clicking.
+    window.__applyAgents = (agents) => applyAgentPayload(agents, 'TEST');
+    window.__focusedEnvId = () => state.focusedEnvId;
+    window.__setFocused = (value) => {
+      state.focusedEnvId = value === null ? null : String(value);
+      updateFocusStyles();
+    };
+    window.__advanceReorderClock = (deltaMs) => { state.lastRowOrderAt += deltaMs; };
+  </script>
+</body>
+</html>

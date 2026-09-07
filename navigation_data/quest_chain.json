@@ -1,0 +1,3172 @@
+{
+ "schema": 1,
+ "generated": "2026-09-07T12:13:25+00:00",
+ "source": {
+  "path": "train.py",
+  "mtime_ns": 1788758928304303099,
+  "size": 1395669,
+  "sha256": "287d73ba5e0fb6e8a982efc5bd9879bd48082be0cc384de61d9235ac985d9a05"
+ },
+ "count": 303,
+ "phases": [
+  {
+   "phase": 0,
+   "name": "reach_viridian",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian City (map 1)"
+   ],
+   "goal": "Clears when the agent is in Viridian City (map 1).",
+   "reward": 500.0
+  },
+  {
+   "phase": 1,
+   "name": "enter_viridian_mart",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian Mart (map 42)"
+   ],
+   "goal": "Clears when the agent is in Viridian Mart (map 42).",
+   "reward": 750.0
+  },
+  {
+   "phase": 2,
+   "name": "collect_oaks_parcel",
+   "kind": "event",
+   "criteria": [
+    "the agent is in Viridian Mart (map 42)",
+    "event flag 57 (EVENT_GOT_OAKS_PARCEL) is set"
+   ],
+   "goal": "Clears when the agent is in Viridian Mart (map 42) and event flag 57 (EVENT_GOT_OAKS_PARCEL) is set.",
+   "reward": 1000.0
+  },
+  {
+   "phase": 3,
+   "name": "return_to_pallet",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pallet Town (map 0)"
+   ],
+   "goal": "Clears when the agent is in Pallet Town (map 0).",
+   "reward": 1250.0
+  },
+  {
+   "phase": 4,
+   "name": "reenter_oaks_lab",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Oak's Lab (map 40)"
+   ],
+   "goal": "Clears when the agent is in Oak's Lab (map 40).",
+   "reward": 1500.0
+  },
+  {
+   "phase": 5,
+   "name": "approach_oak",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Oak's Lab (map 40) at y ≤ 5"
+   ],
+   "goal": "Clears when the agent is in Oak's Lab (map 40) at y ≤ 5.",
+   "reward": 1750.0
+  },
+  {
+   "phase": 6,
+   "name": "deliver_oaks_parcel",
+   "kind": "event",
+   "criteria": [
+    "the agent is in Oak's Lab (map 40)",
+    "event flag 56 (EVENT_OAK_GOT_PARCEL) is set"
+   ],
+   "goal": "Clears when the agent is in Oak's Lab (map 40) and event flag 56 (EVENT_OAK_GOT_PARCEL) is set.",
+   "reward": 2250.0
+  },
+  {
+   "phase": 7,
+   "name": "receive_pokedex",
+   "kind": "event",
+   "criteria": [
+    "the agent is in Oak's Lab (map 40)",
+    "event flag 37 (EVENT_GOT_POKEDEX) is set"
+   ],
+   "goal": "Clears when the agent is in Oak's Lab (map 40) and event flag 37 (EVENT_GOT_POKEDEX) is set.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 8,
+   "name": "heal_at_viridian",
+   "kind": "heal",
+   "criteria": [
+    "the respawn point is Viridian City (map 1)",
+    "no dialogue box is open"
+   ],
+   "goal": "Clears when the respawn point is Viridian City (map 1) and no dialogue box is open.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 9,
+   "name": "train_pikachu_level_6",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 6+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 6+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 10,
+   "name": "train_pikachu_level_7",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 7+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 7+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 11,
+   "name": "train_pikachu_level_8",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 8+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 8+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 12,
+   "name": "train_pikachu_level_9",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 9+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 9+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 13,
+   "name": "train_pikachu_level_10",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 10+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 10+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 14,
+   "name": "reach_route_2",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 2 (map 13)"
+   ],
+   "goal": "Clears when the agent is in Route 2 (map 13).",
+   "reward": 2500.0
+  },
+  {
+   "phase": 15,
+   "name": "enter_forest_gate",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian Forest South Gate (map 50)"
+   ],
+   "goal": "Clears when the agent is in Viridian Forest South Gate (map 50).",
+   "reward": 2750.0
+  },
+  {
+   "phase": 16,
+   "name": "enter_viridian_forest",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian Forest (map 51)"
+   ],
+   "goal": "Clears when the agent is in Viridian Forest (map 51).",
+   "reward": 3000.0
+  },
+  {
+   "phase": 17,
+   "name": "exit_viridian_forest",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian Forest North Gate (map 47)"
+   ],
+   "goal": "Clears when the agent is in Viridian Forest North Gate (map 47).",
+   "reward": 4500.0
+  },
+  {
+   "phase": 18,
+   "name": "heal_at_pewter",
+   "kind": "heal",
+   "criteria": [
+    "the respawn point is Pewter City (map 2)",
+    "no dialogue box is open"
+   ],
+   "goal": "Clears when the respawn point is Pewter City (map 2) and no dialogue box is open.",
+   "reward": 5000.0
+  },
+  {
+   "phase": 19,
+   "name": "train_pikachu_level_11",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 11+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 11+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 20,
+   "name": "train_pikachu_level_12",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 12+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 12+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 21,
+   "name": "train_pikachu_level_13",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 13+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 13+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 22,
+   "name": "train_pikachu_level_14",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 14+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 14+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 23,
+   "name": "train_pikachu_level_15",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 15+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 15+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 24,
+   "name": "train_pikachu_level_16",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 16+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 16+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 25,
+   "name": "train_pikachu_level_17",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 17+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 17+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 26,
+   "name": "train_pikachu_level_18",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 18+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 18+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 27,
+   "name": "train_pikachu_level_19",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 19+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 19+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 28,
+   "name": "train_pikachu_level_20",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 20+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 20+ and no battle or dialogue is on screen.",
+   "reward": 2000.0
+  },
+  {
+   "phase": 29,
+   "name": "enter_pewter_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pewter Gym (map 54)"
+   ],
+   "goal": "Clears when the agent is in Pewter Gym (map 54).",
+   "reward": 4000.0
+  },
+  {
+   "phase": 30,
+   "name": "beat_brock",
+   "kind": "badge",
+   "criteria": [
+    "the badge count is 1+"
+   ],
+   "goal": "Clears when the badge count is 1+.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 31,
+   "name": "reach_route_3",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 3 (map 14)"
+   ],
+   "goal": "Clears when the agent is in Route 3 (map 14).",
+   "reward": 4000.0
+  },
+  {
+   "phase": 32,
+   "name": "reach_mt_moon_approach",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 4 (map 15)"
+   ],
+   "goal": "Clears when the agent is in Route 4 (map 15).",
+   "reward": 4500.0
+  },
+  {
+   "phase": 33,
+   "name": "heal_at_mt_moon_center",
+   "kind": "heal",
+   "criteria": [
+    "the respawn point is Route 4 (map 15)"
+   ],
+   "goal": "Clears when the respawn point is Route 4 (map 15).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 34,
+   "name": "enter_mt_moon",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Mt. Moon 1F (map 59)"
+   ],
+   "goal": "Clears when the agent is in Mt. Moon 1F (map 59).",
+   "reward": 5000.0
+  },
+  {
+   "phase": 35,
+   "name": "reach_mt_moon_fossils",
+   "kind": "event",
+   "criteria": [
+    "the agent is in Mt. Moon B2f (map 61) at y 5–8, x 11–14",
+    "event flag 1401 (EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD) is set",
+    "no dialogue box is open"
+   ],
+   "goal": "Clears when the agent is in Mt. Moon B2f (map 61) at y 5–8, x 11–14, event flag 1401 (EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD) is set and no dialogue box is open.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 36,
+   "name": "choose_mt_moon_fossil",
+   "kind": "event",
+   "criteria": [
+    "any of event flag 1400 (EVENT_GOT_DOME_FOSSIL) / flag 1407 (EVENT_GOT_HELIX_FOSSIL) is set",
+    "no dialogue box is open"
+   ],
+   "goal": "Clears when any of event flag 1400 (EVENT_GOT_DOME_FOSSIL) / flag 1407 (EVENT_GOT_HELIX_FOSSIL) is set and no dialogue box is open.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 37,
+   "name": "beat_mt_moon_jessie_james",
+   "kind": "event",
+   "criteria": [
+    "event flag 1402 (EVENT_BEAT_MT_MOON_3_JESSIE_JAMES) is set"
+   ],
+   "goal": "Clears when event flag 1402 (EVENT_BEAT_MT_MOON_3_JESSIE_JAMES) is set.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 38,
+   "name": "exit_mt_moon",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 4 (map 15) at x ≥ 24"
+   ],
+   "goal": "Clears when the agent is in Route 4 (map 15) at x ≥ 24.",
+   "reward": 6000.0
+  },
+  {
+   "phase": 39,
+   "name": "reach_cerulean",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cerulean City (map 3)"
+   ],
+   "goal": "Clears when the agent is in Cerulean City (map 3).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 40,
+   "name": "heal_at_cerulean",
+   "kind": "heal",
+   "criteria": [
+    "the respawn point is Cerulean City (map 3)"
+   ],
+   "goal": "Clears when the respawn point is Cerulean City (map 3).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 41,
+   "name": "train_pikachu_level_21",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 21+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 21+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 42,
+   "name": "train_pikachu_level_22",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 22+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 22+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 43,
+   "name": "train_pikachu_level_23",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 23+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 23+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 44,
+   "name": "train_pikachu_level_24",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 24+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 24+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 45,
+   "name": "heal_after_level_24",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 46,
+   "name": "train_pikachu_level_25",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 25+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 25+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 47,
+   "name": "train_pikachu_level_26",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 26+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 26+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 48,
+   "name": "train_pikachu_level_27",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 27+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 27+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 49,
+   "name": "heal_after_level_27",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 50,
+   "name": "train_pikachu_level_28",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 28+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 28+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 51,
+   "name": "train_pikachu_level_29",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 29+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 29+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 52,
+   "name": "train_pikachu_level_30",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 30+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 30+ and no battle or dialogue is on screen.",
+   "reward": 2500.0
+  },
+  {
+   "phase": 53,
+   "name": "heal_before_misty",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 54,
+   "name": "enter_cerulean_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cerulean Gym (map 65)"
+   ],
+   "goal": "Clears when the agent is in Cerulean Gym (map 65).",
+   "reward": 4000.0
+  },
+  {
+   "phase": 55,
+   "name": "beat_misty",
+   "kind": "badge",
+   "criteria": [
+    "the badge count is 2+"
+   ],
+   "goal": "Clears when the badge count is 2+.",
+   "reward": 9000.0
+  },
+  {
+   "phase": 56,
+   "name": "beat_cerulean_rival",
+   "kind": "event",
+   "criteria": [
+    "event flag 152 (EVENT_BEAT_CERULEAN_RIVAL) is set"
+   ],
+   "goal": "Clears when event flag 152 (EVENT_BEAT_CERULEAN_RIVAL) is set.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 57,
+   "name": "reach_route_24",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 24 (map 35)"
+   ],
+   "goal": "Clears when the agent is in Route 24 (map 35).",
+   "reward": 3500.0
+  },
+  {
+   "phase": 58,
+   "name": "reach_route_25",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 25 (map 36)"
+   ],
+   "goal": "Clears when the agent is in Route 25 (map 36).",
+   "reward": 4000.0
+  },
+  {
+   "phase": 59,
+   "name": "enter_bills_house",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Bill's House (map 88) at y ≤ 8, x ≤ 8"
+   ],
+   "goal": "Clears when the agent is in Bill's House (map 88) at y ≤ 8, x ≤ 8.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 60,
+   "name": "heal_after_route_25",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Cerulean Pokémon Center (map 64) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 6000.0
+  },
+  {
+   "phase": 61,
+   "name": "return_to_bills_house",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Bill's House (map 88) at y ≤ 8, x ≤ 8"
+   ],
+   "goal": "Clears when the agent is in Bill's House (map 88) at y ≤ 8, x ≤ 8.",
+   "reward": 5000.0
+  },
+  {
+   "phase": 62,
+   "name": "meet_bill",
+   "kind": "event",
+   "criteria": [
+    "event flag 1360 (EVENT_MET_BILL) is set"
+   ],
+   "goal": "Clears when event flag 1360 (EVENT_MET_BILL) is set.",
+   "reward": 5000.0
+  },
+  {
+   "phase": 63,
+   "name": "receive_ss_ticket",
+   "kind": "event",
+   "criteria": [
+    "event flag 1372 (EVENT_GOT_SS_TICKET) is set"
+   ],
+   "goal": "Clears when event flag 1372 (EVENT_GOT_SS_TICKET) is set.",
+   "reward": 6000.0
+  },
+  {
+   "phase": 64,
+   "name": "leave_bills_house",
+   "kind": "event",
+   "criteria": [
+    "event flag 1375 (EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING) is set"
+   ],
+   "goal": "Clears when event flag 1375 (EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING) is set.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 65,
+   "name": "beat_cerulean_rocket_thief",
+   "kind": "event",
+   "criteria": [
+    "event flag 167 (EVENT_BEAT_CERULEAN_ROCKET_THIEF) is set"
+   ],
+   "goal": "Clears when event flag 167 (EVENT_BEAT_CERULEAN_ROCKET_THIEF) is set.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 66,
+   "name": "reach_route_5",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 5 (map 16)"
+   ],
+   "goal": "Clears when the agent is in Route 5 (map 16).",
+   "reward": 3500.0
+  },
+  {
+   "phase": 67,
+   "name": "enter_route_5_underground_path",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Underground Path Route 5 (map 71)"
+   ],
+   "goal": "Clears when the agent is in Underground Path Route 5 (map 71).",
+   "reward": 4000.0
+  },
+  {
+   "phase": 68,
+   "name": "cross_underground_path",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Underground Path North South (map 119)"
+   ],
+   "goal": "Clears when the agent is in Underground Path North South (map 119).",
+   "reward": 4500.0
+  },
+  {
+   "phase": 69,
+   "name": "exit_route_6_underground_path",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Underground Path Route 6 (map 74)"
+   ],
+   "goal": "Clears when the agent is in Underground Path Route 6 (map 74).",
+   "reward": 4000.0
+  },
+  {
+   "phase": 70,
+   "name": "reach_route_6",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 6 (map 17)"
+   ],
+   "goal": "Clears when the agent is in Route 6 (map 17).",
+   "reward": 4500.0
+  },
+  {
+   "phase": 71,
+   "name": "reach_vermilion",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Vermilion City (map 5)"
+   ],
+   "goal": "Clears when the agent is in Vermilion City (map 5).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 72,
+   "name": "heal_at_vermilion",
+   "kind": "heal",
+   "criteria": [
+    "the respawn point is Vermilion City (map 5)"
+   ],
+   "goal": "Clears when the respawn point is Vermilion City (map 5).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 73,
+   "name": "enter_vermilion_dock",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Vermilion Dock (map 94)"
+   ],
+   "goal": "Clears when the agent is in Vermilion Dock (map 94).",
+   "reward": 4500.0
+  },
+  {
+   "phase": 74,
+   "name": "board_ss_anne",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in S.s. Anne 1F (map 95)"
+   ],
+   "goal": "Clears when the agent is in S.s. Anne 1F (map 95).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 75,
+   "name": "reach_ss_anne_2f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in S.s. Anne 2F (map 96)"
+   ],
+   "goal": "Clears when the agent is in S.s. Anne 2F (map 96).",
+   "reward": 4000.0
+  },
+  {
+   "phase": 76,
+   "name": "reach_ss_anne_captain",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in S.s. Anne Captains Room (map 101)"
+   ],
+   "goal": "Clears when the agent is in S.s. Anne Captains Room (map 101).",
+   "reward": 6000.0
+  },
+  {
+   "phase": 77,
+   "name": "rub_captains_back",
+   "kind": "event",
+   "criteria": [
+    "event flag 1505 (EVENT_RUBBED_CAPTAINS_BACK) is set"
+   ],
+   "goal": "Clears when event flag 1505 (EVENT_RUBBED_CAPTAINS_BACK) is set.",
+   "reward": 6000.0
+  },
+  {
+   "phase": 78,
+   "name": "receive_hm01",
+   "kind": "event",
+   "criteria": [
+    "event flag 1504 (EVENT_GOT_HM01) is set"
+   ],
+   "goal": "Clears when event flag 1504 (EVENT_GOT_HM01) is set.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 79,
+   "name": "return_to_vermilion",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Vermilion City (map 5)"
+   ],
+   "goal": "Clears when the agent is in Vermilion City (map 5).",
+   "reward": 5000.0
+  },
+  {
+   "phase": 80,
+   "name": "return_to_cerulean_for_bulbasaur",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cerulean City (map 3)"
+   ],
+   "goal": "Clears when the agent is in Cerulean City (map 3).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 81,
+   "name": "enter_melanies_house",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cerulean Melanies House (map 63)"
+   ],
+   "goal": "Clears when the agent is in Cerulean Melanies House (map 63).",
+   "reward": 5000.0
+  },
+  {
+   "phase": 82,
+   "name": "receive_bulbasaur",
+   "kind": "event",
+   "criteria": [
+    "event flag 168 (EVENT_GOT_BULBASAUR_IN_CERULEAN) is set"
+   ],
+   "goal": "Clears when event flag 168 (EVENT_GOT_BULBASAUR_IN_CERULEAN) is set.",
+   "reward": 9000.0
+  },
+  {
+   "phase": 83,
+   "name": "teach_cut_to_bulbasaur",
+   "kind": "teach",
+   "criteria": [
+    "a party member knows Cut (#15)"
+   ],
+   "goal": "Clears when a party member knows Cut (#15).",
+   "reward": 7000.0
+  },
+  {
+   "phase": 84,
+   "name": "return_to_vermilion_with_cut",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Vermilion City (map 5)"
+   ],
+   "goal": "Clears when the agent is in Vermilion City (map 5).",
+   "reward": 6000.0
+  },
+  {
+   "phase": 85,
+   "name": "enter_vermilion_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Vermilion Gym (map 92)"
+   ],
+   "goal": "Clears when the agent is in Vermilion Gym (map 92).",
+   "reward": 7000.0
+  },
+  {
+   "phase": 86,
+   "name": "beat_lt_surge",
+   "kind": "event",
+   "criteria": [
+    "event flag 359 (EVENT_BEAT_LT_SURGE) is set"
+   ],
+   "goal": "Clears when event flag 359 (EVENT_BEAT_LT_SURGE) is set.",
+   "reward": 10000.0
+  },
+  {
+   "phase": 87,
+   "name": "heal_after_lt_surge",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Vermilion Pokémon Center (map 89) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Vermilion Pokémon Center (map 89) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 6000.0
+  },
+  {
+   "phase": 88,
+   "name": "receive_squirtle",
+   "kind": "event",
+   "criteria": [
+    "event flag 327 (EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY) is set"
+   ],
+   "goal": "Clears when event flag 327 (EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY) is set.",
+   "reward": 9000.0
+  },
+  {
+   "phase": 89,
+   "name": "get_bike_voucher",
+   "kind": "event",
+   "criteria": [
+    "event flag 337 (EVENT_GOT_BIKE_VOUCHER) is set"
+   ],
+   "goal": "Clears when event flag 337 (EVENT_GOT_BIKE_VOUCHER) is set.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 90,
+   "name": "get_bicycle",
+   "kind": "event",
+   "criteria": [
+    "event flag 192 (EVENT_GOT_BICYCLE) is set"
+   ],
+   "goal": "Clears when event flag 192 (EVENT_GOT_BICYCLE) is set.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 91,
+   "name": "return_to_route_24_for_charmander",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 24 (map 35)"
+   ],
+   "goal": "Clears when the agent is in Route 24 (map 35).",
+   "reward": 5000.0
+  },
+  {
+   "phase": 92,
+   "name": "receive_charmander",
+   "kind": "event",
+   "criteria": [
+    "event flag 1359 (EVENT_54F) is set"
+   ],
+   "goal": "Clears when event flag 1359 (EVENT_54F) is set.",
+   "reward": 9000.0
+  },
+  {
+   "phase": 93,
+   "name": "reach_route_9",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 9 (map 20)"
+   ],
+   "goal": "Clears when the agent is in Route 9 (map 20).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 94,
+   "name": "cross_route_9_cut_tree",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 9 (map 20) at x ≥ 5"
+   ],
+   "goal": "Clears when the agent is in Route 9 (map 20) at x ≥ 5.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 95,
+   "name": "reach_route_10",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 10 (map 21)"
+   ],
+   "goal": "Clears when the agent is in Route 10 (map 21).",
+   "reward": 7500.0
+  },
+  {
+   "phase": 96,
+   "name": "train_pikachu_rock_tunnel_level_31",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 31+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 31+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 97,
+   "name": "train_pikachu_rock_tunnel_level_32",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 32+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 32+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 98,
+   "name": "train_pikachu_rock_tunnel_level_33",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 33+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 33+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 99,
+   "name": "train_pikachu_rock_tunnel_level_34",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 34+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 34+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 100,
+   "name": "train_pikachu_rock_tunnel_level_35",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 35+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 35+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 101,
+   "name": "train_pikachu_rock_tunnel_level_36",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 36+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 36+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 102,
+   "name": "train_pikachu_rock_tunnel_level_37",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 37+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 37+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 103,
+   "name": "train_pikachu_rock_tunnel_level_38",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 38+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 38+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 104,
+   "name": "train_pikachu_rock_tunnel_level_39",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 39+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 39+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 105,
+   "name": "train_pikachu_rock_tunnel_level_40",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 40+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 40+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 106,
+   "name": "train_pikachu_rock_tunnel_level_41",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 41+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 41+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 107,
+   "name": "train_pikachu_rock_tunnel_level_42",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 42+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 42+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 108,
+   "name": "train_pikachu_rock_tunnel_level_43",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 43+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 43+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 109,
+   "name": "train_pikachu_rock_tunnel_level_44",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 44+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 44+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 110,
+   "name": "train_pikachu_rock_tunnel_level_45",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 45+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 45+ and no battle or dialogue is on screen.",
+   "reward": 3500.0
+  },
+  {
+   "phase": 111,
+   "name": "heal_at_rock_tunnel_center",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Rock Tunnel Pokémon Center (map 81) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Rock Tunnel Pokémon Center (map 81) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 112,
+   "name": "enter_rock_tunnel",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rock Tunnel 1F (map 82)"
+   ],
+   "goal": "Clears when the agent is in Rock Tunnel 1F (map 82).",
+   "reward": 7500.0
+  },
+  {
+   "phase": 113,
+   "name": "reach_rock_tunnel_first_b1f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rock Tunnel B1f (map 232) at y ≥ 20, x ≥ 28"
+   ],
+   "goal": "Clears when the agent is in Rock Tunnel B1f (map 232) at y ≥ 20, x ≥ 28.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 114,
+   "name": "reach_rock_tunnel_middle_1f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rock Tunnel 1F (map 82) at y ≤ 7, x ≤ 10"
+   ],
+   "goal": "Clears when the agent is in Rock Tunnel 1F (map 82) at y ≤ 7, x ≤ 10.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 115,
+   "name": "reach_rock_tunnel_second_b1f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rock Tunnel B1f (map 232) at y 7–15, x 18–28"
+   ],
+   "goal": "Clears when the agent is in Rock Tunnel B1f (map 232) at y 7–15, x 18–28.",
+   "reward": 7500.0
+  },
+  {
+   "phase": 116,
+   "name": "reach_rock_tunnel_final_1f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rock Tunnel 1F (map 82) at y ≥ 13, x ≥ 32"
+   ],
+   "goal": "Clears when the agent is in Rock Tunnel 1F (map 82) at y ≥ 13, x ≥ 32.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 117,
+   "name": "exit_rock_tunnel_to_lower_route_10",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 10 (map 21) at y ≥ 45"
+   ],
+   "goal": "Clears when the agent is in Route 10 (map 21) at y ≥ 45.",
+   "reward": 8500.0
+  },
+  {
+   "phase": 118,
+   "name": "reach_lavender",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Lavender Town (map 4)"
+   ],
+   "goal": "Clears when the agent is in Lavender Town (map 4).",
+   "reward": 10000.0
+  },
+  {
+   "phase": 119,
+   "name": "heal_at_lavender_center",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Lavender Pokémon Center (map 141) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Lavender Pokémon Center (map 141) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 120,
+   "name": "reach_route_8",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 8 (map 19)"
+   ],
+   "goal": "Clears when the agent is in Route 8 (map 19).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 121,
+   "name": "enter_route_8_underground_path",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Underground Path Route 8 (map 80)"
+   ],
+   "goal": "Clears when the agent is in Underground Path Route 8 (map 80).",
+   "reward": 6000.0
+  },
+  {
+   "phase": 122,
+   "name": "cross_route_7_8_underground_path",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Underground Path West East (map 121)"
+   ],
+   "goal": "Clears when the agent is in Underground Path West East (map 121).",
+   "reward": 7000.0
+  },
+  {
+   "phase": 123,
+   "name": "exit_route_7_underground_path",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Underground Path Route 7 (map 77)"
+   ],
+   "goal": "Clears when the agent is in Underground Path Route 7 (map 77).",
+   "reward": 6000.0
+  },
+  {
+   "phase": 124,
+   "name": "reach_route_7",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 7 (map 18)"
+   ],
+   "goal": "Clears when the agent is in Route 7 (map 18).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 125,
+   "name": "reach_celadon",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Celadon City (map 6)"
+   ],
+   "goal": "Clears when the agent is in Celadon City (map 6).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 126,
+   "name": "heal_at_celadon_center",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Celadon Pokémon Center (map 133) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Celadon Pokémon Center (map 133) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 10000.0
+  },
+  {
+   "phase": 127,
+   "name": "enter_celadon_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Celadon Gym (map 134) at y ≤ 20, x ≤ 10"
+   ],
+   "goal": "Clears when the agent is in Celadon Gym (map 134) at y ≤ 20, x ≤ 10.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 128,
+   "name": "beat_erika",
+   "kind": "event",
+   "criteria": [
+    "event flag 425 (EVENT_BEAT_ERIKA) is set"
+   ],
+   "goal": "Clears when event flag 425 (EVENT_BEAT_ERIKA) is set.",
+   "reward": 12000.0
+  },
+  {
+   "phase": 129,
+   "name": "heal_after_erika",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Celadon Pokémon Center (map 133) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Celadon Pokémon Center (map 133) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 130,
+   "name": "train_pikachu_silph_level_41",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 41+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 41+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 131,
+   "name": "train_pikachu_silph_level_42",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 42+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 42+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 132,
+   "name": "train_pikachu_silph_level_43",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 43+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 43+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 133,
+   "name": "train_pikachu_silph_level_44",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 44+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 44+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 134,
+   "name": "train_pikachu_silph_level_45",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 45+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 45+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 135,
+   "name": "train_pikachu_silph_level_46",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 46+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 46+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 136,
+   "name": "train_pikachu_silph_level_47",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 47+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 47+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 137,
+   "name": "train_pikachu_silph_level_48",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 48+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 48+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 138,
+   "name": "train_pikachu_silph_level_49",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 49+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 49+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 139,
+   "name": "train_pikachu_silph_level_50",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 50+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 50+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 140,
+   "name": "reach_route_16_for_fly",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 16 (map 27)"
+   ],
+   "goal": "Clears when the agent is in Route 16 (map 27).",
+   "reward": 6000.0
+  },
+  {
+   "phase": 141,
+   "name": "enter_route_16_fly_house",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 16 Fly House (map 188) at y ≤ 8, x ≤ 8"
+   ],
+   "goal": "Clears when the agent is in Route 16 Fly House (map 188) at y ≤ 8, x ≤ 8.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 142,
+   "name": "receive_hm02",
+   "kind": "event",
+   "criteria": [
+    "event flag 1230 (EVENT_GOT_HM02) is set"
+   ],
+   "goal": "Clears when event flag 1230 (EVENT_GOT_HM02) is set.",
+   "reward": 11000.0
+  },
+  {
+   "phase": 143,
+   "name": "heal_after_hm02",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Celadon Pokémon Center (map 133) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Celadon Pokémon Center (map 133) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 144,
+   "name": "enter_game_corner",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Game Corner (map 135) at y ≤ 20, x ≤ 20"
+   ],
+   "goal": "Clears when the agent is in Game Corner (map 135) at y ≤ 20, x ≤ 20.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 145,
+   "name": "find_rocket_hideout",
+   "kind": "event",
+   "criteria": [
+    "event flag 441 (EVENT_FOUND_ROCKET_HIDEOUT) is set"
+   ],
+   "goal": "Clears when event flag 441 (EVENT_FOUND_ROCKET_HIDEOUT) is set.",
+   "reward": 9000.0
+  },
+  {
+   "phase": 146,
+   "name": "enter_rocket_hideout",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rocket Hideout B1f (map 199)"
+   ],
+   "goal": "Clears when the agent is in Rocket Hideout B1f (map 199).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 147,
+   "name": "reach_rocket_hideout_b2f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rocket Hideout B2f (map 200) at x ≥ 20"
+   ],
+   "goal": "Clears when the agent is in Rocket Hideout B2f (map 200) at x ≥ 20.",
+   "reward": 6000.0
+  },
+  {
+   "phase": 148,
+   "name": "reach_rocket_hideout_b3f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rocket Hideout B3f (map 201) at x ≥ 18"
+   ],
+   "goal": "Clears when the agent is in Rocket Hideout B3f (map 201) at x ≥ 18.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 149,
+   "name": "reach_rocket_hideout_b4f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rocket Hideout B4f (map 202) at y ≥ 15"
+   ],
+   "goal": "Clears when the agent is in Rocket Hideout B4f (map 202) at y ≥ 15.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 150,
+   "name": "beat_lift_key_rocket",
+   "kind": "event",
+   "criteria": [
+    "event flag 1700 (EVENT_BEAT_ROCKET_HIDEOUT_4_TRAINER_2) is set"
+   ],
+   "goal": "Clears when event flag 1700 (EVENT_BEAT_ROCKET_HIDEOUT_4_TRAINER_2) is set.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 151,
+   "name": "rocket_drops_lift_key",
+   "kind": "event",
+   "criteria": [
+    "event flag 1702 (EVENT_ROCKET_DROPPED_LIFT_KEY) is set"
+   ],
+   "goal": "Clears when event flag 1702 (EVENT_ROCKET_DROPPED_LIFT_KEY) is set.",
+   "reward": 5000.0
+  },
+  {
+   "phase": 152,
+   "name": "collect_lift_key",
+   "kind": "item",
+   "criteria": [
+    "the bag holds Lift Key (#74)"
+   ],
+   "goal": "Clears when the bag holds Lift Key (#74).",
+   "reward": 8000.0
+  },
+  {
+   "phase": 153,
+   "name": "enter_rocket_hideout_lift",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Rocket Hideout Elevator (map 203)"
+   ],
+   "goal": "Clears when the agent is in Rocket Hideout Elevator (map 203).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 154,
+   "name": "beat_rocket_hideout_jessie_james",
+   "kind": "event",
+   "criteria": [
+    "event flag 1698 (EVENT_BEAT_ROCKET_HIDEOUT_4_JESSIE_JAMES) is set"
+   ],
+   "goal": "Clears when event flag 1698 (EVENT_BEAT_ROCKET_HIDEOUT_4_JESSIE_JAMES) is set.",
+   "reward": 10000.0
+  },
+  {
+   "phase": 155,
+   "name": "beat_rocket_hideout_giovanni",
+   "kind": "event",
+   "criteria": [
+    "event flag 1703 (EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI) is set"
+   ],
+   "goal": "Clears when event flag 1703 (EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI) is set.",
+   "reward": 12000.0
+  },
+  {
+   "phase": 156,
+   "name": "collect_silph_scope",
+   "kind": "item",
+   "criteria": [
+    "the bag holds Silph Scope (#72)"
+   ],
+   "goal": "Clears when the bag holds Silph Scope (#72).",
+   "reward": 10000.0
+  },
+  {
+   "phase": 157,
+   "name": "heal_after_rocket_hideout",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Celadon Pokémon Center (map 133) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Celadon Pokémon Center (map 133) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 8000.0
+  },
+  {
+   "phase": 158,
+   "name": "reach_celadon_mart_roof",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Celadon Mart Roof (map 126) at y ≤ 4"
+   ],
+   "goal": "Clears when the agent is in Celadon Mart Roof (map 126) at y ≤ 4.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 159,
+   "name": "buy_guard_drink",
+   "kind": "item",
+   "criteria": [
+    "the bag holds any of Fresh Water (#60) / Soda Pop (#61) / Lemonade (#62)"
+   ],
+   "goal": "Clears when the bag holds any of Fresh Water (#60) / Soda Pop (#61) / Lemonade (#62).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 160,
+   "name": "give_saffron_guards_drink",
+   "kind": "flag",
+   "criteria": [
+    "WRAM 0xD727 has bits 0x40 set"
+   ],
+   "goal": "Clears when WRAM 0xD727 has bits 0x40 set.",
+   "reward": 11000.0
+  },
+  {
+   "phase": 161,
+   "name": "reach_saffron",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Saffron City (map 10) at x ≤ 3"
+   ],
+   "goal": "Clears when the agent is in Saffron City (map 10) at x ≤ 3.",
+   "reward": 10000.0
+  },
+  {
+   "phase": 162,
+   "name": "train_charmander_family_level_11",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 11+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 11+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 163,
+   "name": "train_charmander_family_level_12",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 12+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 12+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 164,
+   "name": "train_charmander_family_level_13",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 13+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 13+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 165,
+   "name": "train_charmander_family_level_14",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 14+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 14+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 166,
+   "name": "train_charmander_family_level_15",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 15+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 15+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 167,
+   "name": "train_charmander_family_level_16",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 16+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 16+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 168,
+   "name": "train_charmander_family_level_17",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 17+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 17+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 169,
+   "name": "train_charmander_family_level_18",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 18+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 18+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 170,
+   "name": "train_charmander_family_level_19",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 19+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 19+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 171,
+   "name": "train_charmander_family_level_20",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 20+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 20+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 172,
+   "name": "train_charmander_family_level_21",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 21+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 21+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 173,
+   "name": "train_charmander_family_level_22",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 22+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 22+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 174,
+   "name": "train_charmander_family_level_23",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 23+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 23+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 175,
+   "name": "train_charmander_family_level_24",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 24+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 24+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 176,
+   "name": "train_charmander_family_level_25",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 25+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 25+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 177,
+   "name": "train_charmander_family_level_26",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 26+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 26+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 178,
+   "name": "train_charmander_family_level_27",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 27+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 27+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 179,
+   "name": "train_charmander_family_level_28",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 28+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 28+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 180,
+   "name": "train_charmander_family_level_29",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 29+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 29+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 181,
+   "name": "train_charmander_family_level_30",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 30+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 30+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 182,
+   "name": "train_charmander_family_level_31",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 31+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 31+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 183,
+   "name": "train_charmander_family_level_32",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 32+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 32+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 184,
+   "name": "train_charmander_family_level_33",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 33+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 33+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 185,
+   "name": "train_charmander_family_level_34",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 34+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 34+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 186,
+   "name": "train_charmander_family_level_35",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 35+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 35+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 187,
+   "name": "train_charmander_family_level_36",
+   "kind": "grind",
+   "criteria": [
+    "the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 36+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the party has Charmander (#176) / Charmeleon (#178) / Charizard (#180) at level 36+ and no battle or dialogue is on screen.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 188,
+   "name": "evolve_charizard",
+   "kind": "party",
+   "criteria": [
+    "the party includes Charizard (#180)"
+   ],
+   "goal": "Clears when the party includes Charizard (#180).",
+   "reward": 12000.0
+  },
+  {
+   "phase": 189,
+   "name": "teach_fly_to_charizard",
+   "kind": "teach",
+   "criteria": [
+    "a party member knows Fly (#19)"
+   ],
+   "goal": "Clears when a party member knows Fly (#19).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 190,
+   "name": "return_to_lavender_after_charizard",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Lavender Town (map 4)"
+   ],
+   "goal": "Clears when the agent is in Lavender Town (map 4).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 191,
+   "name": "heal_before_pokemon_tower",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Lavender Pokémon Center (map 141) at y ≤ 3",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Lavender Pokémon Center (map 141) at y ≤ 3 and the whole party is at full HP.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 192,
+   "name": "enter_pokemon_tower",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Tower 1F (map 142)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Tower 1F (map 142).",
+   "reward": 8000.0
+  },
+  {
+   "phase": 193,
+   "name": "reach_pokemon_tower_2f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Tower 2F (map 143)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Tower 2F (map 143).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 194,
+   "name": "beat_pokemon_tower_rival",
+   "kind": "event",
+   "criteria": [
+    "event flag 239 (EVENT_BEAT_POKEMON_TOWER_RIVAL) is set"
+   ],
+   "goal": "Clears when event flag 239 (EVENT_BEAT_POKEMON_TOWER_RIVAL) is set.",
+   "reward": 9000.0
+  },
+  {
+   "phase": 195,
+   "name": "reach_pokemon_tower_3f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Tower 3F (map 144)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Tower 3F (map 144).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 196,
+   "name": "reach_pokemon_tower_4f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Tower 4F (map 145)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Tower 4F (map 145).",
+   "reward": 6000.0
+  },
+  {
+   "phase": 197,
+   "name": "reach_pokemon_tower_5f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Tower 5F (map 146)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Tower 5F (map 146).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 198,
+   "name": "reach_pokemon_tower_6f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Tower 6F (map 147)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Tower 6F (map 147).",
+   "reward": 7000.0
+  },
+  {
+   "phase": 199,
+   "name": "reach_pokemon_tower_7f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Tower 7F (map 148)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Tower 7F (map 148).",
+   "reward": 7500.0
+  },
+  {
+   "phase": 200,
+   "name": "beat_pokemon_tower_jessie_james",
+   "kind": "event",
+   "criteria": [
+    "event flag 273 (EVENT_BEAT_POKEMONTOWER_7_JESSIE_JAMES) is set"
+   ],
+   "goal": "Clears when event flag 273 (EVENT_BEAT_POKEMONTOWER_7_JESSIE_JAMES) is set.",
+   "reward": 11000.0
+  },
+  {
+   "phase": 201,
+   "name": "rescue_mr_fuji",
+   "kind": "event",
+   "criteria": [
+    "any of event flag 279 (EVENT_RESCUED_MR_FUJI_2) / flag 1231 (EVENT_RESCUED_MR_FUJI) is set"
+   ],
+   "goal": "Clears when any of event flag 279 (EVENT_RESCUED_MR_FUJI_2) / flag 1231 (EVENT_RESCUED_MR_FUJI) is set.",
+   "reward": 10000.0
+  },
+  {
+   "phase": 202,
+   "name": "enter_mr_fujis_house",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Mr. Fuji's House (map 149)"
+   ],
+   "goal": "Clears when the agent is in Mr. Fuji's House (map 149).",
+   "reward": 6000.0
+  },
+  {
+   "phase": 203,
+   "name": "receive_poke_flute",
+   "kind": "event",
+   "criteria": [
+    "event flag 296 (EVENT_GOT_POKE_FLUTE) is set"
+   ],
+   "goal": "Clears when event flag 296 (EVENT_GOT_POKE_FLUTE) is set.",
+   "reward": 12000.0
+  },
+  {
+   "phase": 204,
+   "name": "return_to_saffron_with_flute",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Saffron City (map 10)"
+   ],
+   "goal": "Clears when the agent is in Saffron City (map 10).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 205,
+   "name": "enter_silph_co",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Silph Co 1F (map 181)"
+   ],
+   "goal": "Clears when the agent is in Silph Co 1F (map 181).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 206,
+   "name": "reach_silph_co_5f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Silph Co 5F (map 210)"
+   ],
+   "goal": "Clears when the agent is in Silph Co 5F (map 210).",
+   "reward": 6500.0
+  },
+  {
+   "phase": 207,
+   "name": "collect_silph_card_key",
+   "kind": "item",
+   "criteria": [
+    "the bag holds Card Key (#48)"
+   ],
+   "goal": "Clears when the bag holds Card Key (#48).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 208,
+   "name": "beat_silph_co_rival",
+   "kind": "event",
+   "criteria": [
+    "event flag 1856 (EVENT_BEAT_SILPH_CO_RIVAL) is set"
+   ],
+   "goal": "Clears when event flag 1856 (EVENT_BEAT_SILPH_CO_RIVAL) is set.",
+   "reward": 11000.0
+  },
+  {
+   "phase": 209,
+   "name": "receive_lapras",
+   "kind": "flag",
+   "criteria": [
+    "WRAM 0xD72D has bits 0x01 set"
+   ],
+   "goal": "Clears when WRAM 0xD72D has bits 0x01 set.",
+   "reward": 9000.0
+  },
+  {
+   "phase": 210,
+   "name": "reach_silph_co_11f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Silph Co 11F (map 235)"
+   ],
+   "goal": "Clears when the agent is in Silph Co 11F (map 235).",
+   "reward": 8500.0
+  },
+  {
+   "phase": 211,
+   "name": "beat_silph_co_11f_jessie_james",
+   "kind": "event",
+   "criteria": [
+    "event flag 1924 (EVENT_BEAT_SILPH_CO_11F_JESSIE_JAMES) is set"
+   ],
+   "goal": "Clears when event flag 1924 (EVENT_BEAT_SILPH_CO_11F_JESSIE_JAMES) is set.",
+   "reward": 11000.0
+  },
+  {
+   "phase": 212,
+   "name": "beat_silph_co_giovanni",
+   "kind": "event",
+   "criteria": [
+    "event flag 1935 (EVENT_BEAT_SILPH_CO_GIOVANNI) is set"
+   ],
+   "goal": "Clears when event flag 1935 (EVENT_BEAT_SILPH_CO_GIOVANNI) is set.",
+   "reward": 14000.0
+  },
+  {
+   "phase": 213,
+   "name": "receive_master_ball",
+   "kind": "event",
+   "criteria": [
+    "event flag 1933 (EVENT_GOT_MASTER_BALL) is set"
+   ],
+   "goal": "Clears when event flag 1933 (EVENT_GOT_MASTER_BALL) is set.",
+   "reward": 14000.0
+  },
+  {
+   "phase": 214,
+   "name": "return_to_saffron_after_silph",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Saffron City (map 10)"
+   ],
+   "goal": "Clears when the agent is in Saffron City (map 10).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 215,
+   "name": "enter_saffron_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Saffron Gym (map 178)"
+   ],
+   "goal": "Clears when the agent is in Saffron Gym (map 178).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 216,
+   "name": "beat_sabrina",
+   "kind": "event",
+   "criteria": [
+    "event flag 865 (EVENT_BEAT_SABRINA) is set"
+   ],
+   "goal": "Clears when event flag 865 (EVENT_BEAT_SABRINA) is set.",
+   "reward": 15000.0
+  },
+  {
+   "phase": 217,
+   "name": "reach_lavender_for_fuchsia",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Lavender Town (map 4)"
+   ],
+   "goal": "Clears when the agent is in Lavender Town (map 4).",
+   "reward": 8000.0
+  },
+  {
+   "phase": 218,
+   "name": "beat_route12_snorlax",
+   "kind": "event",
+   "criteria": [
+    "event flag 1167 (EVENT_BEAT_ROUTE12_SNORLAX) is set"
+   ],
+   "goal": "Clears when event flag 1167 (EVENT_BEAT_ROUTE12_SNORLAX) is set.",
+   "reward": 15000.0
+  },
+  {
+   "phase": 219,
+   "name": "reach_fuchsia_city",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Fuchsia City (map 7)"
+   ],
+   "goal": "Clears when the agent is in Fuchsia City (map 7).",
+   "reward": 10000.0
+  },
+  {
+   "phase": 220,
+   "name": "heal_at_fuchsia_before_soul_marsh_grind",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Fuchsia Pokémon Center (map 154) at y ≤ 3",
+    "the respawn point is Fuchsia City (map 7)",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Fuchsia Pokémon Center (map 154) at y ≤ 3, the respawn point is Fuchsia City (map 7) and the whole party is at full HP.",
+   "reward": 10000.0
+  },
+  {
+   "phase": 221,
+   "name": "train_pikachu_soul_marsh_level_51",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 51+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 51+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 222,
+   "name": "train_pikachu_soul_marsh_level_52",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 52+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 52+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 223,
+   "name": "train_pikachu_soul_marsh_level_53",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 53+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 53+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 224,
+   "name": "train_pikachu_soul_marsh_level_54",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 54+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 54+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 225,
+   "name": "train_pikachu_soul_marsh_level_55",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 55+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 55+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 226,
+   "name": "train_pikachu_soul_marsh_level_56",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 56+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 56+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 227,
+   "name": "train_pikachu_soul_marsh_level_57",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 57+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 57+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 228,
+   "name": "train_pikachu_soul_marsh_level_58",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 58+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 58+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 229,
+   "name": "train_pikachu_soul_marsh_level_59",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 59+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 59+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 230,
+   "name": "train_pikachu_soul_marsh_level_60",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 60+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 60+ and no battle or dialogue is on screen.",
+   "reward": 5500.0
+  },
+  {
+   "phase": 231,
+   "name": "enter_fuchsia_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Fuchsia Gym (map 157)"
+   ],
+   "goal": "Clears when the agent is in Fuchsia Gym (map 157).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 232,
+   "name": "beat_koga",
+   "kind": "event",
+   "criteria": [
+    "event flag 601 (EVENT_BEAT_KOGA) is set"
+   ],
+   "goal": "Clears when event flag 601 (EVENT_BEAT_KOGA) is set.",
+   "reward": 16000.0
+  },
+  {
+   "phase": 233,
+   "name": "enter_safari_zone",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Safari Zone Center (map 220)"
+   ],
+   "goal": "Clears when the agent is in Safari Zone Center (map 220).",
+   "reward": 8000.0
+  },
+  {
+   "phase": 234,
+   "name": "collect_gold_teeth",
+   "kind": "item",
+   "criteria": [
+    "the bag holds Gold Teeth (#64)"
+   ],
+   "goal": "Clears when the bag holds Gold Teeth (#64).",
+   "reward": 12000.0
+  },
+  {
+   "phase": 235,
+   "name": "get_hm03_surf",
+   "kind": "event",
+   "criteria": [
+    "event flag 2176 (EVENT_GOT_HM03) is set"
+   ],
+   "goal": "Clears when event flag 2176 (EVENT_GOT_HM03) is set.",
+   "reward": 14000.0
+  },
+  {
+   "phase": 236,
+   "name": "get_hm04_strength",
+   "kind": "event",
+   "criteria": [
+    "event flag 568 (EVENT_GOT_HM04) is set"
+   ],
+   "goal": "Clears when event flag 568 (EVENT_GOT_HM04) is set.",
+   "reward": 14000.0
+  },
+  {
+   "phase": 237,
+   "name": "fly_to_pallet_town",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pallet Town (map 0)"
+   ],
+   "goal": "Clears when the agent is in Pallet Town (map 0).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 238,
+   "name": "teach_surf_to_squirtle",
+   "kind": "teach",
+   "criteria": [
+    "a party member knows Surf (#57)"
+   ],
+   "goal": "Clears when a party member knows Surf (#57).",
+   "reward": 7000.0
+  },
+  {
+   "phase": 239,
+   "name": "enter_route_21",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 21 (map 32)"
+   ],
+   "goal": "Clears when the agent is in Route 21 (map 32).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 240,
+   "name": "reach_cinnabar_island",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cinnabar Island (map 8)"
+   ],
+   "goal": "Clears when the agent is in Cinnabar Island (map 8).",
+   "reward": 12000.0
+  },
+  {
+   "phase": 241,
+   "name": "heal_at_cinnabar",
+   "kind": "heal",
+   "criteria": [
+    "the respawn point is Cinnabar Island (map 8)"
+   ],
+   "goal": "Clears when the respawn point is Cinnabar Island (map 8).",
+   "reward": 7000.0
+  },
+  {
+   "phase": 242,
+   "name": "enter_pokemon_mansion",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Mansion 1F (map 165)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Mansion 1F (map 165).",
+   "reward": 8000.0
+  },
+  {
+   "phase": 243,
+   "name": "reach_pokemon_mansion_2f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Mansion 2F (map 214)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Mansion 2F (map 214).",
+   "reward": 5500.0
+  },
+  {
+   "phase": 244,
+   "name": "reach_pokemon_mansion_3f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Mansion 3F (map 215) at x ≤ 8"
+   ],
+   "goal": "Clears when the agent is in Pokémon Mansion 3F (map 215) at x ≤ 8.",
+   "reward": 6000.0
+  },
+  {
+   "phase": 245,
+   "name": "reach_pokemon_mansion_b1f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Mansion B1f (map 216)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Mansion B1f (map 216).",
+   "reward": 7500.0
+  },
+  {
+   "phase": 246,
+   "name": "collect_secret_key",
+   "kind": "item",
+   "criteria": [
+    "the bag holds Secret Key (#43)"
+   ],
+   "goal": "Clears when the bag holds Secret Key (#43).",
+   "reward": 14000.0
+  },
+  {
+   "phase": 247,
+   "name": "train_pikachu_volcano_earth_level_61",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 61+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 61+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 248,
+   "name": "train_pikachu_volcano_earth_level_62",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 62+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 62+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 249,
+   "name": "train_pikachu_volcano_earth_level_63",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 63+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 63+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 250,
+   "name": "train_pikachu_volcano_earth_level_64",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 64+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 64+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 251,
+   "name": "train_pikachu_volcano_earth_level_65",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 65+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 65+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 252,
+   "name": "train_pikachu_volcano_earth_level_66",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 66+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 66+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 253,
+   "name": "train_pikachu_volcano_earth_level_67",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 67+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 67+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 254,
+   "name": "train_pikachu_volcano_earth_level_68",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 68+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 68+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 255,
+   "name": "train_pikachu_volcano_earth_level_69",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 69+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 69+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 256,
+   "name": "train_pikachu_volcano_earth_level_70",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 70+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 70+ and no battle or dialogue is on screen.",
+   "reward": 6500.0
+  },
+  {
+   "phase": 257,
+   "name": "escape_pokemon_mansion",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cinnabar Island (map 8)"
+   ],
+   "goal": "Clears when the agent is in Cinnabar Island (map 8).",
+   "reward": 8000.0
+  },
+  {
+   "phase": 258,
+   "name": "enter_cinnabar_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cinnabar Gym (map 166)"
+   ],
+   "goal": "Clears when the agent is in Cinnabar Gym (map 166).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 259,
+   "name": "open_cinnabar_gym_gate_1",
+   "kind": "event",
+   "criteria": [
+    "event flag 681 (EVENT_CINNABAR_GYM_GATE1_UNLOCKED) is set"
+   ],
+   "goal": "Clears when event flag 681 (EVENT_CINNABAR_GYM_GATE1_UNLOCKED) is set.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 260,
+   "name": "open_cinnabar_gym_gate_2",
+   "kind": "event",
+   "criteria": [
+    "event flag 682 (EVENT_CINNABAR_GYM_GATE2_UNLOCKED) is set"
+   ],
+   "goal": "Clears when event flag 682 (EVENT_CINNABAR_GYM_GATE2_UNLOCKED) is set.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 261,
+   "name": "open_cinnabar_gym_gate_3",
+   "kind": "event",
+   "criteria": [
+    "event flag 683 (EVENT_CINNABAR_GYM_GATE3_UNLOCKED) is set"
+   ],
+   "goal": "Clears when event flag 683 (EVENT_CINNABAR_GYM_GATE3_UNLOCKED) is set.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 262,
+   "name": "open_cinnabar_gym_gate_4",
+   "kind": "event",
+   "criteria": [
+    "event flag 684 (EVENT_CINNABAR_GYM_GATE4_UNLOCKED) is set"
+   ],
+   "goal": "Clears when event flag 684 (EVENT_CINNABAR_GYM_GATE4_UNLOCKED) is set.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 263,
+   "name": "open_cinnabar_gym_gate_5",
+   "kind": "event",
+   "criteria": [
+    "event flag 685 (EVENT_CINNABAR_GYM_GATE5_UNLOCKED) is set"
+   ],
+   "goal": "Clears when event flag 685 (EVENT_CINNABAR_GYM_GATE5_UNLOCKED) is set.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 264,
+   "name": "open_cinnabar_gym_gate_6",
+   "kind": "event",
+   "criteria": [
+    "event flag 686 (EVENT_CINNABAR_GYM_GATE6_UNLOCKED) is set"
+   ],
+   "goal": "Clears when event flag 686 (EVENT_CINNABAR_GYM_GATE6_UNLOCKED) is set.",
+   "reward": 4500.0
+  },
+  {
+   "phase": 265,
+   "name": "beat_blaine",
+   "kind": "event",
+   "criteria": [
+    "event flag 665 (EVENT_BEAT_BLAINE) is set"
+   ],
+   "goal": "Clears when event flag 665 (EVENT_BEAT_BLAINE) is set.",
+   "reward": 18000.0
+  },
+  {
+   "phase": 266,
+   "name": "fly_to_viridian_city",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian City (map 1)"
+   ],
+   "goal": "Clears when the agent is in Viridian City (map 1).",
+   "reward": 10000.0
+  },
+  {
+   "phase": 267,
+   "name": "enter_viridian_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian Gym (map 45)"
+   ],
+   "goal": "Clears when the agent is in Viridian Gym (map 45).",
+   "reward": 10000.0
+  },
+  {
+   "phase": 268,
+   "name": "beat_viridian_gym_giovanni",
+   "kind": "event",
+   "criteria": [
+    "event flag 81 (EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI) is set"
+   ],
+   "goal": "Clears when event flag 81 (EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI) is set.",
+   "reward": 22000.0
+  },
+  {
+   "phase": 269,
+   "name": "leave_viridian_gym",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian City (map 1)"
+   ],
+   "goal": "Clears when the agent is in Viridian City (map 1).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 270,
+   "name": "teach_strength_to_squirtle",
+   "kind": "teach",
+   "criteria": [
+    "a party member knows Strength (#70)"
+   ],
+   "goal": "Clears when a party member knows Strength (#70).",
+   "reward": 8000.0
+  },
+  {
+   "phase": 271,
+   "name": "reach_route_22_for_league",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 22 (map 33)"
+   ],
+   "goal": "Clears when the agent is in Route 22 (map 33).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 272,
+   "name": "fly_to_cinnabar_for_training",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cinnabar Island (map 8)"
+   ],
+   "goal": "Clears when the agent is in Cinnabar Island (map 8).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 273,
+   "name": "enter_mansion_for_training",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Pokémon Mansion 1F (map 165)"
+   ],
+   "goal": "Clears when the agent is in Pokémon Mansion 1F (map 165).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 274,
+   "name": "train_pikachu_elite_four_level_71",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 71+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 71+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 275,
+   "name": "train_pikachu_elite_four_level_72",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 72+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 72+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 276,
+   "name": "train_pikachu_elite_four_level_73",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 73+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 73+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 277,
+   "name": "train_pikachu_elite_four_level_74",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 74+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 74+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 278,
+   "name": "train_pikachu_elite_four_level_75",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 75+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 75+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 279,
+   "name": "train_pikachu_elite_four_level_76",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 76+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 76+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 280,
+   "name": "train_pikachu_elite_four_level_77",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 77+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 77+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 281,
+   "name": "train_pikachu_elite_four_level_78",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 78+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 78+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 282,
+   "name": "train_pikachu_elite_four_level_79",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 79+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 79+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 283,
+   "name": "train_pikachu_elite_four_level_80",
+   "kind": "grind",
+   "criteria": [
+    "the lead Pokémon is level 80+",
+    "no battle or dialogue is on screen"
+   ],
+   "goal": "Clears when the lead Pokémon is level 80+ and no battle or dialogue is on screen.",
+   "reward": 7000.0
+  },
+  {
+   "phase": 284,
+   "name": "exit_mansion_after_training",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Cinnabar Island (map 8)"
+   ],
+   "goal": "Clears when the agent is in Cinnabar Island (map 8).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 285,
+   "name": "fly_to_viridian_after_training",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Viridian City (map 1)"
+   ],
+   "goal": "Clears when the agent is in Viridian City (map 1).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 286,
+   "name": "return_to_route_22_for_league",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 22 (map 33)"
+   ],
+   "goal": "Clears when the agent is in Route 22 (map 33).",
+   "reward": 9000.0
+  },
+  {
+   "phase": 287,
+   "name": "beat_route_22_rival",
+   "kind": "event",
+   "criteria": [
+    "event flag 1318 (EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE) is set"
+   ],
+   "goal": "Clears when event flag 1318 (EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE) is set.",
+   "reward": 16000.0
+  },
+  {
+   "phase": 288,
+   "name": "reach_route_23",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 23 (map 34)"
+   ],
+   "goal": "Clears when the agent is in Route 23 (map 34).",
+   "reward": 12000.0
+  },
+  {
+   "phase": 289,
+   "name": "enter_victory_road_1f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Victory Road 1F (map 108)"
+   ],
+   "goal": "Clears when the agent is in Victory Road 1F (map 108).",
+   "reward": 15000.0
+  },
+  {
+   "phase": 290,
+   "name": "reach_victory_road_2f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Victory Road 2F (map 194)"
+   ],
+   "goal": "Clears when the agent is in Victory Road 2F (map 194).",
+   "reward": 11000.0
+  },
+  {
+   "phase": 291,
+   "name": "reach_victory_road_3f",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Victory Road 3F (map 198)"
+   ],
+   "goal": "Clears when the agent is in Victory Road 3F (map 198).",
+   "reward": 12000.0
+  },
+  {
+   "phase": 292,
+   "name": "exit_victory_road",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Route 23 (map 34) at y ≤ 31"
+   ],
+   "goal": "Clears when the agent is in Route 23 (map 34) at y ≤ 31.",
+   "reward": 15000.0
+  },
+  {
+   "phase": 293,
+   "name": "reach_indigo_plateau",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Indigo Plateau (map 9)"
+   ],
+   "goal": "Clears when the agent is in Indigo Plateau (map 9).",
+   "reward": 18000.0
+  },
+  {
+   "phase": 294,
+   "name": "enter_indigo_plateau_lobby",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Indigo Plateau Lobby (map 174)"
+   ],
+   "goal": "Clears when the agent is in Indigo Plateau Lobby (map 174).",
+   "reward": 12000.0
+  },
+  {
+   "phase": 295,
+   "name": "heal_before_elite_four",
+   "kind": "heal",
+   "criteria": [
+    "the agent is in Indigo Plateau Lobby (map 174)",
+    "the whole party is at full HP"
+   ],
+   "goal": "Clears when the agent is in Indigo Plateau Lobby (map 174) and the whole party is at full HP.",
+   "reward": 10000.0
+  },
+  {
+   "phase": 296,
+   "name": "enter_loreleis_room",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Loreleis Room (map 245)"
+   ],
+   "goal": "Clears when the agent is in Loreleis Room (map 245).",
+   "reward": 12000.0
+  },
+  {
+   "phase": 297,
+   "name": "beat_lorelei",
+   "kind": "event",
+   "criteria": [
+    "event flag 2273 (EVENT_BEAT_LORELEIS_ROOM_TRAINER_0) is set"
+   ],
+   "goal": "Clears when event flag 2273 (EVENT_BEAT_LORELEIS_ROOM_TRAINER_0) is set.",
+   "reward": 22000.0
+  },
+  {
+   "phase": 298,
+   "name": "beat_bruno",
+   "kind": "event",
+   "criteria": [
+    "event flag 2281 (EVENT_BEAT_BRUNOS_ROOM_TRAINER_0) is set"
+   ],
+   "goal": "Clears when event flag 2281 (EVENT_BEAT_BRUNOS_ROOM_TRAINER_0) is set.",
+   "reward": 23000.0
+  },
+  {
+   "phase": 299,
+   "name": "beat_agatha",
+   "kind": "event",
+   "criteria": [
+    "event flag 2289 (EVENT_BEAT_AGATHAS_ROOM_TRAINER_0) is set"
+   ],
+   "goal": "Clears when event flag 2289 (EVENT_BEAT_AGATHAS_ROOM_TRAINER_0) is set.",
+   "reward": 24000.0
+  },
+  {
+   "phase": 300,
+   "name": "beat_lance",
+   "kind": "event",
+   "criteria": [
+    "event flag 2302 (EVENT_BEAT_LANCE) is set"
+   ],
+   "goal": "Clears when event flag 2302 (EVENT_BEAT_LANCE) is set.",
+   "reward": 26000.0
+  },
+  {
+   "phase": 301,
+   "name": "beat_champion",
+   "kind": "event",
+   "criteria": [
+    "event flag 2305 (EVENT_BEAT_CHAMPION_RIVAL) is set"
+   ],
+   "goal": "Clears when event flag 2305 (EVENT_BEAT_CHAMPION_RIVAL) is set.",
+   "reward": 30000.0
+  },
+  {
+   "phase": 302,
+   "name": "enter_hall_of_fame",
+   "kind": "travel",
+   "criteria": [
+    "the agent is in Hall Of Fame (map 118)"
+   ],
+   "goal": "Clears when the agent is in Hall Of Fame (map 118).",
+   "reward": 40000.0
+  }
+ ]
+}

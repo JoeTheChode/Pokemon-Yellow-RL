@@ -1,6 +1,30 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 """Build the local Yellow navigation catalog from authoritative/source data.
 
-The trainer never depends on the network at runtime. Run this script explicitly
+The toolkit never depends on the network at runtime. Run this script explicitly
 to refresh map constants from pret/pokeyellow and map labels from the saved
 Pokemon Completion page.
 """
@@ -46,6 +70,7 @@ CONNECTION_RE = re.compile(
 WARP_RE = re.compile(
     r"warp_event\s+(-?\d+),\s*(-?\d+),\s*([A-Z0-9_]+),\s*(\d+)"
 )
+OBJECT_EVENT_RE = re.compile(r"^\s*object_event\s+(.+?)(?:\s*;.*)?$", re.MULTILINE)
 
 
 def display_name(constant: str) -> str:
@@ -208,11 +233,13 @@ def parse_map_constants(text: str, completion_names: set[str]) -> list[dict]:
 
 
 def parse_repository_archive(archive_bytes: bytes, maps: list[dict]) -> None:
-    """Attach inter-map connections and warp endpoints from the disassembly."""
+    """Attach topology and exact visible landmarks from the disassembly."""
     by_constant = {record["constant"]: record for record in maps}
     for record in maps:
         record["connections"] = []
         record["warps"] = []
+        record["trainers"] = []
+        record["items"] = []
 
     with zipfile.ZipFile(BytesIO(archive_bytes)) as archive:
         for name in archive.namelist():
@@ -256,6 +283,48 @@ def parse_repository_archive(archive_bytes: bytes, maps: list[dict]) -> None:
                             "destination_warp": int(destination_warp),
                         }
                     )
+                for raw_fields in OBJECT_EVENT_RE.findall(text):
+                    fields = [field.strip() for field in raw_fields.split(",")]
+                    if len(fields) < 6:
+                        continue
+                    try:
+                        x, y = int(fields[0], 0), int(fields[1], 0)
+                    except ValueError:
+                        continue
+                    sprite, text_id = fields[2], fields[5]
+                    opponent_index = next(
+                        (index for index, field in enumerate(fields[6:], 6)
+                         if field.startswith("OPP_")),
+                        None,
+                    )
+                    if opponent_index is not None:
+                        record["trainers"].append(
+                            {
+                                "position": [y, x],
+                                "opponent": fields[opponent_index],
+                                "roster": (
+                                    fields[opponent_index + 1]
+                                    if opponent_index + 1 < len(fields)
+                                    else None
+                                ),
+                                "sprite": sprite,
+                                "text_id": text_id,
+                            }
+                        )
+                    elif sprite == "SPRITE_POKE_BALL" and len(fields) >= 7:
+                        # Fossils and gift choices also use object sprites, but
+                        # only ordinary pickups carry the item constant as the
+                        # final object_event argument.
+                        item = fields[-1]
+                        if re.fullmatch(r"[A-Z][A-Z0-9_]*", item):
+                            record["items"].append(
+                                {
+                                    "position": [y, x],
+                                    "item": item,
+                                    "sprite": sprite,
+                                    "text_id": text_id,
+                                }
+                            )
 
 
 def fetch_bytes(url: str) -> bytes:

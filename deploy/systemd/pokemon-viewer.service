@@ -1,0 +1,14 @@
+[Unit]
+Description=Pokemon Yellow map viewer
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/pokemon-rl
+ExecStart=/home/ubuntu/pokemon-rl/start_viewer.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

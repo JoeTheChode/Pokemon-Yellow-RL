@@ -1,30 +1,88 @@
+# --- Python ---
 __pycache__/
 *.py[cod]
-*.log
-*.pid
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# --- ROM / emulator artifacts (never commit) ---
+*.gb
+*.gbc
+*.sav
 *.state
 *.ram
-*.gb
+
+# --- images / media / models / checkpoints / archives ---
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
 *.zip
 *.pkl
+*.pt
 *.whl
-*.png
+checkpoints/
+saved_runs/
+deployment_backups/
+archive_*/
+.codex_backups/
+
+# --- runtime output ---
+*.log
+*.pid
+*.lock
 *.bak
 *.tmp
-.venv/
+*.status.txt
 live_agent_positions*.json
+viewer_heatmap.json
+restart_start.*
+restart_audit.log
+watchdog.log
 wsl_gpu_*.status.txt
 milestones/*.swarm_frontier.json
-New Text Document.txt
-.claude/settings.local.json
-.claude/scheduled_tasks.lock
-
-checkpoints/
-debug_state_screens/
-milestones/_*_latest_hit_*.state
 recordings/
 screenshots/
-tmp_*/
+debug_state_screens/
+node_modules/
 
-Pokémon Yellow Interactive Map & 100% Checklist Challenge.html
-Pokémon Yellow Interactive Map & 100% Checklist Challenge_files/
+# --- editor / OS ---
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.DS_Store
+New Text Document.txt
+
+# --- scratch / investigation scripts (kept local, not shipped) ---
+_tmp_*
+tmp_*
+_probe_*
+_audit_*
+.audit_*
+.ovh_*
+.deploy_candidate*/
+.checkpoint_audit*/
+.event86*/
+.probe_*/
+.replay_*
+.deploy_*
+.start_fresh_*
+.append_cxc_*
+.activate_*
+.validate_*
+.update_*
+.cxc_*
+audit_*
+patch_*
+_fixture_badges/
+_fixture_gate/
+_fixture_splits/
+.viewer_prod_*
+pokemon-train-workers.conf
+Pokémon Yellow Interactive Map*
+
+# --- keep these despite the broad rules above ---
+!pokerl_map_assets/*.png
+!viewer_tests/**
+!.gitignore
