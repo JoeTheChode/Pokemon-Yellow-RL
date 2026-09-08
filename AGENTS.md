@@ -35,3 +35,9 @@ The script serializes restart ownership, refuses a stale PID, refuses another
 restart during the ten-minute startup cooldown, backs up all durable state,
 and records the operation. `--allow-rapid` skips only the cooldown (for
 concurrent-auditor races) and must be justified to the user.
+
+For an explicitly authorized permanent retirement of the trainer, use
+`safe_retire_train.sh --expected-pid <audited-pid> --reason <slug>`. It uses the
+same restart lock and stale-PID refusal, backs up the durable frontier/mastery
+state, stops the service, verifies MainPID=0/inactive, and disables the unit.
+Do not replace that path with direct `systemctl stop`/`disable` commands.
